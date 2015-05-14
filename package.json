@@ -1,0 +1,32 @@
+{
+  "name": "foundation-ssg",
+  "version": "0.0.1",
+  "description": "Static site generator for Foundation for Sites.",
+  "main": "assemblefile.js",
+  "scripts": {
+    "start": "assemble",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ZURB <foundation@zurb.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "assemble": "^0.6.0-beta.5",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-extname": "^0.2.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-sass": "^2.0.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uncss": "^1.0.1",
+    "gulp-webserver": "^0.9.1",
+    "gulpsmith": "^0.5.3",
+    "metalsmith": "^1.7.0",
+    "run-sequence": "^1.1.0",
+    "yargs": "^3.8.0"
+  },
+  "dependencies": {
+    "rimraf": "^2.3.3"
+  }
+}
