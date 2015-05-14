@@ -3,6 +3,7 @@ var argv   = require('yargs').argv;
 var gulp   = require('gulp');
 var rimraf = require('rimraf');
 var shipyard = require('shipyard');
+var sequence = require('run-sequence');
 
 // Check for --production flag
 console.log(argv);
@@ -42,13 +43,13 @@ gulp.task('clean', function(done) {
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-gulp.task('copy', ['clean'], function(done) {
+gulp.task('copy', function(done) {
   gulp.src(paths.assets)
     .pipe(gulp.dist('./dist/assets'));
 });
 
 // Copy page templates into finished HTML files
-gulp.task('pages', ['clean'], function() {
+gulp.task('pages', function() {
   gulp.src('./src/pages/**/*.html')
     .pipe(shipyard({
       layouts: './src/layouts/',
@@ -60,7 +61,7 @@ gulp.task('pages', ['clean'], function() {
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
-gulp.task('sass', ['clean'], function() {
+gulp.task('sass', function() {
   var uncss = $.if(isProduction, $.uncss({
     html: ['src/**/*.html']
   }));
@@ -80,7 +81,7 @@ gulp.task('sass', ['clean'], function() {
 
 // Combine JavaScript into one file
 // In production, the file is minified
-gulp.task('javascript', ['clean'], function() {
+gulp.task('javascript', function() {
   var uglify = $.if(isProduction, $.uglify()
     .on('error', function (e) {
       console.log(e);
@@ -94,7 +95,7 @@ gulp.task('javascript', ['clean'], function() {
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
   var imagemin = $.if(isProduction, $.imagemin({
     progressive: true
   }));
@@ -105,7 +106,9 @@ gulp.task('images', ['clean'], function() {
 });
 
 // Build the "dist" folder by running all of the above tasks
-gulp.task('build', ['clean', 'pages', 'sass', 'javascript']);
+gulp.task('build', function(done) {
+  sequence('clean', ['pages', 'sass', 'javascript', 'images'], done);
+});
 
 // Start a server with LiveReload to preview the site in
 gulp.task('server', ['build'], function() {
