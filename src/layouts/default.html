@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="assets/css/app.css">
   </head>
   <body>
+
+    {{#each breakfast}}
+    <p>{{this}}</p>
+    {{/each}}
     
-    {% body %}
+    {{> body}}
 
     <script src="assets/js/app.js"></script>
   </body>

@@ -2,9 +2,9 @@
   "name": "foundation-ssg",
   "version": "0.0.1",
   "description": "Static site generator for Foundation for Sites.",
-  "main": "assemblefile.js",
+  "main": "gulpfile.js",
   "scripts": {
-    "start": "assemble",
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ZURB <foundation@zurb.com>",
