@@ -63,7 +63,11 @@ gulp.task('pages', function() {
 // In production, the CSS is compressed
 gulp.task('sass', function() {
   var uncss = $.if(isProduction, $.uncss({
-    html: ['src/**/*.html']
+    html: ['src/**/*.html'],
+    ignore: [
+      new RegExp('^meta\..*'),
+      new RegExp('^\.is-.*')
+    ]
   }));
 
   return gulp.src('./src/assets/scss/app.scss')
