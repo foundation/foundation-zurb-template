@@ -10,7 +10,7 @@
   "author": "ZURB <foundation@zurb.com>",
   "license": "MIT",
   "devDependencies": {
-    "assemble": "^0.6.0-beta.5",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-concat": "^2.5.2",
     "gulp-extname": "^0.2.0",
@@ -21,9 +21,8 @@
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
     "gulp-webserver": "^0.9.1",
-    "gulpsmith": "^0.5.3",
-    "metalsmith": "^1.7.0",
     "run-sequence": "^1.1.0",
+    "shipyard": "git://github.com/gakimball/shipyard.git",
     "yargs": "^3.8.0"
   },
   "dependencies": {
