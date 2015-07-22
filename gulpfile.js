@@ -129,7 +129,7 @@ gulp.task('server', ['build'], function() {
 gulp.task('default', ['build', 'server'], function() {
   gulp.watch(paths.assets, ['copy']);
   gulp.watch(['./src/pages/**/*.hbs'], ['pages']);
-  gulp.watch(['./assets/scss/**/*.scss'], ['sass']);
-  gulp.watch(['./assets/js/**/*.scss'], ['javascript']);
+  gulp.watch(['./src/assets/scss/**/*.scss'], ['sass']);
+  gulp.watch(['./src/assets/js/**/*.scss'], ['javascript']);
   gulp.watch(['./src/assets/img/**/*'], ['images']);
 });
