@@ -22,7 +22,7 @@
     "gulp-uncss": "^1.0.1",
     "gulp-webserver": "^0.9.1",
     "run-sequence": "^1.1.0",
-    "shipyard": "git://github.com/gakimball/shipyard.git",
+    "panini": "git://github.com/gakimball/panini.git",
     "yargs": "^3.8.0"
   },
   "dependencies": {
