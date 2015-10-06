@@ -2,7 +2,7 @@ var $      = require('gulp-load-plugins')();
 var argv   = require('yargs').argv;
 var gulp   = require('gulp');
 var rimraf = require('rimraf');
-var shipyard = require('shipyard');
+var panini = require('panini');
 var sequence = require('run-sequence');
 
 // Check for --production flag
@@ -51,7 +51,7 @@ gulp.task('copy', function(done) {
 // Copy page templates into finished HTML files
 gulp.task('pages', function() {
   gulp.src('./src/pages/**/*.html')
-    .pipe(shipyard({
+    .pipe(panini({
       layouts: './src/layouts/',
       partials: './src/partials/**/*.html',
       data: './src/data/**/*.{json,yml}'
