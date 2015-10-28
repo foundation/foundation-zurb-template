@@ -16,15 +16,11 @@ var paths = {
     '!src/assets/{!img,js,scss}/**/*'
   ],
   sass: [
-    'bower_components/foundation/scss'
+    'bower_components/foundation-sites/scss'
   ],
   javascript: [
-    'bower_components/jquery-placeholder/jquery.placeholder.js',
-    'bower_components/fastclick/lib/fastclick.js',
     'bower_components/jquery/dist/jquery.js',
-    'bower_components/jquery.cookie/jquery.cookie.js',
-    'bower_components/modernizr/modernizr.js',
-    'bower_components/foundation/js/foundation.js',
+    'bower_components/foundation-sites/dist/foundation.js',
     'src/assets/js/**/.js',
     'src/assets/js/app.js'
   ]
