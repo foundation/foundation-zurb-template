@@ -6,7 +6,6 @@ var panini = require('panini');
 var sequence = require('run-sequence');
 
 // Check for --production flag
-console.log(argv);
 var isProduction = !!(argv.production);
 
 // File paths to various assets are defined here.
@@ -16,20 +15,15 @@ var paths = {
     '!src/assets/{!img,js,scss}/**/*'
   ],
   sass: [
-    'bower_components/foundation-sites/scss'
+    'node_modules/foundation-sites/scss'
   ],
   javascript: [
-    'bower_components/jquery/dist/jquery.js',
-    'bower_components/foundation-sites/dist/foundation.js',
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/foundation-sites/dist/foundation.js',
     'src/assets/js/**/.js',
     'src/assets/js/app.js'
   ]
 }
-
-// Import layouts, partials, and data into gulp
-// gulp.layouts('./src/layouts/**/*.html');
-// gulp.partials('./src/partials/**/*.html');
-// gulp.data('./src/data/**/*.{json,yml}');
 
 // Delete the "dist" folder
 // This happens every time a build starts

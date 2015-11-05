@@ -16,15 +16,17 @@
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^0.10.0",
-    "gulp-sass": "^2.0.0",
+    "gulp-sass": "^2.1.0",
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
     "gulp-webserver": "^0.9.1",
-    "run-sequence": "^1.1.0",
     "panini": "0.1.0",
+    "rimraf": "^2.4.3",
+    "run-sequence": "^1.1.0",
     "yargs": "^3.8.0"
   },
   "dependencies": {
-    "rimraf": "^2.3.3"
+    "foundation-sites": "^6.0.0-alpha.1",
+    "jquery": "^2.1.4"
   }
 }
