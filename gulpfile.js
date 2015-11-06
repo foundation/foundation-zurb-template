@@ -20,7 +20,7 @@ var paths = {
   javascript: [
     'node_modules/jquery/dist/jquery.js',
     'node_modules/foundation-sites/dist/foundation.js',
-    'src/assets/js/**/.js',
+    'src/assets/js/**/*.js',
     'src/assets/js/app.js'
   ]
 }
@@ -120,6 +120,6 @@ gulp.task('default', ['build', 'server'], function() {
   gulp.watch(paths.assets, ['copy']);
   gulp.watch(['./src/pages/**/*.html'], ['pages']);
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass']);
-  gulp.watch(['./src/assets/js/**/*.scss'], ['javascript']);
+  gulp.watch(['./src/assets/js/**/*.js'], ['javascript']);
   gulp.watch(['./src/assets/img/**/*'], ['images']);
 });
