@@ -35,7 +35,7 @@ gulp.task('clean', function(done) {
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function(done) {
   gulp.src(paths.assets)
-    .pipe(gulp.dist('./dist/assets'));
+    .pipe(gulp.dest('./dist/assets'));
 });
 
 // Copy page templates into finished HTML files
