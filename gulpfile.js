@@ -118,7 +118,7 @@ gulp.task('server', ['build'], function() {
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
   gulp.watch(paths.assets, ['copy']);
-  gulp.watch(['./src/pages/**/*.html'], ['pages']);
+  gulp.watch(['./src/pages/**/*.html', './src/layouts/**/*.html'], ['pages']);
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass']);
   gulp.watch(['./src/assets/js/**/*.js'], ['javascript']);
   gulp.watch(['./src/assets/img/**/*'], ['images']);
