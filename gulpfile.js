@@ -33,7 +33,7 @@ gulp.task('clean', function(done) {
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-gulp.task('copy', function(done) {
+gulp.task('copy', function() {
   gulp.src(paths.assets)
     .pipe(gulp.dest('./dist/assets'));
 });
