@@ -23,7 +23,7 @@ var paths = {
     'src/assets/js/**/*.js',
     'src/assets/js/app.js'
   ]
-}
+};
 
 // Delete the "dist" folder
 // This happens every time a build starts
