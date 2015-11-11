@@ -23,7 +23,7 @@ var paths = {
     'src/assets/js/**/*.js',
     'src/assets/js/app.js'
   ]
-}
+};
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -33,9 +33,9 @@ gulp.task('clean', function(done) {
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-gulp.task('copy', function(done) {
+gulp.task('copy', function() {
   gulp.src(paths.assets)
-    .pipe(gulp.dist('./dist/assets'));
+    .pipe(gulp.dest('./dist/assets'));
 });
 
 // Copy page templates into finished HTML files
@@ -101,7 +101,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass', 'javascript', 'images'], done);
+  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], done);
 });
 
 // Start a server with LiveReload to preview the site in
