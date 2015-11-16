@@ -1,7 +1,7 @@
 {
   "name": "foundation-ssg",
-  "version": "0.0.1",
-  "description": "Static site generator for Foundation for Sites.",
+  "version": "1.0.0",
+  "description": "Official ZURB Template for Foundation for Sites.",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
@@ -27,5 +27,6 @@
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.0",
     "yargs": "^3.8.0"
-  }
+  },
+  "private": true
 }
