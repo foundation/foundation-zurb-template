@@ -74,6 +74,7 @@ gulp.task('sass', function() {
   var minifycss = $.if(isProduction, $.minifyCss());
 
   return gulp.src('./src/assets/scss/app.scss')
+    .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
     })
@@ -83,6 +84,7 @@ gulp.task('sass', function() {
     }))
     .pipe(uncss)
     .pipe(minifycss)
+    .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('./dist/assets/css'));
 });
 
@@ -95,8 +97,10 @@ gulp.task('javascript', function() {
     }));
 
   return gulp.src(PATHS.javascript)
+    .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
     .pipe(uglify)
+    .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('./dist/assets/js'));
 });
 
