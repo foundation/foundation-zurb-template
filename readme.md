@@ -1,38 +1,61 @@
-# Foundation for Sites SSG
+# ZURB Template
 
-This is the static site generator for Foundation for Sites 6. It probably needs a more succinct name.
+This is the official ZURB Template for use with [Foundation for Sites](http://foundation.zurb.com/sites). We use this template at ZURB to deliver static code to our clients. It has a Gulp-powered build system with these features:
 
-## Usage
+- Handlebars HTML templates with Panini
+- Sass compilation and prefixing
+- JavaScript concatenation
+- Built-in BrowserSync server
+- For production builds:
+  - CSS compression
+  - JavaScript compression
+  - Image compression
 
-Download:
+## Installation
+
+To use this template, your computer needs:
+
+- [NodeJS](https://nodejs.org/en/) (0.10 or greater)
+- [Git](https://git-scm.com/)
+
+This template can be installed with the Foundation CLI, or downloaded and set up manually.
+
+### Using the CLI
+
+Install the Foundation CLI with this command:
 
 ```bash
-git clone https://github.com/zurb/foundation-sites-ssg.git
+npm install foundation-cli --global
 ```
 
-Install (you might need to run `npm i` specifically as `sudo`):
+Use this command to set up a blank Foundation for Sites project with this template:
 
 ```bash
-npm i && bower i
+foundation new --framework sites --template zurb
 ```
 
-Run:
+The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+
+### Manual Setup
+
+To manually set up the template, first download it with Git:
 
 ```bash
-npm start
+git clone https://github.com/zurb/foundation-sites-template projectname
 ```
 
-The SSG uses Assemble to cobble together layouts, pages, partials, and data into a set of flat files. A server with livereload is also active while `npm start` is running. You can view it at:
+Then open the folder in your command line, and install the needed dependencies:
+
+```bash
+cd projectname
+npm install
+bower install
+```
+
+Finally, run `npm start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
 ```
 
-Here's what else the SSG does at the moment:
-- Compile Sass (via node-sass)
-- Concatenate JavaScript
-
-Add the `--production` flag to the command to compile assets for production. Here's what changes:
-- Compress CSS after compiling from Sass
-- Compress JavaScript after concatenating
-- Compress images (JPG, PNG, GIF, and SVG)
+To create compressed, production-ready assets, run `npm run build`.
