@@ -1,5 +1,6 @@
 var $      = require('gulp-load-plugins')();
 var argv   = require('yargs').argv;
+var browser = require('browser-sync');
 var gulp   = require('gulp');
 var rimraf = require('rimraf');
 var panini = require('panini');
@@ -8,8 +9,11 @@ var sequence = require('run-sequence');
 // Check for --production flag
 var isProduction = !!(argv.production);
 
+// Port to use for the development server.
+var PORT = 8000;
+
 // File paths to various assets are defined here.
-var paths = {
+var PATHS = {
   assets: [
     'src/assets/**/*',
     '!src/assets/{!img,js,scss}/**/*'
@@ -35,7 +39,7 @@ gulp.task('clean', function(done) {
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
-  gulp.src(paths.assets)
+  gulp.src(PATHS.assets)
     .pipe(gulp.dest('./dist/assets'));
 });
 
@@ -65,7 +69,7 @@ gulp.task('sass', function() {
 
   return gulp.src('./src/assets/scss/app.scss')
     .pipe($.sass({
-      includePaths: paths.sass,
+      includePaths: PATHS.sass,
       outputStyle: (isProduction ? 'compressed' : 'nested'),
       errLogToConsole: true
     })
@@ -85,7 +89,7 @@ gulp.task('javascript', function() {
       console.log(e);
     }));
 
-  return gulp.src(paths.javascript)
+  return gulp.src(PATHS.javascript)
     .pipe($.concat('app.js'))
     .pipe(uglify)
     .pipe(gulp.dest('./dist/assets/js'));
@@ -110,20 +114,16 @@ gulp.task('build', function(done) {
 
 // Start a server with LiveReload to preview the site in
 gulp.task('server', ['build'], function() {
-  return gulp.src('./dist')
-    .pipe($.webserver({
-      host: 'localhost',
-      port: 8000,
-      livereload: true,
-      open: true
-    }));
+  browser.init({
+    server: './dist', port: PORT
+  });
 });
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
-  gulp.watch(paths.assets, ['copy']);
-  gulp.watch(['./src/pages/**/*.html', './src/layouts/**/*.html'], ['pages']);
-  gulp.watch(['./src/assets/scss/**/*.scss'], ['sass']);
-  gulp.watch(['./src/assets/js/**/*.js'], ['javascript']);
-  gulp.watch(['./src/assets/img/**/*'], ['images']);
+  gulp.watch(PATHS.assets, ['copy', browser.reload]);
+  gulp.watch(['./src/pages/**/*.html', './src/layouts/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['./src/assets/scss/**/*.scss'], ['sass', browser.reload]);
+  gulp.watch(['./src/assets/js/**/*.js'], ['javascript', browser.reload]);
+  gulp.watch(['./src/assets/img/**/*'], ['images', browser.reload]);
 });
