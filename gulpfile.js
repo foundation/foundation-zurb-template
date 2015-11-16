@@ -71,8 +71,7 @@ gulp.task('sass', function() {
   return gulp.src('./src/assets/scss/app.scss')
     .pipe($.sass({
       includePaths: PATHS.sass,
-      outputStyle: (isProduction ? 'compressed' : 'nested'),
-      errLogToConsole: true
+      outputStyle: (isProduction ? 'compressed' : 'nested')
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
