@@ -15,6 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-sites": "zurb/foundation-sites-6"
+    "foundation-sites": "zurb/foundation-sites-6#develop"
   }
 }

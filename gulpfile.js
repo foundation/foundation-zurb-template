@@ -15,11 +15,12 @@ var paths = {
     '!src/assets/{!img,js,scss}/**/*'
   ],
   sass: [
-    'node_modules/foundation-sites/scss'
+    'bower_components/foundation-sites/scss'
   ],
   javascript: [
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/foundation-sites/dist/foundation.js',
+    'bower_components/jquery/dist/jquery.js',
+    'bower_components/what-input/what-input.js',
+    'bower_components/foundation-sites/dist/foundation.js',
     'src/assets/js/**/*.js',
     'src/assets/js/app.js'
   ]
@@ -40,11 +41,13 @@ gulp.task('copy', function() {
 
 // Copy page templates into finished HTML files
 gulp.task('pages', function() {
-  gulp.src('./src/pages/**/*.html')
+  gulp.src('./src/pages/**/*.{html,hbs,handlebars}')
     .pipe(panini({
+      root: './src/pages/',
       layouts: './src/layouts/',
-      partials: './src/partials/**/*.html',
-      data: './src/data/**/*.{json,yml}'
+      partials: './src/partials/',
+      data: './src/data/',
+      helpers: './src/helpers/'
     }))
     .pipe(gulp.dest('./dist'));
 });

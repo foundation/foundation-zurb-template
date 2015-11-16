@@ -4,7 +4,8 @@
   "description": "Static site generator for Foundation for Sites.",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build --production"
   },
   "author": "ZURB <foundation@zurb.com>",
   "license": "MIT",
@@ -20,13 +21,9 @@
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
     "gulp-webserver": "^0.9.1",
-    "panini": "0.1.0",
+    "panini": "^1.0.0-rc.1",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.0",
     "yargs": "^3.8.0"
-  },
-  "dependencies": {
-    "foundation-sites": "^6.0.0-alpha.1",
-    "jquery": "^2.1.4"
   }
 }
