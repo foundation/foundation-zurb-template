@@ -65,7 +65,8 @@ gulp.task('sass', function() {
       includePaths: paths.sass,
       outputStyle: (isProduction ? 'compressed' : 'nested'),
       errLogToConsole: true
-    }))
+    })
+      .on('error', $.sass.logError))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
