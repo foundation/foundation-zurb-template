@@ -12,6 +12,9 @@ var isProduction = !!(argv.production);
 // Port to use for the development server.
 var PORT = 8000;
 
+// Browsers to target when prefixing CSS.
+var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+
 // File paths to various assets are defined here.
 var PATHS = {
   assets: [
@@ -72,12 +75,11 @@ gulp.task('sass', function() {
 
   return gulp.src('./src/assets/scss/app.scss')
     .pipe($.sass({
-      includePaths: PATHS.sass,
-      outputStyle: 'nested'
+      includePaths: PATHS.sass
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
-      browsers: ['last 2 versions', 'ie >= 9']
+      browsers: COMPATIBILITY
     }))
     .pipe(uncss)
     .pipe(minifycss)
