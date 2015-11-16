@@ -68,16 +68,19 @@ gulp.task('sass', function() {
     ]
   }));
 
+  var minifycss = $.if(isProduction, $.minifyCss());
+
   return gulp.src('./src/assets/scss/app.scss')
     .pipe($.sass({
       includePaths: PATHS.sass,
-      outputStyle: (isProduction ? 'compressed' : 'nested')
+      outputStyle: 'nested'
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
     .pipe(uncss)
+    .pipe(minifycss)
     .pipe(gulp.dest('./dist/assets/css'));
 });
 
