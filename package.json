@@ -26,6 +26,7 @@
     "panini": "^1.0.0",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.0",
+    "style-sherpa": "^1.0.0",
     "yargs": "^3.8.0"
   },
   "private": true

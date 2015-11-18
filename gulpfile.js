@@ -5,6 +5,7 @@ var gulp   = require('gulp');
 var rimraf = require('rimraf');
 var panini = require('panini');
 var sequence = require('run-sequence');
+var sherpa = require('style-sherpa');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -66,6 +67,13 @@ gulp.task('pages:reset', function(cb) {
   browser.reload();
 });
 
+gulp.task('styleguide', function(cb) {
+  sherpa('./src/styleguide/index.md', {
+    output: './dist/styleguide.html',
+    template: './src/styleguide/template.html'
+  }, cb);
+});
+
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {
@@ -124,7 +132,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
 });
 
 // Start a server with LiveReload to preview the site in
@@ -142,4 +150,5 @@ gulp.task('default', ['build', 'server'], function() {
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass', browser.reload]);
   gulp.watch(['./src/assets/js/**/*.js'], ['javascript', browser.reload]);
   gulp.watch(['./src/assets/img/**/*'], ['images', browser.reload]);
+  gulp.watch(['./src/styleguide/**'], ['styleguide', browser.reload]);
 });
