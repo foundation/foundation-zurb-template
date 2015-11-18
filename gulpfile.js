@@ -60,6 +60,12 @@ gulp.task('pages', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('pages:reset', function(cb) {
+  panini.refresh();
+  gulp.run('pages');
+  browser.reload();
+});
+
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {
@@ -131,7 +137,8 @@ gulp.task('server', ['build'], function() {
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['./src/pages/**/*.html', './src/layouts/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['./src/pages/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['./src/{layouts,partials}/**/*.html'], ['pages:reset']);
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass', browser.reload]);
   gulp.watch(['./src/assets/js/**/*.js'], ['javascript', browser.reload]);
   gulp.watch(['./src/assets/img/**/*'], ['images', browser.reload]);
