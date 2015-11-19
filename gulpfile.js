@@ -5,6 +5,7 @@ var gulp   = require('gulp');
 var rimraf = require('rimraf');
 var panini = require('panini');
 var sequence = require('run-sequence');
+var sherpa = require('style-sherpa');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -58,6 +59,19 @@ gulp.task('pages', function() {
       helpers: './src/helpers/'
     }))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('pages:reset', function(cb) {
+  panini.refresh();
+  gulp.run('pages');
+  browser.reload();
+});
+
+gulp.task('styleguide', function(cb) {
+  sherpa('./src/styleguide/index.md', {
+    output: './dist/styleguide.html',
+    template: './src/styleguide/template.html'
+  }, cb);
 });
 
 // Compile Sass into CSS
@@ -118,7 +132,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
 });
 
 // Start a server with LiveReload to preview the site in
@@ -131,8 +145,10 @@ gulp.task('server', ['build'], function() {
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['./src/pages/**/*.html', './src/layouts/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['./src/pages/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['./src/{layouts,partials}/**/*.html'], ['pages:reset']);
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass', browser.reload]);
   gulp.watch(['./src/assets/js/**/*.js'], ['javascript', browser.reload]);
   gulp.watch(['./src/assets/img/**/*'], ['images', browser.reload]);
+  gulp.watch(['./src/styleguide/**'], ['styleguide', browser.reload]);
 });
