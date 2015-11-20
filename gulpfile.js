@@ -1,11 +1,11 @@
-var $      = require('gulp-load-plugins')();
-var argv   = require('yargs').argv;
-var browser = require('browser-sync');
-var gulp   = require('gulp');
-var rimraf = require('rimraf');
-var panini = require('panini');
+var $        = require('gulp-load-plugins')();
+var argv     = require('yargs').argv;
+var browser  = require('browser-sync');
+var gulp     = require('gulp');
+var panini   = require('panini');
+var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
-var sherpa = require('style-sherpa');
+var sherpa   = require('style-sherpa');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
