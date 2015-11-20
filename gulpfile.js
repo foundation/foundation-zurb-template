@@ -40,39 +40,39 @@ var PATHS = {
 // Delete the "dist" folder
 // This happens every time a build starts
 gulp.task('clean', function(done) {
-  rimraf('./dist', done);
+  rimraf('dist', done);
 });
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
   gulp.src(PATHS.assets)
-    .pipe(gulp.dest('./dist/assets'));
+    .pipe(gulp.dest('dist/assets'));
 });
 
 // Copy page templates into finished HTML files
 gulp.task('pages', function() {
-  gulp.src('./src/pages/**/*.{html,hbs,handlebars}')
+  gulp.src('src/pages/**/*.{html,hbs,handlebars}')
     .pipe(panini({
-      root: './src/pages/',
-      layouts: './src/layouts/',
-      partials: './src/partials/',
-      data: './src/data/',
-      helpers: './src/helpers/'
+      root: 'src/pages/',
+      layouts: 'src/layouts/',
+      partials: 'src/partials/',
+      data: 'src/data/',
+      helpers: 'src/helpers/'
     }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('pages:reset', function(cb) {
   panini.refresh();
   gulp.run('pages');
-  browser.reload();
+  cb();
 });
 
 gulp.task('styleguide', function(cb) {
-  sherpa('./src/styleguide/index.md', {
-    output: './dist/styleguide.html',
-    template: './src/styleguide/template.html'
+  sherpa('src/styleguide/index.md', {
+    output: 'dist/styleguide.html',
+    template: 'src/styleguide/template.html'
   }, cb);
 });
 
@@ -89,7 +89,7 @@ gulp.task('sass', function() {
 
   var minifycss = $.if(isProduction, $.minifyCss());
 
-  return gulp.src('./src/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/app.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -101,7 +101,7 @@ gulp.task('sass', function() {
     .pipe(uncss)
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('./dist/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'));
 });
 
 // Combine JavaScript into one file
@@ -117,7 +117,7 @@ gulp.task('javascript', function() {
     .pipe($.concat('app.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('./dist/assets/js'));
+    .pipe(gulp.dest('dist/assets/js'));
 });
 
 // Copy images to the "dist" folder
@@ -127,9 +127,9 @@ gulp.task('images', function() {
     progressive: true
   }));
 
-  return gulp.src('./src/assets/img/**/*')
+  return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
-    .pipe(gulp.dest('./dist/assets/img'));
+    .pipe(gulp.dest('dist/assets/img'));
 });
 
 // Build the "dist" folder by running all of the above tasks
@@ -140,17 +140,17 @@ gulp.task('build', function(done) {
 // Start a server with LiveReload to preview the site in
 gulp.task('server', ['build'], function() {
   browser.init({
-    server: './dist', port: PORT
+    server: 'dist', port: PORT
   });
 });
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['./src/pages/**/*.html'], ['pages', browser.reload]);
-  gulp.watch(['./src/{layouts,partials}/**/*.html'], ['pages:reset']);
-  gulp.watch(['./src/assets/scss/**/*.scss'], ['sass', browser.reload]);
-  gulp.watch(['./src/assets/js/**/*.js'], ['javascript', browser.reload]);
-  gulp.watch(['./src/assets/img/**/*'], ['images', browser.reload]);
-  gulp.watch(['./src/styleguide/**'], ['styleguide', browser.reload]);
+  gulp.watch(['src/pages/**/*.html'], ['pages', browser.reload]);
+  gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', browser.reload]);
+  gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
+  gulp.watch(['src/assets/js/**/*.js'], ['javascript', browser.reload]);
+  gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
+  gulp.watch(['src/styleguide/**'], ['styleguide', browser.reload]);
 });
