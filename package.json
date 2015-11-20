@@ -1,5 +1,5 @@
 {
-  "name": "foundation-ssg",
+  "name": "foundation-zurb-template",
   "version": "1.0.0",
   "description": "Official ZURB Template for Foundation for Sites.",
   "main": "gulpfile.js",
@@ -28,6 +28,14 @@
     "run-sequence": "^1.1.0",
     "style-sherpa": "^1.0.0",
     "yargs": "^3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zurb/foundation-zurb-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zurb/foundation-sites/issues",
+    "email": "foundation@zurb.com"
   },
   "private": true
 }
