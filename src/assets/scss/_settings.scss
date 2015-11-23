@@ -67,7 +67,6 @@ $global-margin: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
-$global-namespace: false;
 $global-text-direction: ltr;
 $rem-base: 16px;
 
@@ -76,7 +75,7 @@ $rem-base: 16px;
 
 $breakpoints: (
   small: 0,
-  medium: 512px,
+  medium: 640px,
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -89,6 +88,7 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: 30px;
+$block-grid-max: 6;
 
 // 4. Base Typography
 // ------------------
@@ -275,6 +275,7 @@ $closebutton-color-hover: $black;
 // -------------
 
 $drilldown-transition: transform 0.15s linear;
+$drilldown-arrows: true;
 
 // 16. Dropdown
 // ------------
@@ -377,9 +378,8 @@ $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-exit-background: rgba($white, 0.25);
-$maincontent-class: 'main-content';
+$maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 10px rgba($black, 0.5);
-$maincontent-prevent-scroll: true;
 
 // 24. Orbit
 // ---------
