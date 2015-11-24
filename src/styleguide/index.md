@@ -127,7 +127,7 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 # Colors
 
-<p class="lead">Below you can find the different values we created that support the primary color variable you can change at any time in <code>_settings.scss</code></p>
+<p class="lead">Below you can find the different values we created that support the primary color variable you can change at any time in <code>\_settings.scss</code></p>
 
 ---
 
