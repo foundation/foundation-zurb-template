@@ -111,7 +111,8 @@ gulp.task('sass', function() {
   return gulp.src('src/assets/scss/app.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
-      includePaths: PATHS.sass
+      includePaths: PATHS.sass,
+      outputStyle: 'compressed'
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
