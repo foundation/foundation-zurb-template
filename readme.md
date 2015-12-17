@@ -43,7 +43,7 @@ The CLI will prompt you to give your project a name. The template will be downlo
 To manually set up the template, first download it with Git:
 
 ```bash
-git clone https://github.com/zurb/foundation-sites-template projectname
+git clone https://github.com/zurb/foundation-zurb-template projectname
 ```
 
 Then open the folder in your command line, and install the needed dependencies:

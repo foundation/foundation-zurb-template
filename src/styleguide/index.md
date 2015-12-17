@@ -188,23 +188,23 @@ Paragraphs are groups of sentences, each with a lead (first sentence) and transi
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
-<h2>Heading Level 1</h2>
+<h2>Heading Level 2</h2>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
-<h3>Heading Level 1</h3>
+<h3>Heading Level 3</h3>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
-<h4>Heading Level 1</h4>
+<h4>Heading Level 4</h4>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
-<h5>Heading Level 1</h5>
+<h5>Heading Level 5</h5>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
-<h6>Heading Level 1</h6>
+<h6>Heading Level 6</h6>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
