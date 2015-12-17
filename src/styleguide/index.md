@@ -168,7 +168,7 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 # Typography
 
-<p class="lead">The Arlo apps use Morebi Rounded for headings and paragraph text.</p>
+<p class="lead">This design uses Helvetica Neue for headings and paragraph text.</p>
 
 ---
 
