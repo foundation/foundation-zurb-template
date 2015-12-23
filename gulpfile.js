@@ -65,13 +65,13 @@ gulp.task('clean', function(done) {
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
-  gulp.src(PATHS.assets)
+  return gulp.src(PATHS.assets)
     .pipe(gulp.dest('dist/assets'));
 });
 
 // Copy page templates into finished HTML files
 gulp.task('pages', function() {
-  gulp.src('src/pages/**/*.{html,hbs,handlebars}')
+  return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
     .pipe(panini({
       root: 'src/pages/',
       layouts: 'src/layouts/',
@@ -84,8 +84,7 @@ gulp.task('pages', function() {
 
 gulp.task('pages:reset', function(cb) {
   panini.refresh();
-  gulp.run('pages');
-  cb();
+  gulp.run('pages', cb);
 });
 
 gulp.task('styleguide', function(cb) {
