@@ -304,11 +304,9 @@ Form elements in Foundation are styled based on their type attribute rather than
     <div class="large-6 columns">
       <div class="row collapse">
         <label>Label</label>
-        <div class="small-9 columns">
-          <input type="text" placeholder="placeholder">
-        </div>
-        <div class="small-3 columns">
-          <span class="postfix">.com</span>
+        <div class="input-group">
+          <input class="input-group-field" type="text" placeholder="placeholder">
+          <span class="input-group-label">.com</span>
         </div>
       </div>
     </div>
