@@ -62,6 +62,13 @@ gulp.task('clean', function(done) {
   rimraf('dist', done);
 });
 
+// Browser Sync wrapper task 
+// allows for proper injection of css files
+gulp.task('reload', function(cb) {
+  browser.reload();
+  cb();
+});
+
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
@@ -119,7 +126,8 @@ gulp.task('sass', function() {
     .pipe(uncss)
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(browser.reload({stream: true}));
 });
 
 // Combine JavaScript into one file
@@ -164,11 +172,11 @@ gulp.task('server', ['build'], function() {
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
-  gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['src/pages/**/*.html'], ['pages', browser.reload]);
-  gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', browser.reload]);
-  gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
-  gulp.watch(['src/assets/js/**/*.js'], ['javascript', browser.reload]);
-  gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
-  gulp.watch(['src/styleguide/**'], ['styleguide', browser.reload]);
+  gulp.watch(PATHS.assets, ['copy', 'reload']);
+  gulp.watch(['src/pages/**/*.html'], ['pages', 'reload']);
+  gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', 'reload']);
+  gulp.watch(['src/assets/scss/**/*.scss'], ['sass']);
+  gulp.watch(['src/assets/js/**/*.js'], ['javascript', 'reload']);
+  gulp.watch(['src/assets/img/**/*'], ['images', 'reload']);
+  gulp.watch(['src/styleguide/**'], ['styleguide', 'reload']);
 });
