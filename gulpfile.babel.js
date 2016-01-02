@@ -11,7 +11,7 @@ import sherpa   from 'style-sherpa';
 const $ = plugins();
 
 // Check for --production flag
-const isProduction = !!(argv.production);
+const PRODUCTION = !!(argv.production);
 
 // Port to use for the development server.
 const PORT = 8000;
@@ -116,9 +116,9 @@ function sass() {
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
-    .pipe($.if(isProduction, $.uncss(UNCSS_OPTIONS)))
-    .pipe($.if(isProduction, $.minifyCss()))
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
+    .pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
+    .pipe($.if(PRODUCTION, $.minifyCss()))
+    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/css'));
 };
 
@@ -128,10 +128,10 @@ function javascript() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
-    .pipe($.if(isProduction, $.uglify()
+    .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
+    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/js'));
 };
 
@@ -139,7 +139,7 @@ function javascript() {
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/img/**/*')
-    .pipe($.if(isProduction, $.imagemin({
+    .pipe($.if(PRODUCTION, $.imagemin({
       progressive: true
     })))
     .pipe(gulp.dest('dist/assets/img'));
