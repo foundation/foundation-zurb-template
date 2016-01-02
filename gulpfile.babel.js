@@ -1,26 +1,29 @@
-var $        = require('gulp-load-plugins')();
-var argv     = require('yargs').argv;
-var browser  = require('browser-sync');
-var gulp     = require('gulp');
-var panini   = require('panini');
-var rimraf   = require('rimraf');
-var sequence = require('run-sequence');
-var sherpa   = require('style-sherpa');
+import plugins  from 'gulp-load-plugins';
+import argv     from 'yargs';
+import browser  from 'browser-sync';
+import gulp     from 'gulp';
+import panini   from 'panini';
+import rimraf   from 'rimraf';
+import sequence from 'run-sequence';
+import sherpa   from 'style-sherpa';
+
+// Load all Gulp plugins into one variable
+const $ = plugins();
 
 // Check for --production flag
-var isProduction = !!(argv.production);
+const isProduction = !!(argv.production);
 
 // Port to use for the development server.
-var PORT = 8000;
+const PORT = 8000;
 
 // Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+const COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 
 // File paths to various assets are defined here.
-var PATHS = {
+const PATHS = {
   assets: [
     'src/assets/**/*',
-    '!src/assets/{img,js,scss}/**/*'
+    '!src/assets/{!img,js,scss}/**/*'
   ],
   sass: [
     'bower_components/foundation-sites/scss',
@@ -56,21 +59,29 @@ var PATHS = {
   ]
 };
 
+const UNCSS_OPTIONS = {
+  html: ['src/**/*.html'],
+  ignore: [
+    new RegExp('^meta\..*'),
+    new RegExp('^\.is-.*')
+  ]
+}
+
 // Delete the "dist" folder
 // This happens every time a build starts
-gulp.task('clean', function(done) {
+function clean(done) {
   rimraf('dist', done);
-});
+};
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
-gulp.task('copy', function() {
+function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest('dist/assets'));
-});
+};
 
 // Copy page templates into finished HTML files
-gulp.task('pages', function() {
+function pages() {
   return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
     .pipe(panini({
       root: 'src/pages/',
@@ -80,33 +91,22 @@ gulp.task('pages', function() {
       helpers: 'src/helpers/'
     }))
     .pipe(gulp.dest('dist'));
-});
+};
 
-gulp.task('pages:reset', function(cb) {
-  panini.refresh();
-  gulp.run('pages', cb);
-});
+function resetPages(done) {
+  gulp.series(panini.refresh, pages, done);
+};
 
-gulp.task('styleguide', function(cb) {
+function styleGuide(done) {
   sherpa('src/styleguide/index.md', {
     output: 'dist/styleguide.html',
     template: 'src/styleguide/template.html'
-  }, cb);
-});
+  }, done);
+};
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
-gulp.task('sass', function() {
-  var uncss = $.if(isProduction, $.uncss({
-    html: ['src/**/*.html'],
-    ignore: [
-      new RegExp('^meta\..*'),
-      new RegExp('^\.is-.*')
-    ]
-  }));
-
-  var minifycss = $.if(isProduction, $.minifyCss());
-
+function sass() {
   return gulp.src('src/assets/scss/app.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -116,59 +116,53 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
-    .pipe(uncss)
-    .pipe(minifycss)
+    .pipe($.if(isProduction, $.uncss(UNCSS_OPTIONS)))
+    .pipe($.if(isProduction, $.minifyCss()))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/css'));
-});
+};
 
 // Combine JavaScript into one file
 // In production, the file is minified
-gulp.task('javascript', function() {
-  var uglify = $.if(isProduction, $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    }));
-
+function javascript() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
-    .pipe(uglify)
+    .pipe($.if(isProduction, $.uglify()
+      .on('error', e => { console.log(e); })
+    ))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/js'));
-});
+};
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
-gulp.task('images', function() {
-  var imagemin = $.if(isProduction, $.imagemin({
-    progressive: true
-  }));
-
+function images() {
   return gulp.src('src/assets/img/**/*')
-    .pipe(imagemin)
+    .pipe($.if(isProduction, $.imagemin({
+      progressive: true
+    })))
     .pipe(gulp.dest('dist/assets/img'));
-});
-
-// Build the "dist" folder by running all of the above tasks
-gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
-});
+};
 
 // Start a server with LiveReload to preview the site in
-gulp.task('server', ['build'], function() {
+function server() {
   browser.init({
     server: 'dist', port: PORT
   });
-});
+};
+
+// Build the "dist" folder by running all of the above tasks
+gulp.task('build',
+ gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
 
 // Build the site, run the server, and watch for file changes
-gulp.task('default', ['build', 'server'], function() {
-  gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['src/pages/**/*.html'], ['pages', browser.reload]);
-  gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', browser.reload]);
-  gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
-  gulp.watch(['src/assets/js/**/*.js'], ['javascript', browser.reload]);
-  gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
-  gulp.watch(['src/styleguide/**'], ['styleguide', browser.reload]);
-});
+gulp.task('default', gulp.parallel('build', server, () => {
+  gulp.watch(PATHS.assets, copy);
+  gulp.watch('src/pages/**/*.html', pages);
+  gulp.watch('src/{layouts,partials}/**/*.html', resetPages);
+  gulp.watch('src/assets/scss/**/*.scss', sass);
+  gulp.watch('src/assets/js/**/*.js', javascript);
+  gulp.watch('src/assets/img/**/*', images);
+  gulp.watch('src/styleguide/**', styleGuide);
+}));
