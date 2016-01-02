@@ -4,7 +4,6 @@ import browser  from 'browser-sync';
 import gulp     from 'gulp';
 import panini   from 'panini';
 import rimraf   from 'rimraf';
-import sequence from 'run-sequence';
 import sherpa   from 'style-sherpa';
 
 // Load all Gulp plugins into one variable
