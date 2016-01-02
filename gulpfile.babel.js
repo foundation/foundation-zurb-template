@@ -1,5 +1,5 @@
 import plugins  from 'gulp-load-plugins';
-import argv     from 'yargs';
+import yargs    from 'yargs';
 import browser  from 'browser-sync';
 import gulp     from 'gulp';
 import panini   from 'panini';
@@ -12,7 +12,7 @@ import fs       from 'fs';
 const $ = plugins();
 
 // Check for --production flag
-const PRODUCTION = !!(argv.production);
+const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
 const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadSettings();
@@ -112,9 +112,9 @@ gulp.task('build',
  gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
 
 // Build the site, run the server, and watch for file changes
-gulp.task('default', gulp.parallel('build', () => {
+gulp.task('default', gulp.series('build', () => {
   server();
-  
+
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*.html', pages);
   gulp.watch('src/{layouts,partials}/**/*.html', resetPages);
