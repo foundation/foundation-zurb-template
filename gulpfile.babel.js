@@ -5,6 +5,8 @@ import gulp     from 'gulp';
 import panini   from 'panini';
 import rimraf   from 'rimraf';
 import sherpa   from 'style-sherpa';
+import yaml     from 'js-yaml';
+import fs       from 'fs';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -12,58 +14,12 @@ const $ = plugins();
 // Check for --production flag
 const PRODUCTION = !!(argv.production);
 
-// Port to use for the development server.
-const PORT = 8000;
+// Load settings from settings.yml
+const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadSettings();
 
-// Browsers to target when prefixing CSS.
-const COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
-
-// File paths to various assets are defined here.
-const PATHS = {
-  assets: [
-    'src/assets/**/*',
-    '!src/assets/{!img,js,scss}/**/*'
-  ],
-  sass: [
-    'bower_components/foundation-sites/scss',
-    'bower_components/motion-ui/src/'
-  ],
-  javascript: [
-    'bower_components/jquery/dist/jquery.js',
-    'bower_components/what-input/what-input.js',
-    'bower_components/foundation-sites/js/foundation.core.js',
-    'bower_components/foundation-sites/js/foundation.util.*.js',
-    // Paths to individual JS components defined below
-    'bower_components/foundation-sites/js/foundation.abide.js',
-    'bower_components/foundation-sites/js/foundation.accordion.js',
-    'bower_components/foundation-sites/js/foundation.accordionMenu.js',
-    'bower_components/foundation-sites/js/foundation.drilldown.js',
-    'bower_components/foundation-sites/js/foundation.dropdown.js',
-    'bower_components/foundation-sites/js/foundation.dropdownMenu.js',
-    'bower_components/foundation-sites/js/foundation.equalizer.js',
-    'bower_components/foundation-sites/js/foundation.interchange.js',
-    'bower_components/foundation-sites/js/foundation.magellan.js',
-    'bower_components/foundation-sites/js/foundation.offcanvas.js',
-    'bower_components/foundation-sites/js/foundation.orbit.js',
-    'bower_components/foundation-sites/js/foundation.responsiveMenu.js',
-    'bower_components/foundation-sites/js/foundation.responsiveToggle.js',
-    'bower_components/foundation-sites/js/foundation.reveal.js',
-    'bower_components/foundation-sites/js/foundation.slider.js',
-    'bower_components/foundation-sites/js/foundation.sticky.js',
-    'bower_components/foundation-sites/js/foundation.tabs.js',
-    'bower_components/foundation-sites/js/foundation.toggler.js',
-    'bower_components/foundation-sites/js/foundation.tooltip.js',
-    'src/assets/js/!(app.js)**/*.js',
-    'src/assets/js/app.js'
-  ]
-};
-
-const UNCSS_OPTIONS = {
-  html: ['src/**/*.html'],
-  ignore: [
-    new RegExp('^meta\..*'),
-    new RegExp('^\.is-.*')
-  ]
+function loadSettings() {
+  let ymlFile = fs.readFileSync('settings.yml', 'utf8');
+  return yaml.load(ymlFile);
 }
 
 // Delete the "dist" folder
@@ -156,7 +112,9 @@ gulp.task('build',
  gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
 
 // Build the site, run the server, and watch for file changes
-gulp.task('default', gulp.parallel('build', server, () => {
+gulp.task('default', gulp.parallel('build', () => {
+  server();
+  
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*.html', pages);
   gulp.watch('src/{layouts,partials}/**/*.html', resetPages);
