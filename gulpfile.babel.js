@@ -22,6 +22,14 @@ function loadSettings() {
   return yaml.load(ymlFile);
 }
 
+// Build the "dist" folder by running all of the below tasks
+gulp.task('build',
+ gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
+
+// Build the site, run the server, and watch for file changes
+gulp.task('default',
+  gulp.series('build', server, watch));
+
 // Delete the "dist" folder
 // This happens every time a build starts
 function clean(done) {
@@ -48,11 +56,13 @@ function pages() {
     .pipe(gulp.dest('dist'));
 };
 
+// Load updated HTML templates and partials into Panini
 function resetPages(done) {
   panini.refresh();
   done();
 };
 
+// Generate a style guide from the Markdown content and HTML template in styleguide/
 function styleGuide(done) {
   sherpa('src/styleguide/index.md', {
     output: 'dist/styleguide.html',
@@ -102,21 +112,16 @@ function images() {
     .pipe(gulp.dest('dist/assets/img'));
 };
 
-// Start a server with LiveReload to preview the site in
-function server() {
+// Start a server with BrowserSync to preview the site in
+function server(done) {
   browser.init({
     server: 'dist', port: PORT
   });
+  done();
 };
 
-// Build the "dist" folder by running all of the above tasks
-gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
-
-// Build the site, run the server, and watch for file changes
-gulp.task('default', gulp.series('build', () => {
-  server();
-
+// Watch for changes to static assets, pages, Sass, and JavaScript
+function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*.html', gulp.series(pages, browser.reload));
   gulp.watch('src/{layouts,partials}/**/*.html', gulp.series(resetPages, pages, browser.reload));
@@ -124,4 +129,4 @@ gulp.task('default', gulp.series('build', () => {
   gulp.watch('src/assets/js/**/*.js', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
   gulp.watch('src/styleguide/**', gulp.series(styleGuide, browser.reload));
-}));
+}
