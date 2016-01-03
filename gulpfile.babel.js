@@ -49,7 +49,8 @@ function pages() {
 };
 
 function resetPages(done) {
-  gulp.series(panini.refresh, pages, done);
+  panini.refresh();
+  done();
 };
 
 function styleGuide(done) {
@@ -74,7 +75,8 @@ function sass() {
     .pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
     .pipe($.if(PRODUCTION, $.minifyCss()))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(browser.reload({ stream: true }));
 };
 
 // Combine JavaScript into one file
@@ -116,10 +118,10 @@ gulp.task('default', gulp.series('build', () => {
   server();
 
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/pages/**/*.html', pages);
-  gulp.watch('src/{layouts,partials}/**/*.html', resetPages);
+  gulp.watch('src/pages/**/*.html', gulp.series(pages, browser.reload));
+  gulp.watch('src/{layouts,partials}/**/*.html', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/assets/scss/**/*.scss', sass);
-  gulp.watch('src/assets/js/**/*.js', javascript);
-  gulp.watch('src/assets/img/**/*', images);
-  gulp.watch('src/styleguide/**', styleGuide);
+  gulp.watch('src/assets/js/**/*.js', gulp.series(javascript, browser.reload));
+  gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
+  gulp.watch('src/styleguide/**', gulp.series(styleGuide, browser.reload));
 }));
