@@ -15,10 +15,10 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadSettings();
+const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
-function loadSettings() {
-  let ymlFile = fs.readFileSync('settings.yml', 'utf8');
+function loadConfig() {
+  let ymlFile = fs.readFileSync('config.yml', 'utf8');
   return yaml.load(ymlFile);
 }
 
