@@ -175,7 +175,7 @@ gulp.task('default', ['build', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy', 'reload']);
   gulp.watch(['src/pages/**/*.html'], ['pages', 'reload']);
   gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', 'reload']);
-  gulp.watch(['src/assets/scss/**/*.scss'], ['sass']);
+  gulp.watch(['src/assets/scss/**/{*.scss, *.sass}'], ['sass']);
   gulp.watch(['src/assets/js/**/*.js'], ['javascript', 'reload']);
   gulp.watch(['src/assets/img/**/*'], ['images', 'reload']);
   gulp.watch(['src/styleguide/**'], ['styleguide', 'reload']);
