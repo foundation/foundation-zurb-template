@@ -11,7 +11,7 @@ UNCSS_OPTIONS:
   html:
     - "src/**/*.html"
   ignore:
-    - !!js/regexp ^meta\..*
+    - !!js/regexp .foundation-mq
     - !!js/regexp ^\.is-.*
 
 # Gulp will reference these paths when it copies files
