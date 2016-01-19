@@ -105,7 +105,7 @@ gulp.task('sass', function() {
   var uncss = $.if(isProduction, $.uncss({
     html: ['src/**/*.html'],
     ignore: [
-      new RegExp('^meta\..*'),
+      new RegExp('.foundation-mq'),
       new RegExp('^\.is-.*')
     ]
   }));
