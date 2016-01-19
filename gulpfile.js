@@ -62,13 +62,6 @@ gulp.task('clean', function(done) {
   rimraf('dist', done);
 });
 
-// Browser Sync wrapper task 
-// allows for proper injection of css files
-gulp.task('reload', function(cb) {
-  browser.reload();
-  cb();
-});
-
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
@@ -86,19 +79,24 @@ gulp.task('pages', function() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .on('finish', browser.reload);
 });
 
-gulp.task('pages:reset', function(cb) {
+gulp.task('pages:reset', function(done) {
   panini.refresh();
-  gulp.run('pages', cb);
+  gulp.run('pages');
+  done();
 });
 
-gulp.task('styleguide', function(cb) {
+gulp.task('styleguide', function(done) {
   sherpa('src/styleguide/index.md', {
     output: 'dist/styleguide.html',
     template: 'src/styleguide/template.html'
-  }, cb);
+  }, function() {
+    browser.reload;
+    done();
+  });
 });
 
 // Compile Sass into CSS
@@ -127,7 +125,7 @@ gulp.task('sass', function() {
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/css'))
-    .pipe(browser.reload({stream: true}));
+    .pipe(browser.reload({ stream: true }));
 });
 
 // Combine JavaScript into one file
@@ -143,7 +141,8 @@ gulp.task('javascript', function() {
     .pipe($.concat('app.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/js'));
+    .pipe(gulp.dest('dist/assets/js'))
+    .on('finish', browser.reload);
 });
 
 // Copy images to the "dist" folder
@@ -155,7 +154,8 @@ gulp.task('images', function() {
 
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
-    .pipe(gulp.dest('dist/assets/img'));
+    .pipe(gulp.dest('dist/assets/img'))
+    .on('finish', browser.reload);
 });
 
 // Build the "dist" folder by running all of the above tasks
@@ -172,11 +172,11 @@ gulp.task('server', ['build'], function() {
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
-  gulp.watch(PATHS.assets, ['copy', 'reload']);
-  gulp.watch(['src/pages/**/*.html'], ['pages', 'reload']);
-  gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', 'reload']);
+  gulp.watch(PATHS.assets, ['copy']);
+  gulp.watch(['src/pages/**/*'], ['pages']);
+  gulp.watch(['src/{layouts,partials,helpers,data}/**/*'], ['pages:reset']);
   gulp.watch(['src/assets/scss/**/{*.scss, *.sass}'], ['sass']);
-  gulp.watch(['src/assets/js/**/*.js'], ['javascript', 'reload']);
-  gulp.watch(['src/assets/img/**/*'], ['images', 'reload']);
-  gulp.watch(['src/styleguide/**'], ['styleguide', 'reload']);
+  gulp.watch(['src/assets/js/**/*.js'], ['javascript']);
+  gulp.watch(['src/assets/img/**/*'], ['images']);
+  gulp.watch(['src/styleguide/**'], ['styleguide']);
 });
