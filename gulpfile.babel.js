@@ -34,14 +34,14 @@ gulp.task('default',
 // This happens every time a build starts
 function clean(done) {
   rimraf('dist', done);
-};
+}
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest('dist/assets'));
-};
+}
 
 // Copy page templates into finished HTML files
 function pages() {
@@ -54,13 +54,13 @@ function pages() {
       helpers: 'src/helpers/'
     }))
     .pipe(gulp.dest('dist'));
-};
+}
 
 // Load updated HTML templates and partials into Panini
 function resetPages(done) {
   panini.refresh();
   done();
-};
+}
 
 // Generate a style guide from the Markdown content and HTML template in styleguide/
 function styleGuide(done) {
@@ -68,7 +68,7 @@ function styleGuide(done) {
     output: 'dist/styleguide.html',
     template: 'src/styleguide/template.html'
   }, done);
-};
+}
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -87,7 +87,7 @@ function sass() {
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(browser.reload({ stream: true }));
-};
+}
 
 // Combine JavaScript into one file
 // In production, the file is minified
@@ -100,7 +100,7 @@ function javascript() {
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/js'));
-};
+}
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
@@ -110,7 +110,7 @@ function images() {
       progressive: true
     })))
     .pipe(gulp.dest('dist/assets/img'));
-};
+}
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
@@ -118,7 +118,7 @@ function server(done) {
     server: 'dist', port: PORT
   });
   done();
-};
+}
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
