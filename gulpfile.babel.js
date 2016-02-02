@@ -83,7 +83,7 @@ function sass() {
       browsers: COMPATIBILITY
     }))
     .pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
-    .pipe($.if(PRODUCTION, $.minifyCss()))
+    .pipe($.if(PRODUCTION, $.cssNano()))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(browser.reload({ stream: true }));
