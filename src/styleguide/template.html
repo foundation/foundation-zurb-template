@@ -1,19 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Style Guide</title>
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
 
     <!-- Style guide-specific CSS goes here. -->
     <style>
-    /* This styles the vertical tabs used for the table of contents. */
-    .tabs.vertical {
-      width: 100%;
-      max-width: 100%;
+    /* This styles individual sections of the style guide */
+    .ss-section:not(:last-child) {
+      padding-bottom: 4rem;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 4rem;
     }
+
     /* This styles code blocks used for examples. */
     .ss-code code {
       display: block;
@@ -21,6 +23,7 @@
       overflow-x: scroll;
       margin-bottom: 1.5rem;
     }
+
     /* This styles the example rows used in the grid documentation. */
     .row.display {
       background: #eee;
@@ -34,6 +37,7 @@
         background: #e1e1e1; }
       .row.display .columns.color-end {
         background: #d4d4d4; }
+
     /* This styles the color blocks used in the color documentation. */
     .color-block {
       border-radius: 2px;
@@ -63,23 +67,21 @@
     </div>
 
     <div class="column row"><div class="row collapse">
-      
-      <div class="large-3 medium-4 columns">
-        <ul class="vertical tabs" data-tabs id="ss-sections">
+
+      <div class="large-3 medium-4 columns" data-sticky-container>
+        <ul class="vertical menu">
           {{#each pages}}
-            <li {{#if @first}}class="tabs-title is-active" aria-selected="true"{{else}}class="tabs-title"{{/if}}><a href="#{{ anchor }}">{{ title }}</a></li>
+            <li><a href="#{{ anchor }}">{{ title }}</a></li>
           {{/each}}
         </ul>
       </div>
 
-      <div class="large-9 medium-8 columns" data-tabs-content="ss-sections">
-        <div class="tabs-content vertical">
-          {{#each pages}}
-            <section class="tabs-panel {{#if @first}}is-active{{/if}}" id="{{ anchor }}">
-              {{ body }}
-            </section>
-          {{/each}}
-        </div>
+      <div class="large-9 medium-8 columns">
+        {{#each pages}}
+          <section class="ss-section" id="{{ anchor }}">
+            {{ body }}
+          </section>
+        {{/each}}
       </div>
 
     </div></div>
