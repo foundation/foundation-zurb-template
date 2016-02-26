@@ -15,8 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-sites": "~6.1.2",
-    "motion-ui": "~1.2.1"
+    "foundation-sites": "~6.2.0",
+    "motion-ui": "~1.2.2"
   },
   "private": true
 }
