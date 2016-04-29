@@ -123,13 +123,19 @@ function server(done) {
   done();
 }
 
+// Reload the browser with BrowserSync
+function reload(done) {
+  browser.reload();
+  done();
+}
+
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/pages/**/*.html', gulp.series(pages, browser.reload));
-  gulp.watch('src/{layouts,partials}/**/*.html', gulp.series(resetPages, pages, browser.reload));
+  gulp.watch('src/pages/**/*.html', gulp.series(pages, reload));
+  gulp.watch('src/{layouts,partials}/**/*.html', gulp.series(resetPages, pages, reload));
   gulp.watch('src/assets/scss/**/*.scss', sass);
-  gulp.watch('src/assets/js/**/*.js', gulp.series(javascript, browser.reload));
-  gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
-  gulp.watch('src/styleguide/**', gulp.series(styleGuide, browser.reload));
+  gulp.watch('src/assets/js/**/*.js', gulp.series(javascript, reload));
+  gulp.watch('src/assets/img/**/*', gulp.series(images, reload));
+  gulp.watch('src/styleguide/**', gulp.series(styleGuide, reload));
 }
