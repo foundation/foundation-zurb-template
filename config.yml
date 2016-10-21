@@ -5,6 +5,7 @@ PORT: 8000
 COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
+  - "ios >= 7"
 
 # UnCSS will use these settings
 UNCSS_OPTIONS:
