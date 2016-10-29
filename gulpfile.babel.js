@@ -9,6 +9,7 @@ import rimraf   from 'rimraf';
 import sherpa   from 'style-sherpa';
 import yaml     from 'js-yaml';
 import fs       from 'fs';
+import filter   from 'gulp-filter';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -95,9 +96,13 @@ function sass() {
 // Combine JavaScript into one file
 // In production, the file is minified
 function javascript() {
-  return gulp.src(PATHS.javascript)
-    .pipe($.sourcemaps.init())
+  const jsES6 = filter(PATHS.javascriptES6, {restore: true});
+  const js = PATHS.javascriptES6.concat(PATHS.javascriptES5);
+  return gulp.src(js)
+    .pipe(jsES6)
     .pipe($.babel())
+    .pipe(jsES6.restore)
+    .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })

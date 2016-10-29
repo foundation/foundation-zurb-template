@@ -28,7 +28,7 @@ PATHS:
     - "bower_components/foundation-sites/scss"
     - "bower_components/motion-ui/src"
   # Paths to JavaScript libraries, which are compined into one file
-  javascript:
+  javascriptES6:
     # Libraries requried by Foundation
     - "bower_components/jquery/dist/jquery.js"
     - "bower_components/what-input/what-input.js"
@@ -56,6 +56,9 @@ PATHS:
     - "bower_components/foundation-sites/js/foundation.tabs.js"
     - "bower_components/foundation-sites/js/foundation.toggler.js"
     - "bower_components/foundation-sites/js/foundation.tooltip.js"
-    # Paths to your own project code are here
+    # Vendor ES6
+    # - "bower_components/example/js/example.js"
+  # Paths to your own project code or ES5 vendor are here
+  javascriptES5:
     - "src/assets/js/!(app).js"
     - "src/assets/js/app.js"
