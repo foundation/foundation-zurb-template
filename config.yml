@@ -56,9 +56,9 @@ PATHS:
     - "bower_components/foundation-sites/js/foundation.tabs.js"
     - "bower_components/foundation-sites/js/foundation.toggler.js"
     - "bower_components/foundation-sites/js/foundation.tooltip.js"
-    # Vendor ES6
+    # ES6 files
     # - "bower_components/example/js/example.js"
-  # Paths to your own project code or ES5 vendor are here
+  # Paths to your own project code or ES5 files are here
   javascriptES5:
     - "src/assets/js/!(app).js"
     - "src/assets/js/app.js"
