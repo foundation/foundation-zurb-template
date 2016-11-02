@@ -42,7 +42,13 @@
     "email": "foundation@zurb.com"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "motion-ui": "^1.2.2"
+  }
 }
