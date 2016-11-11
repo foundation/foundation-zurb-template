@@ -134,32 +134,27 @@ As you've probably noticed in the examples above, you have access to a small, me
 <div class="row up-1 medium-up-3 large-up-5">
   <div class="column">
     <div class="color-block">
-      <span style="background: #2199e8"></span>
-      #2199e8
+      <span class="primary-styleguide"></span>
     </div>
   </div>
   <div class="column">
     <div class="color-block">
-      <span style="background: #3adb76"></span>
-      #3adb76
+      <span class="secondary-styleguide"></span>
     </div>
   </div>
   <div class="column">
     <div class="color-block">
-      <span style="background: #ffae00"></span>
-      #ffae00
+      <span class="success-styleguide"></span>
     </div>
   </div>
   <div class="column">
     <div class="color-block">
-      <span style="background: #ec5840"></span>
-      #ec5840
+      <span class="warning-styleguide"></span>
     </div>
   </div>
   <div class="column">
     <div class="color-block">
-      <span style="background: #0a0a0a"></span>
-      #0a0a0a
+      <span class="alert-styleguide"></span>
     </div>
   </div>
 </div>

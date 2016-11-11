@@ -1,0 +1,15 @@
+.primary-styleguide{
+    background:map-get($foundation-palette, primary);
+}
+.secondary-styleguide{
+    background:map-get($foundation-palette, secondary);
+}
+.success-styleguide{
+    background:map-get($foundation-palette, success);
+}
+.warning-styleguide{
+    background:map-get($foundation-palette, warning);
+}
+.alert-styleguide{
+    background:map-get($foundation-palette, alert);
+}
