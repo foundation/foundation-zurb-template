@@ -87,5 +87,25 @@
     </div></div>
 
     <script src="assets/js/app.js"></script>
+    <script type="text/javascript">
+
+var rgbString = "rgb(0, 70, 255)"; // get this in whatever way.
+$(function() {
+    $( ".column > .color-block" ).each(function() {
+        var rgbString = $("span", this).css("background-color");//needs to be converted to hex
+
+        var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        // parts now should be ["rgb(0, 70, 255", "0", "70", "255"]
+        delete (parts[0]);
+        for (var i = 1; i <= 3; ++i) {
+            parts[i] = parseInt(parts[i]).toString(16);
+            if (parts[i].length == 1) parts[i] = '0' + parts[i];
+        }
+        var hexString ='#'+parts.join('').toUpperCase();
+
+      $( this).append(hexString);
+    });
+});
+</script>
   </body>
 </html>
