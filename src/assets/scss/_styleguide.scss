@@ -1,24 +1,24 @@
    .color-block{
-    @at-root #{&}__name {
+    &__name {
         display:block;
     }
-    @at-root #{&}__background {
+    &__background {
         display:block;
         width:100%;
         height:100px;
-        @at-root #{&}--primary {
+        &--primary {
             background:map-get($foundation-palette, primary);
         }
-        @at-root #{&}--secondary {
+        &--secondary {
             background:map-get($foundation-palette, secondary);
         }
-        @at-root #{&}--success {
+        &--success {
             background:map-get($foundation-palette, success);
         }
-        @at-root #{&}--warning {
+        &--warning {
             background:map-get($foundation-palette, warning);
         }
-        @at-root #{&}--alert {
+        &--alert {
             background:map-get($foundation-palette, alert);
         }
     }
