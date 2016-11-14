@@ -89,19 +89,16 @@
     <script src="assets/js/app.js"></script>
 <script type="text/javascript">
 $(function() {
-    var colorsNames = [];
+    var colorCodes = [];
     $("[data-color-block]").each(function() {
         var code = rgbToHex($(this).css("background-color"));
         var name = $(this).data("color-block");
-        colorsNames.push({
-            "name": name,
-            "code": code
-        });
+        colorCodes[name] = code;
     });
-    $("[data-color-block-name]").each(function(i) {
+    $("[data-color-block-name]").each(function() {
         var name = $(this).data("color-block-name");
-        if(name == colorsNames[i].name){
-            $(this).html(colorsNames[i].code);
+        if (name in colorCodes) {
+            $(this).html(colorCodes[name]);
         }
 
     });

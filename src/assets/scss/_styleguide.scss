@@ -2,10 +2,12 @@
     &__name {
         display:block;
     }
+
     &__background {
         display:block;
         width:100%;
         height:100px;
+        
         &--primary {
             background:map-get($foundation-palette, primary);
         }
