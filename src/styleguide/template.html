@@ -89,52 +89,23 @@
     <script src="assets/js/app.js"></script>
 <script type="text/javascript">
 $(function() {
-    $("[data-color-block]").each(function(){
-    var color = $(this).data("color-block");
-    var hexString = rgbToHex($(this).css("background-color"));
-    if(color == "primary"){
-        $("[data-color-block-name]").each(function(){
-            var name =$(this).data("color-block-name");
-            if(color == name){
-                $(this).html(hexString);
-            }
+    var colorsNames = [];
+    $("[data-color-block]").each(function() {
+        var code = rgbToHex($(this).css("background-color"));
+        var name = $(this).data("color-block");
+        colorsNames.push({
+            "name": name,
+            "code": code
         });
-    }
-    if(color == "secondary"){
-        $("[data-color-block-name]").each(function(){
-            var name =$(this).data("color-block-name");
-            if(color == name){
-                $(this).html(hexString);
-            } 
-        });
-    }
-    if(color == "success"){
-        $("[data-color-block-name]").each(function(){
-            var name =$(this).data("color-block-name");
-            if(color == name){
-                $(this).html(hexString);
-            }
-        });
-    }
-    if(color == "warning"){
-        $("[data-color-block-name]").each(function(){
-            var name =$(this).data("color-block-name");
-            if(color == name){
-                $(this).html(hexString);
-            }
-        });
-    }
-    if(color == "alert"){
-        $(".color-block__name").each(function(){
-            var name =$(this).data("color-block-name");
-            if(color == name){
-                $(this).html(hexString);
-            }
-        });
-    }
-});
-});
+    });
+    $("[data-color-block-name]").each(function(i) {
+        var name = $(this).data("color-block-name");
+        if(name == colorsNames[i].name){
+            $(this).html(colorsNames[i].code);
+        }
 
+    });
+});
 function rgbToHex(rgbString){
     var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     // parts now should be ["rgb(0, 70, 255", "0", "70", "255"]
