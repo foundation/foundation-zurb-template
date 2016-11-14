@@ -1,15 +1,26 @@
-.primary-styleguide{
-    background:map-get($foundation-palette, primary);
-}
-.secondary-styleguide{
-    background:map-get($foundation-palette, secondary);
-}
-.success-styleguide{
-    background:map-get($foundation-palette, success);
-}
-.warning-styleguide{
-    background:map-get($foundation-palette, warning);
-}
-.alert-styleguide{
-    background:map-get($foundation-palette, alert);
+   .color-block{
+    @at-root #{&}__name {
+        display:block;
+    }
+    @at-root #{&}__background {
+        display:block;
+        width:100%;
+        height:100px;
+        @at-root #{&}--primary {
+            background:map-get($foundation-palette, primary);
+        }
+        @at-root #{&}--secondary {
+            background:map-get($foundation-palette, secondary);
+        }
+        @at-root #{&}--success {
+            background:map-get($foundation-palette, success);
+        }
+        @at-root #{&}--warning {
+            background:map-get($foundation-palette, warning);
+        }
+        @at-root #{&}--alert {
+            background:map-get($foundation-palette, alert);
+        }
+    }
+
 }

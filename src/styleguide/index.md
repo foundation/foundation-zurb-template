@@ -133,29 +133,34 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 <div class="row up-1 medium-up-3 large-up-5">
   <div class="column">
-    <div class="color-block">
-      <span class="primary-styleguide"></span>
-    </div>
+  <div class="color-block">
+    <div class="color-block__background color-block__background--primary" data-color-block="primary"></div>
+    <div class="color-block__name" data-color-block-name="primary"></div>
+  </div>
   </div>
   <div class="column">
-    <div class="color-block">
-      <span class="secondary-styleguide"></span>
-    </div>
+  <div class="color-block">
+    <div class="color-block__background color-block__background--secondary" data-color-block="secondary"></div>
+    <div class="color-block__name" data-color-block-name="secondary"></div>
+  </div>
   </div>
   <div class="column">
-    <div class="color-block">
-      <span class="success-styleguide"></span>
-    </div>
+  <div class="color-block">
+    <div class="color-block__background color-block__background--success" data-color-block="success"></div>
+    <div class="color-block__name" data-color-block-name="success"></div>
+  </div>
   </div>
   <div class="column">
-    <div class="color-block">
-      <span class="warning-styleguide"></span>
-    </div>
+  <div class="color-block">
+    <div class="color-block__background color-block__background--warning" data-color-block="warning"></div>
+    <div class="color-block__name" data-color-block-name="warning"></div>
+  </div>
   </div>
   <div class="column">
-    <div class="color-block">
-      <span class="alert-styleguide"></span>
-    </div>
+  <div class="color-block">
+    <div class="color-block__background color-block__background--alert" data-color-block="alert"></div>
+    <div class="color-block__name" data-color-block-name="alert"></div>
+  </div>
   </div>
 </div>
 
