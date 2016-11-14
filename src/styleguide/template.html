@@ -89,13 +89,11 @@
     <script src="assets/js/app.js"></script>
 <script type="text/javascript">
 $(function() {
-    $(".color-block__background").each(function(){
+    $("[data-color-block]").each(function(){
     var color = $(this).data("color-block");
-
+    var hexString = rgbToHex($(this).css("background-color"));
     if(color == "primary"){
-        var hexString = rgbToHex($(this).css("background-color"));
-        console.log(hexString);
-        $(".color-block__name").each(function(){
+        $("[data-color-block-name]").each(function(){
             var name =$(this).data("color-block-name");
             if(color == name){
                 $(this).html(hexString);
@@ -103,19 +101,15 @@ $(function() {
         });
     }
     if(color == "secondary"){
-        var hexString = rgbToHex($(this).css("background-color"));
-        console.log(hexString);
-        $(".color-block__name").each(function(){
+        $("[data-color-block-name]").each(function(){
             var name =$(this).data("color-block-name");
             if(color == name){
                 $(this).html(hexString);
-            }
+            } 
         });
     }
     if(color == "success"){
-        var hexString = rgbToHex($(this).css("background-color"));
-        console.log(hexString);
-        $(".color-block__name").each(function(){
+        $("[data-color-block-name]").each(function(){
             var name =$(this).data("color-block-name");
             if(color == name){
                 $(this).html(hexString);
@@ -123,9 +117,7 @@ $(function() {
         });
     }
     if(color == "warning"){
-        var hexString = rgbToHex($(this).css("background-color"));
-        console.log(hexString);
-        $(".color-block__name").each(function(){
+        $("[data-color-block-name]").each(function(){
             var name =$(this).data("color-block-name");
             if(color == name){
                 $(this).html(hexString);
@@ -133,8 +125,6 @@ $(function() {
         });
     }
     if(color == "alert"){
-        var hexString = rgbToHex($(this).css("background-color"));
-        console.log(hexString);
         $(".color-block__name").each(function(){
             var name =$(this).data("color-block-name");
             if(color == name){
