@@ -100,7 +100,7 @@ function javascript() {
   const js = PATHS.javascriptES6.concat(PATHS.javascriptES5);
   return gulp.src(js)
     .pipe(jsES6)
-    .pipe($.babel())
+    .pipe($.babel({ignore: ['what-input.js']}))
     .pipe(jsES6.restore)
     .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
