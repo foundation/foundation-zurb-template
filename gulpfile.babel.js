@@ -4,11 +4,14 @@ import plugins  from 'gulp-load-plugins';
 import yargs    from 'yargs';
 import browser  from 'browser-sync';
 import gulp     from 'gulp';
-import panini   from 'panini';
+// import panini   from 'panini';
+import pug      from 'gulp-pug';
+import data      from 'gulp-data';
 import rimraf   from 'rimraf';
 import sherpa   from 'style-sherpa';
 import yaml     from 'js-yaml';
 import fs       from 'fs';
+import path       from 'path';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -47,13 +50,14 @@ function copy() {
 
 // Copy page templates into finished HTML files
 function pages() {
-  return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
-    .pipe(panini({
-      root: 'src/pages/',
-      layouts: 'src/layouts/',
-      partials: 'src/partials/',
-      data: 'src/data/',
-      helpers: 'src/helpers/'
+  return gulp.src('src/pug/**/*.pug','!src/pug/**/_*.pug')
+    .pipe(data(function (file) {
+      return {
+        relativePath: file.history[0].replace(file.base, ''),
+      };
+    }))
+    .pipe(pug({
+      pretty: true
     }))
     .pipe(gulp.dest(PATHS.dist));
 }
@@ -71,6 +75,8 @@ function styleGuide(done) {
     template: 'src/styleguide/template.html'
   }, done);
 }
+
+
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -133,8 +139,7 @@ function reload(done) {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
-  gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
+  gulp.watch('src/pug/**/*.pug').on('all', gulp.series(pages, browser.reload));
   gulp.watch('src/assets/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));

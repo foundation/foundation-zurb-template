@@ -1,0 +1,13 @@
+block global
+  include ../_partial/_global
+
+doctype html
+html.no-js(lang='en')
+  head
+    block head
+      include ../_partial/_head
+  body
+    block header
+    block main
+    block footer
+    script(src=relativeRoot + 'assets/js/app.js')
