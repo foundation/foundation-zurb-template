@@ -1,7 +1,7 @@
 {
-  "name": "foundation-zurb-template",
+  "name": "tbg-foundation-template",
   "version": "1.0.0",
-  "description": "Official ZURB Template for Foundation for Sites.",
+  "description": "TBG fork of the official ZURB Template for Foundation for Sites.",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
