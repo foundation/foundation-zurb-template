@@ -40,6 +40,12 @@ foundation new --framework sites --template zurb
 
 The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
 
+Now `cd` to your project name and to start your project run 
+
+```bash
+foundation watch
+```
+
 ### Manual Setup
 
 To manually set up the template, first download it with Git:
