@@ -32,8 +32,8 @@ PATHS:
     # Libraries required by Foundation
     - "bower_components/jquery/dist/jquery.js"
     - "bower_components/what-input/dist/what-input.js"
-    - 'bower_components/jquery-mousewheel/jquery.mousewheel.js',
-    - 'bower_components/flickity/dist/flickity.pkgd.js'
+    - "bower_components/jquery-mousewheel/jquery.mousewheel.js"
+    - "bower_components/flickity/dist/flickity.pkgd.js"
     # Core Foundation files
     - "bower_components/foundation-sites/js/foundation.core.js"
     - "bower_components/foundation-sites/js/foundation.util.*.js"

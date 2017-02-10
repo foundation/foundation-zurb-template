@@ -1,3 +1,9 @@
+## The Berndt Group's Foundation Fork
+
+This is a fork of the official ZURB template for use with [TBG-foundation-sites](https://github.com/BerndtGroup/TBG-foundation-sites) and the [TBG-foundation-cli](https://github.com/BerndtGroup/TBG-foundation-cli).
+
+The only difference in what follows is that the `tbg-foundation-cli` npm package should be used, which provides the `tbg-foundation` command.
+
 # ZURB Template
 
 [![devDependency Status](https://david-dm.org/zurb/foundation-zurb-template/dev-status.svg)](https://david-dm.org/zurb/foundation-zurb-template#info=devDependencies)
