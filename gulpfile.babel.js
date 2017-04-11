@@ -35,14 +35,14 @@ gulp.task('default',
 // Delete the "dist" folder
 // This happens every time a build starts
 function clean(done) {
-  rimraf('dist', done);
+  rimraf(PATHS.dist, done);
 }
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets)
-    .pipe(gulp.dest('dist/assets'));
+    .pipe(gulp.dest(PATHS.dist + '/assets'));
 }
 
 // Copy page templates into finished HTML files
@@ -55,7 +55,7 @@ function pages() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(PATHS.dist));
 }
 
 // Load updated HTML templates and partials into Panini
@@ -67,7 +67,7 @@ function resetPages(done) {
 // Generate a style guide from the Markdown content and HTML template in styleguide/
 function styleGuide(done) {
   sherpa('src/styleguide/index.md', {
-    output: 'dist/styleguide.html',
+    output: PATHS.dist + '/styleguide.html',
     template: 'src/styleguide/template.html'
   }, done);
 }
@@ -84,10 +84,11 @@ function sass() {
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
-    .pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
+    // Comment in the pipe below to run UnCSS in production
+    //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
     .pipe($.if(PRODUCTION, $.cssnano()))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe(browser.reload({ stream: true }));
 }
 
@@ -96,13 +97,13 @@ function sass() {
 function javascript() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe($.babel({ignore: ['what-input.js']}))
     .pipe($.concat('app.js'))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/js'));
+    .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
 // Copy images to the "dist" folder
@@ -112,24 +113,30 @@ function images() {
     .pipe($.if(PRODUCTION, $.imagemin({
       progressive: true
     })))
-    .pipe(gulp.dest('dist/assets/img'));
+    .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    server: 'dist', port: PORT
+    server: PATHS.dist, port: PORT
   });
+  done();
+}
+
+// Reload the browser with BrowserSync
+function reload(done) {
+  browser.reload();
   done();
 }
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/pages/**/*.html', gulp.series(pages, browser.reload));
-  gulp.watch('src/{layouts,partials}/**/*.html', gulp.series(resetPages, pages, browser.reload));
-  gulp.watch('src/assets/scss/**/*.scss', sass);
-  gulp.watch('src/assets/js/**/*.js', gulp.series(javascript, browser.reload));
-  gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
-  gulp.watch('src/styleguide/**', gulp.series(styleGuide, browser.reload));
+  gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
+  gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
+  gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
+  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
+  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+  gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));
 }
