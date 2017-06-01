@@ -29,12 +29,5 @@ PATHS:
     - "node_modules/motion-ui/src"
   # Paths to JavaScript libraries, which are combined into one file
   # TODO:  Rework this using webpack build. Right now just verifying the files are being built properly
-  javascript:
-    # Libraries required by Foundation
-    - "node_modules/jquery/dist/jquery.js"
-    - "node_modules/what-input/dist/what-input.js"
-    # Core Foundation files
-    - "node_modules/foundation-sites/dist/js/foundation.js"
-    # Paths to your own project code are here
-    - "src/assets/js/!(app).js"
+  entries:
     - "src/assets/js/app.js"
