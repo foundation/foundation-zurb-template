@@ -9,6 +9,10 @@
   },
   "author": "ZURB <foundation@zurb.com>",
   "license": "MIT",
+  "dependencies": {
+    "foundation-sites": "https://github.com/zurb/foundation-sites",
+    "motion-ui": "~1.2.2"
+  },
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.7.2",
