@@ -10,7 +10,7 @@
   "author": "ZURB <foundation@zurb.com>",
   "license": "MIT",
   "dependencies": {
-    "foundation-sites": "6.4.0-rc3",
+    "foundation-sites": "6.4.0-rc5",
     "motion-ui": "~1.2.2"
   },
   "devDependencies": {
