@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "tbg-foundation-sites": "https://github.com/BerndtGroup/TBG-foundation-sites.git#tbg",
+    "tbg-foundation-sites": "https://github.com/BerndtGroup/TBG-foundation-sites.git#6.3.x",
     "motion-ui": "~1.2.2"
   },
   "private": true
