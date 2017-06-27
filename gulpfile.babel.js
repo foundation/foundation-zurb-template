@@ -1,14 +1,17 @@
 'use strict';
 
-import plugins  from 'gulp-load-plugins';
-import yargs    from 'yargs';
-import browser  from 'browser-sync';
-import gulp     from 'gulp';
-import panini   from 'panini';
-import rimraf   from 'rimraf';
-import sherpa   from 'style-sherpa';
-import yaml     from 'js-yaml';
-import fs       from 'fs';
+import plugins       from 'gulp-load-plugins';
+import yargs         from 'yargs';
+import browser       from 'browser-sync';
+import gulp          from 'gulp';
+import panini        from 'panini';
+import rimraf        from 'rimraf';
+import sherpa        from 'style-sherpa';
+import yaml          from 'js-yaml';
+import fs            from 'fs';
+import webpackStream from 'webpack-stream';
+import webpack2      from 'webpack';
+import named         from 'vinyl-named';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -92,13 +95,25 @@ function sass() {
     .pipe(browser.reload({ stream: true }));
 }
 
+let webpackConfig = {
+  rules: [
+    {
+      test: /.js$/,
+      use: [
+        {
+          loader: 'babel-loader'
+        }
+      ]
+    }
+  ]
+}
 // Combine JavaScript into one file
 // In production, the file is minified
 function javascript() {
-  return gulp.src(PATHS.javascript)
+  return gulp.src(PATHS.entries)
+    .pipe(named())
     .pipe($.sourcemaps.init())
-    .pipe($.babel({ignore: ['what-input.js']}))
-    .pipe($.concat('app.js'))
+    .pipe(webpackStream({module: webpackConfig}, webpack2))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
