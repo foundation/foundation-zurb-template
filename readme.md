@@ -40,6 +40,14 @@ foundation new --framework sites --template zurb
 
 The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
 
+Finally, run `npm start` or `foundation watch` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+
+```
+http://localhost:8000
+```
+
+To create compressed, production-ready assets, run `npm run build`or `foundation build`
+
 ### Manual Setup
 
 To manually set up the template, first download it with Git:
@@ -56,12 +64,10 @@ npm install
 bower install
 ```
 
-### Usage (for both CLI and Manual)
-
-Finally, run `npm start` or `foundation watch` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+Finally, run `npm start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
 ```
 
-To create compressed, production-ready assets, run `npm run build`.
+To create compressed, production-ready assets, run `npm run build`
