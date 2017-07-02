@@ -40,7 +40,7 @@ foundation new --framework sites --template zurb
 
 The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
 
-Finally, run `npm start` or `foundation watch` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+Now `cd` to your project name and run `npm start` or `foundation watch` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
