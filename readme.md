@@ -8,7 +8,7 @@ This is the official ZURB Template for use with [Foundation for Sites](http://fo
 
 - Handlebars HTML templates with Panini
 - Sass compilation and prefixing
-- JavaScript concatenation
+- JavaScript module bundling with webpack
 - Built-in BrowserSync server
 - For production builds:
   - CSS compression

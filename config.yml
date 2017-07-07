@@ -27,7 +27,6 @@ PATHS:
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
-  # Paths to JavaScript libraries, which are combined into one file
-  # TODO:  Rework this using webpack build. Right now just verifying the files are being built properly
+  # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
