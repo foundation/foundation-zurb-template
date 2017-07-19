@@ -96,16 +96,18 @@ function sass() {
 }
 
 let webpackConfig = {
-  rules: [
-    {
-      test: /.js$/,
-      use: [
-        {
-          loader: 'babel-loader'
-        }
-      ]
-    }
-  ]
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
+      }
+    ]
+  }
 }
 // Combine JavaScript into one file
 // In production, the file is minified
@@ -113,7 +115,7 @@ function javascript() {
   return gulp.src(PATHS.entries)
     .pipe(named())
     .pipe($.sourcemaps.init())
-    .pipe(webpackStream({module: webpackConfig}, webpack2))
+    .pipe(webpackStream(webpackConfig, webpack2))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
