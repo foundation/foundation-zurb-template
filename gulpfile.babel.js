@@ -1,17 +1,18 @@
 'use strict';
 
-import plugins  from 'gulp-load-plugins';
-import yargs    from 'yargs';
-import browser  from 'browser-sync';
-import gulp     from 'gulp';
+import plugins       from 'gulp-load-plugins';
+import yargs         from 'yargs';
+import browser       from 'browser-sync';
+import gulp          from 'gulp';
 // import panini   from 'panini';
-import pug      from 'gulp-pug';
-import data      from 'gulp-data';
-import rimraf   from 'rimraf';
-import sherpa   from 'style-sherpa';
-import yaml     from 'js-yaml';
-import fs       from 'fs';
-import path       from 'path';
+import pug           from 'gulp-pug';
+import rimraf        from 'rimraf';
+import sherpa        from 'style-sherpa';
+import yaml          from 'js-yaml';
+import fs            from 'fs';
+import webpackStream from 'webpack-stream';
+import webpack2      from 'webpack';
+import named         from 'vinyl-named';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -92,19 +93,33 @@ function sass() {
     }))
     // Comment in the pipe below to run UnCSS in production
     //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
-    .pipe($.if(PRODUCTION, $.cssnano()))
+    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe(browser.reload({ stream: true }));
 }
 
+let webpackConfig = {
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
+      }
+    ]
+  }
+}
 // Combine JavaScript into one file
 // In production, the file is minified
 function javascript() {
-  return gulp.src(PATHS.javascript)
+  return gulp.src(PATHS.entries)
+    .pipe(named())
     .pipe($.sourcemaps.init())
-    .pipe($.babel({ignore: ['what-input.js']}))
-    .pipe($.concat('app.js'))
+    .pipe(webpackStream(webpackConfig, webpack2))
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
