@@ -53,11 +53,11 @@ function pages() {
   return gulp.src('src/pug/**/*.pug','!src/pug/**/_*.pug')
     .pipe(data(function (file) {
       return {
-        relativePath: file.history[0].replace(file.base, ''),
+        relativePath: file.history[0].replace(file.base, '')
       };
     }))
     .pipe(pug({
-      pretty: true
+      pretty: true,
     }))
     .pipe(gulp.dest(PATHS.dist));
 }

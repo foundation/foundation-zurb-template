@@ -3,5 +3,5 @@
   "description": "Site Description",
   "keywords": "site keywords",
   "rootUrl": "http://example.com/",
-  "ogpImage": "http://example.com/images/og-image.jpg"
+  "ogpImage": "http://example.com/images/og-image.jpg",
 }
