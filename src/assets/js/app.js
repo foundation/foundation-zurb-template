@@ -10,7 +10,6 @@ import Foundation from 'foundation-sites';
 
 
 $(document).foundation();
-<<<<<<< HEAD
 
 var $window = $(window);
 
@@ -36,6 +35,3 @@ $window.on('scroll', function() {
   });
 });
 
-
-=======
->>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
