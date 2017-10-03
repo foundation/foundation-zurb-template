@@ -69,12 +69,21 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
+<<<<<<< HEAD
+  primary: #208eda,
+  secondary: #e74c3c,
+=======
   primary: #1779ba,
   secondary: #767676,
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
+<<<<<<< HEAD
+$green: #34983c;
+=======
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -84,9 +93,15 @@ $body-background: $white;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
+<<<<<<< HEAD
+$global-margin: 2rem;
+$global-padding: 2rem;
+$global-position: 2rem;
+=======
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
@@ -106,7 +121,11 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
+<<<<<<< HEAD
+  medium: 720px,
+=======
   medium: 640px,
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -136,12 +155,21 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
+<<<<<<< HEAD
+$header-margin-bottom: 1rem;
+$header-styles: (
+  small: (
+    'h1': ('font-size': 32),
+    'h2': ('font-size': 26),
+    'h3': ('font-size': 20),
+=======
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
     'h1': ('font-size': 24),
     'h2': ('font-size': 20),
     'h3': ('font-size': 19),
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -281,7 +309,11 @@ $breadcrumbs-item-separator-color: $medium-gray;
 $button-font-family: inherit;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
+<<<<<<< HEAD
+$button-fill: transparent;
+=======
 $button-fill: solid;
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
@@ -291,7 +323,11 @@ $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
+<<<<<<< HEAD
+  default: 1rem,
+=======
   default: 0.9rem,
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
   large: 1.25rem,
 );
 $button-palette: $foundation-palette;
@@ -859,8 +895,13 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
+<<<<<<< HEAD
+  small: 50px,
+  medium: 100px
+=======
   small: 20px,
   medium: 30px
+>>>>>>> e6650e6f06acbc3f9bb3456e5db817dffbcd4b75
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
