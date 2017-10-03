@@ -29,7 +29,7 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
+ gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy, copyJS), styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -46,6 +46,13 @@ function clean(done) {
 function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
+}
+
+// Copy files out of the js plugins folder
+// This is used top copy over any plugins that don't play nice with babel and es6
+function copyJS() {
+  return gulp.src(PATHS.jsassets)
+    .pipe(gulp.dest(PATHS.dist + '/assets/js/plugins/'));
 }
 
 // Copy page templates into finished HTML files

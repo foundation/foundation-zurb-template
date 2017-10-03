@@ -51,11 +51,6 @@
     top: 1rem;
     z-index: -1;
   }
-  &.first {
-    .background {
-      top: 0;
-    }
-  }
   &.secondary-color {
     .background {
       background: $secondary-color;

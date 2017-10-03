@@ -23,10 +23,14 @@ PATHS:
   assets:
     - "src/assets/**/*"
     - "!src/assets/{img,js,scss}/**/*"
+  # Paths to JS libraries that don't work with babel
+  jsassets:
+    - "node_modules/owl.carousel/dist/owl.carousel.min.js"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
+    - "node_modules/owl.carousel/src/scss"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
