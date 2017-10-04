@@ -1,3 +1,27 @@
+// Default colors and borders
+img {
+  border: 2px solid $primary-color;
+}
+.background {
+  background: $primary-color;
+}
+.secondary-color {
+  a {
+    color: $secondary-color;
+  }
+  img {
+     border-color: $secondary-color;
+  }
+  .background {
+    background: $secondary-color;
+  }
+}
+[data-parallax-bg] {
+  a {
+    color: #fff;
+  }
+}
+
 .hero {
   text-align: center;
 
@@ -29,12 +53,6 @@
     text-align: center;
     img {
       border-radius: 50%;
-      border: 2px solid $primary-color;
-    }
-  }
-  @at-root .secondary-color {
-    .img img {
-       border-color: $secondary-color;
     }
   }
 }
@@ -44,20 +62,11 @@
   .background {
     position: absolute;
     display: block;
-    background: $primary-color;
     content: ' ';
     width: 100%;
     height: calc(100% + 4rem);
     top: 2rem;
     z-index: -1;
-  }
-  a {
-    color: #fff;
-  }
-  @at-root .secondary-color {
-    .background {
-      background: $secondary-color;
-    }
   }
 }
 
@@ -77,6 +86,7 @@
     -webkit-transition: padding 0.5s; /* Safari */
     transition: padding 0.5s;
     padding: 1rem;
+    border: 0;
   }
   &.center {
     padding: 0;
