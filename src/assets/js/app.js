@@ -15,7 +15,15 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 $(document).ready(function ($) {
-  $('.owl-carousel').owlCarousel();
+  $('.owl-carousel').owlCarousel({
+    center: true,
+    loop: true,
+    nav: true,
+    navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
+    items: 1.5,
+    smartSpeed: 500,
+    margin: 30
+  });
 });
 
 var $window = $(window);
@@ -36,7 +44,7 @@ $window.on('scroll', function() {
       // If in view
       var $background = $(this).find('.background');
       //var currentTop = $background.css('top');
-      var newTop = ((thisOffset.top / document.documentElement.clientHeight) * 50 - 30).toFixed(2) + 'px';
+      var newTop = ((thisOffset.top / document.documentElement.clientHeight) * 50 - 13).toFixed(2) + 'px';
       $background.css('top', newTop);
     }
   });

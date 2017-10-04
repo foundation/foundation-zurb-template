@@ -86,7 +86,7 @@ $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 2rem;
-$global-padding: 2rem;
+$global-padding: 1rem;
 $global-position: 2rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
@@ -463,7 +463,7 @@ $label-radius: $global-radius;
 // ----------------
 
 $mediaobject-margin-bottom: $global-margin;
-$mediaobject-section-padding: $global-padding;
+$mediaobject-section-padding: 1rem;
 $mediaobject-image-width-stacked: 100%;
 
 // 23. Menu
