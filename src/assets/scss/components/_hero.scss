@@ -24,7 +24,6 @@
 // Section default spacing
 .section {
   position: relative;
-  margin-top: -1rem;
   padding-bottom: 6rem;
   .img {
     text-align: center;
@@ -33,7 +32,7 @@
       border: 2px solid $primary-color;
     }
   }
-  &.secondary-color {
+  @at-root .secondary-color {
     .img img {
        border-color: $secondary-color;
     }
@@ -52,7 +51,10 @@
     top: 2rem;
     z-index: -1;
   }
-  &.secondary-color {
+  a {
+    color: #fff;
+  }
+  @at-root .secondary-color {
     .background {
       background: $secondary-color;
     }
@@ -68,8 +70,8 @@
 
 // Experience owl carousel
 .owl-item {
-  -webkit-transition: opacity 0.5s, padding 0.5s; /* Safari */
-  transition: opacity 0.5s, padding 0.5s;
+  -webkit-transition: opacity 0.5s; /* Safari */
+  transition: opacity 0.5s;
   opacity: 0.5;
   img {
     -webkit-transition: padding 0.5s; /* Safari */
