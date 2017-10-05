@@ -6,10 +6,10 @@ img {
   background: $primary-color;
 }
 
-h2 {
-  color: $primary-color;
-  mix-blend-mode: difference;
-}
+// h2 {
+//   color: $primary-color;
+//   mix-blend-mode: difference;
+// }
 .secondary-color {
   a {
     color: $secondary-color;
@@ -20,9 +20,9 @@ h2 {
   .background {
     background: $secondary-color;
   }
-  h2 {
-    color: $secondary-color;
-  }
+  // h2 {
+  //   color: $secondary-color;
+  // }
 }
 [data-parallax-bg] {
   a {
