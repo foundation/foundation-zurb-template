@@ -1,16 +1,29 @@
 .nav-primary {
+  font-family: 'Comfortaa', cursive;
   opacity: 0.8;
   position: fixed;
   bottom: -100vh;
   width: 100%;
   z-index: 1000;
-  background: #eee;
-  -webkit-transition: bottom 1s; /* Safari */
-  transition: bottom 1s;
+  background: #efefef;
+  -webkit-transition: bottom 1s, opacity 0.5s; /* Safari */
+  transition: bottom 1s, opacity 0.5s;
   &.visible {
     bottom: 0;
   }
   .is-active {
     font-weight: 700;
   }
+  &:hover {
+    opacity: 0.95;
+  }
+}
+.index .nav-primary .is-active {
+  background: rgba(45, 175, 74, 0.1);
+}
+.experience .nav-primary .is-active {
+  background: rgba(232, 152, 60, 0.1);
+}
+.connect .nav-primary .is-active {
+  background: rgba(231, 76, 60, 0.1);
 }

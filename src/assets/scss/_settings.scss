@@ -69,13 +69,15 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #208eda,
-  secondary: #e74c3c,
+  primary: #2daf4a,
+  secondary: #E8983C,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
-$green: #34983c;
+$green: #2daf4a;
+$orange: #E78F3C;
+$red: #E74C3C;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -90,7 +92,7 @@ $global-padding: 1rem;
 $global-position: 2rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 0.5rem;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -101,6 +103,10 @@ $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
+
+$home: $primary-color;
+$experience: $secondary-color;
+$connect: #E74C3C;
 
 // 2. Breakpoints
 // --------------
@@ -170,6 +176,7 @@ $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -279,7 +286,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // 11. Button
 // ----------
 
-$button-font-family: inherit;
+$button-font-family: 'Verdana', sans-serif;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: transparent;
@@ -295,7 +302,11 @@ $button-sizes: (
   default: 1rem,
   large: 1.25rem,
 );
-$button-palette: $foundation-palette;
+$button-palette: (
+    home: $home,
+    experience: $experience,
+    connect: $connect
+) !default;
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
@@ -474,7 +485,7 @@ $menu-nested-margin: $global-menu-nested-margin;
 $menu-items-padding: $global-menu-padding;
 $menu-simple-margin: 1rem;
 $menu-item-color-active: $white;
-$menu-item-background-active: get-color(primary);
+$menu-item-background-active: $red;
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-state-back-compat: true;

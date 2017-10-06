@@ -1,15 +1,54 @@
-// Default colors and borders
-img {
-  border: 2px solid $primary-color;
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Slab');
+
+body {
+  font-family: 'Roboto Slab', serif;
 }
-.background {
-  background: $primary-color;
+h1, h2, h3 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
 }
 
+// Link colors
+a:active {
+  opacity: 0.6;
+}
+.index a {
+  color: $home;
+  -webkit-tap-highlight-color: rgba(45,175,74,0.2);
+  &:hover {
+    color: scale-color($home, $lightness: -14%);
+    background: rgba(45,175,74,0.2);
+  }
+}
+.experience a {
+  color: $experience;
+  -webkit-tap-highlight-color: rgba(232,152,60,0.2);
+  &:hover {
+    color: scale-color($experience, $lightness: -14%);
+    background: rgba(232,152,60,0.2);
+  }
+}
+.connect a {
+  color: $connect;
+  -webkit-tap-highlight-color: rgba(231,76,60,0.2);
+  &:hover {
+    color: scale-color($connect, $lightness: -14%);
+    background: rgba(231,76,60,0.2);
+  }
+}
+// Text diff effect
 // h2 {
 //   color: $primary-color;
 //   mix-blend-mode: difference;
 // }
+
+// Default background colors and borders
+img {
+  border: 3px solid $primary-color;
+}
+.background {
+  background: $primary-color;
+}
 .secondary-color {
   a {
     color: $secondary-color;
@@ -24,15 +63,39 @@ img {
   //   color: $secondary-color;
   // }
 }
+.third-color {
+  a {
+    color: $red;
+  }
+  img {
+     border-color: $red;
+  }
+  .background {
+    background: $red;
+  }
+  // h2 {
+  //   color: $red;
+  // }
+}
+// Fix link colors on colored backgrounds
 [data-parallax-bg] {
   a {
     color: #fff;
+    opacity: 0.8;
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
   }
 }
 
+.no-border img {
+  border: 0;
+}
+
+// Hero section
 .hero {
   text-align: center;
-
   .grid-frame {
     height: 90vh;
   }
@@ -53,7 +116,7 @@ img {
   }
 }
 
-// Section default spacing
+// Standard section
 .section {
   position: relative;
   padding-bottom: 6rem;
@@ -72,7 +135,7 @@ img {
     display: block;
     content: ' ';
     width: 100%;
-    height: calc(100% + 4rem);
+    height: calc(100% + 3rem);
     top: 2rem;
     z-index: -1;
   }
@@ -87,6 +150,7 @@ img {
 
 // Experience owl carousel
 .owl-item {
+  margin-bottom: 2rem;
   -webkit-transition: opacity 0.5s; /* Safari */
   transition: opacity 0.5s;
   opacity: 0.5;
@@ -95,6 +159,8 @@ img {
     transition: padding 0.5s;
     padding: 1rem;
     border: 0;
+    max-width: 300px;
+    margin: 0 auto;
   }
   &.center {
     padding: 0;
@@ -113,4 +179,27 @@ img {
 }
 .owl-next {
   right: 0;
+}
+.owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    span {
+      width: 10px;
+      height: 10px;
+      margin: 5px 7px;
+      background: #ddd;
+      display: block;
+      -webkit-backface-visibility: visible;
+      transition: opacity 200ms ease;
+      border-radius: 30px;
+    }
+    &.active span,
+    &:hover span {
+      background: #333;
+    }
+  }
 }
