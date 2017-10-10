@@ -42,10 +42,16 @@ a:active {
 //   mix-blend-mode: difference;
 // }
 
-// Default background colors and borders
-img {
+// Circle image with border
+.img-circle img {
   border: 3px solid $primary-color;
+  border-radius: 50%;
 }
+.icon img {
+  background: #fff;
+  //padding: 5px;
+}
+// Background and border colors for each page
 .background {
   background: $primary-color;
 }
@@ -53,7 +59,8 @@ img {
   a {
     color: $secondary-color;
   }
-  img {
+  img,
+  svg {
      border-color: $secondary-color;
   }
   .background {
@@ -67,7 +74,8 @@ img {
   a {
     color: $red;
   }
-  img {
+  img,
+  svg {
      border-color: $red;
   }
   .background {
@@ -89,18 +97,14 @@ img {
   }
 }
 
-.no-border img {
-  border: 0;
-}
-
 // Hero section
 .hero {
   text-align: center;
   .grid-frame {
     height: 90vh;
   }
-  img {
-    border-radius: 50%;
+  img,
+  svg {
     margin-bottom: 5vh;
     height: 25vh;
   }
@@ -109,10 +113,7 @@ img {
   }
   .cta-group {
     max-width: 350px;
-    margin: 0 auto;
-  }
-  .button {
-    margin-top: 2vh;
+    margin: 2vh auto 0;
   }
 }
 
@@ -120,11 +121,8 @@ img {
 .section {
   position: relative;
   padding-bottom: 6rem;
-  .img {
-    text-align: center;
-    img {
-      border-radius: 50%;
-    }
+  &:last-child {
+    padding-bottom: 15rem;
   }
 }
 
@@ -144,7 +142,7 @@ img {
 // Experience timeline sections
 .media-object {
   .thumbnail {
-    margin-left: -5rem;
+    margin-left: -4rem;
   }
 }
 
@@ -205,5 +203,13 @@ img {
     &:hover span {
       background: #333;
     }
+  }
+}
+
+// Social media menu
+.social {
+  img,
+  svg {
+    width: 2rem;
   }
 }

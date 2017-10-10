@@ -1,6 +1,6 @@
 .nav-primary {
   font-family: 'Comfortaa', cursive;
-  opacity: 0.6;
+  opacity: 0.8;
   position: fixed;
   bottom: -40px;
   width: 100%;
@@ -12,6 +12,7 @@
     bottom: 0;
   }
   @include breakpoint(large) {
+    opacity: 0.6;
     top: 0;
     bottom: auto !important;
   }
