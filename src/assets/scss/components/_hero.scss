@@ -81,7 +81,7 @@ img {
 [data-parallax-bg] {
   a {
     color: #fff;
-    opacity: 0.8;
+    opacity: 0.85;
     &:hover {
       color: #fff;
       opacity: 1;
@@ -169,12 +169,16 @@ img {
       padding: 0 0 1rem 0;
     }
   }
+  .item {
+    @include xy-grid-container;
+    padding: 0;
+  }
 }
 .owl-prev,
 .owl-next {
   position: absolute;
   top: 0;
-  width: 2.5rem;
+  width: calc(18% - 15px);
   height: 100%;
 }
 .owl-next {

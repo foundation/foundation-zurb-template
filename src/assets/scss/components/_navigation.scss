@@ -1,15 +1,19 @@
 .nav-primary {
   font-family: 'Comfortaa', cursive;
-  opacity: 0.8;
+  opacity: 0.6;
   position: fixed;
-  bottom: -100vh;
+  bottom: -40px;
   width: 100%;
   z-index: 1000;
-  background: #efefef;
+  background: #fff;
   -webkit-transition: bottom 1s, opacity 0.5s; /* Safari */
   transition: bottom 1s, opacity 0.5s;
   &.visible {
     bottom: 0;
+  }
+  @include breakpoint(large) {
+    top: 0;
+    bottom: auto !important;
   }
   .is-active {
     font-weight: 700;
