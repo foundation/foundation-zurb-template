@@ -23,14 +23,23 @@
     opacity: 0.95;
   }
 }
-.index .nav-primary .is-active {
-  background: rgba(45, 175, 74, 0.1);
+.index .nav-primary {
+  fill: $home;
+  .is-active {
+    background: rgba(45, 175, 74, 0.1);
+  }
 }
-.experience .nav-primary .is-active {
-  background: rgba(232, 152, 60, 0.1);
+.experience .nav-primary {
+  fill: $experience;
+  .is-active {
+    background: rgba(232, 152, 60, 0.1);
+  }
 }
-.connect .nav-primary .is-active {
-  background: rgba(231, 76, 60, 0.1);
+.connect .nav-primary {
+  fill: $connect;
+  .is-active {
+    background: rgba(231, 76, 60, 0.1);
+  }
 }
 
 // Telephone
