@@ -97,6 +97,15 @@ a:active {
   }
 }
 
+// CTA
+.cta {
+  margin-top: 2rem;
+  text-align: center;
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
 // Hero section
 .hero {
   text-align: center;
@@ -105,25 +114,34 @@ a:active {
   }
   img,
   svg {
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
     height: 25vh;
   }
   p {
-    margin-bottom: 5vh;
+    margin-bottom: 2.5rem;
   }
   .cta-group {
-    max-width: 350px;
+    //max-width: 400px;
     margin: 2vh auto 0;
+  }
+  .button {
+    margin-bottom: 1rem;
   }
 }
 
-// Standard section
+// Standard section styles
 .section {
   position: relative;
-  padding-bottom: 6rem;
+  padding-bottom: 5rem;
   &:last-child {
     padding-bottom: 15rem;
   }
+  .section-teaser {
+    padding-bottom: 1rem;
+  }
+}
+.sub-section {
+  margin-top: 2rem;
 }
 
 // Section background parallax
