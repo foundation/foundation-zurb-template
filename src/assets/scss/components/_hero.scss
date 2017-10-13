@@ -9,8 +9,17 @@ h1, h2, h3 {
 }
 
 // Link colors
-a:active {
-  opacity: 0.6;
+@mixin text-round {
+  a:hover:not(.button) {
+    border-radius: $global-radius;
+    padding: 0.2rem;
+    margin: -0.2rem;
+  }
+}
+a {
+  &:active {
+    opacity: 0.6;
+  }
 }
 .index a {
   color: $home;
@@ -92,6 +101,7 @@ a:active {
     opacity: 0.85;
     &:hover {
       color: #fff;
+      background: rgba(255,255,255,0.2);
       opacity: 1;
     }
   }
@@ -127,6 +137,7 @@ a:active {
   .button {
     margin-bottom: 1rem;
   }
+  @include text-round;
 }
 
 // Standard section styles
@@ -139,6 +150,7 @@ a:active {
   .section-teaser {
     padding-bottom: 1rem;
   }
+  @include text-round;
 }
 .sub-section {
   margin-top: 2rem;
@@ -229,5 +241,9 @@ a:active {
   img,
   svg {
     width: 2rem;
+  }
+  a {
+    padding: 1rem;
+    border-radius: 50%;
   }
 }
