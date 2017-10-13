@@ -32,3 +32,48 @@
 .connect .nav-primary .is-active {
   background: rgba(231, 76, 60, 0.1);
 }
+
+// Telephone
+.nav-telephone {
+  position: absolute;
+  background: #fff;
+  border-radius: 50% 0 0 50%;
+  bottom: 45px;
+  right: -20px;
+  -webkit-transition: right 1s; /* Safari */
+  transition: right 1s;
+  @include breakpoint(large) {
+    top: 0;
+    right: 0;
+    padding-left: 2px;
+    bottom: auto !important;
+    border-radius: 0 0 0 40px;
+  }
+  &:hover,
+  &:active {
+    right: 0;
+  }
+  a {
+    display: inline-block;
+    padding: 10px;
+    line-height: 0;
+    font-size: 0;
+    background: none !important;
+    @include breakpoint(large) {
+      font-size: inherit;
+    }
+  }
+  .icon {
+    // -ms-transform: rotate(45deg); /* IE 9 */
+    // -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    // transform: rotate(45deg);
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    vertical-align: middle;
+    path {
+      fill: inherit;
+    }
+  }
+}
