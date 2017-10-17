@@ -52,7 +52,8 @@ a {
 // }
 
 // Circle image with border
-.img-circle img {
+.img-circle img,
+.img-circle svg {
   border: 3px solid $primary-color;
   border-radius: 50%;
 }
