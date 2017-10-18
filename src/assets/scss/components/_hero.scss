@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Slab');
-
-body {
-  font-family: 'Roboto Slab', serif;
-}
-h1, h2, h3 {
-  font-family: 'Comfortaa', cursive;
-  font-weight: 700;
-}
-
 // Link colors
 @mixin text-round {
   a:hover:not(.button) {

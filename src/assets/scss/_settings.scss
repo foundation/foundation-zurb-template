@@ -62,6 +62,9 @@
 
 @import 'util/util';
 
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Slab');
+
 // 1. Global
 // ---------
 
@@ -78,14 +81,14 @@ $foundation-palette: (
 $green: #2daf4a;
 $orange: #E78F3C;
 $red: #E74C3C;
-$light-gray: #e6e6e6;
+$light-gray: #efefef;
 $medium-gray: #ccc;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Roboto Slab', 'Georgia', serif;
 $body-antialiased: true;
 $global-margin: 2rem;
 $global-padding: 1rem;
@@ -137,8 +140,8 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-family: 'Comfortaa', 'Helvetica', sans-serif;
+$header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -157,9 +160,9 @@ $header-styles: (
     'h1': ('font-size': 48),
     'h2': ('font-size': 40),
     'h3': ('font-size': 26),
-    'h4': ('font-size': 25),
+    'h4': ('font-size': 22),
     'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h6': ('font-size': 18),
   ),
 );
 $header-text-rendering: optimizeLegibility;
