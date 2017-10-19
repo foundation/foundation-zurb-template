@@ -22,7 +22,9 @@ $(document).ready(function ($) {
     navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
     items: 1.5,
     smartSpeed: 500,
-    margin: 30
+    margin: 40,
+    URLhashListener: true,
+    startPosition: 'URLHash'
   });
 });
 
