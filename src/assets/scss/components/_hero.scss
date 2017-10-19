@@ -176,14 +176,6 @@ a {
   -webkit-transition: opacity 0.5s; /* Safari */
   transition: opacity 0.5s;
   opacity: 0.5;
-  img {
-    -webkit-transition: padding 0.5s; /* Safari */
-    transition: padding 0.5s;
-    padding: 1rem;
-    border: 0;
-    max-width: 300px;
-    margin: 0 auto;
-  }
   &.center {
     padding: 0;
     opacity: 1;
@@ -194,6 +186,18 @@ a {
   .item {
     @include xy-grid-container;
     padding: 0;
+  }
+  img {
+    -webkit-transition: padding 0.5s; /* Safari */
+    transition: padding 0.5s;
+    padding: 1rem;
+    border: 0;
+    max-width: 80%;
+    max-width: max-content;
+    margin: 0 auto;
+  }
+  .icon {
+    max-width: 300px;
   }
 }
 .owl-prev,
