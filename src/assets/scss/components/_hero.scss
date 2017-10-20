@@ -234,6 +234,59 @@ a {
   }
 }
 
+// Experience device screenshots
+.devices {
+  position: relative;
+}
+.device {
+  position: relative;
+  z-index: 2;
+  .frame {
+    position: relative;
+    z-index: 2;
+  }
+  .img-frame {
+    background: #000;
+    position: absolute;
+    z-index: 1;
+    overflow: auto;
+    text-align: center;
+  }
+}
+.device-desktop {
+  width: 500px;
+  margin: 0 auto;
+  .img-frame {
+    top: 20px;
+    left: 19px;
+    width: 460px;
+    height: 259px;
+  }
+}
+.device-tablet {
+  position: absolute;
+  width: 250px;
+  bottom: 0;
+  .img-frame {
+    top: 28px;
+    left: 24px;
+    width: 202px;
+    height: 268px;
+  }
+}
+.device-phone {
+  position: absolute;
+  width: 130px;
+  bottom: 0;
+  right: 50px;
+  .img-frame {
+    top: 26px;
+    left: 16px;
+    width: 100px;
+    height: 177px;
+  }
+}
+
 // Social media menu
 .social {
   img,
