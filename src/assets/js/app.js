@@ -23,6 +23,7 @@ $(document).ready(function ($) {
     smartSpeed: 500,
     URLhashListener: true,
     startPosition: 'URLHash',
+    autoHeight:true,
     responsive : {
       0 : {
         margin: 20
