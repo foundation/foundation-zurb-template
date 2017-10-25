@@ -6,10 +6,14 @@
   width: 100%;
   z-index: 1000;
   background: #fff;
+  fill: #fff;
   -webkit-transition: bottom 1s, opacity 0.5s; /* Safari */
   transition: bottom 1s, opacity 0.5s;
   &.visible {
     bottom: 0;
+    .nav-telephone {
+      bottom: 45px;
+    }
   }
   @include breakpoint(large) {
     opacity: 0.6;
@@ -24,19 +28,25 @@
   }
 }
 .index .nav-primary {
-  fill: $home;
+  .nav-telephone .icon {
+    background-color: $home;
+  }
   .is-active {
     background: rgba(45, 175, 74, 0.1);
   }
 }
 .experience .nav-primary {
-  fill: $experience;
+  .nav-telephone .icon {
+    background-color: $experience;
+  }
   .is-active {
     background: rgba(232, 152, 60, 0.1);
   }
 }
 .connect .nav-primary {
-  fill: $connect;
+  .nav-telephone .icon {
+    background-color: $connect;
+  }
   .is-active {
     background: rgba(231, 76, 60, 0.1);
   }
@@ -45,44 +55,39 @@
 // Telephone
 .nav-telephone {
   position: absolute;
-  background: #fff;
-  border-radius: 50% 0 0 50%;
-  bottom: 45px;
-  right: -20px;
-  -webkit-transition: right 1s; /* Safari */
-  transition: right 1s;
+  bottom: 85px;
+  right: 8px;
+  -webkit-transition: bottom 1s; /* Safari */
+  transition: bottom 1s;
   @include breakpoint(large) {
-    top: 0;
-    right: 0;
-    padding-left: 2px;
+    top: 2px;
+    right: 5px;
     bottom: auto !important;
-    border-radius: 0 0 0 40px;
-  }
-  &:hover,
-  &:active {
-    right: 0;
   }
   a {
+    background: none !important;
     display: inline-block;
-    padding: 10px;
     line-height: 0;
     font-size: 0;
-    background: none !important;
+    border-radius: 50%;
     @include breakpoint(large) {
       font-size: inherit;
     }
   }
   .icon {
-    // -ms-transform: rotate(45deg); /* IE 9 */
-    // -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    // transform: rotate(45deg);
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 12px;
     vertical-align: middle;
     path {
       fill: inherit;
+    }
+    @include breakpoint(large) {
+      width: 34px;
+      height: 34px;
+      padding: 6px;
     }
   }
 }
