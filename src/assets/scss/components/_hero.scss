@@ -267,7 +267,7 @@ a {
     z-index: 2;
   }
   .img-frame {
-    background: #000;
+    background: #fff;
     position: absolute;
     z-index: 1;
     overflow: auto;
@@ -279,10 +279,10 @@ a {
     width: 300px;
     margin: 0 auto;
     .img-frame {
-      top: 12px;
+      top: 11px;
       left: 11px;
-      width: 277px;
-      height: 155px;
+      width: 278px;
+      height: 157px;
     }
   }
   .device-tablet {
@@ -290,11 +290,11 @@ a {
     width: 140px;
     bottom: 0;
     .img-frame {
-      border: 1px solid $medium-gray;
-      top: 15px;
-      left: 14px;
-      width: 113px;
-      height: 151px;
+      border: 1px solid #000;
+      top: 14px;
+      left: 12px;
+      width: 116px;
+      height: 153px;
     }
   }
   .device-phone {
@@ -303,10 +303,10 @@ a {
     bottom: 0;
     right: 0;
     .img-frame {
-      top: 16px;
-      left: 10px;
-      width: 61px;
-      height: 109px;
+      top: 15px;
+      left: 9px;
+      width: 63px;
+      height: 111px;
     }
   }
 
@@ -317,29 +317,29 @@ a {
   .device-desktop {
     width: 500px;
     .img-frame {
-      top: 20px;
-      left: 19px;
-      width: 460px;
-      height: 259px;
+      top: 19px;
+      left: 18px;
+      width: 462px;
+      height: 260px;
     }
   }
   .device-tablet {
     width: 250px;
     .img-frame {
-      top: 28px;
-      left: 24px;
-      width: 202px;
-      height: 268px;
+      top: 26px;
+      left: 23px;
+      width: 204px;
+      height: 272px;
     }
   }
   .device-phone {
     width: 130px;
     right: 30px;
     .img-frame {
-      top: 26px;
-      left: 16px;
-      width: 100px;
-      height: 177px;
+      top: 25px;
+      left: 14px;
+      width: 103px;
+      height: 178px;
     }
   }
 }
