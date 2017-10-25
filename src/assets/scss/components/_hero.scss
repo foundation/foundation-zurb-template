@@ -6,41 +6,19 @@
     margin: -0.2rem;
   }
 }
+
 a {
   &:active {
     opacity: 0.6;
   }
 }
 .index a {
-  color: $home;
   -webkit-tap-highlight-color: rgba(45,175,74,0.2);
   &:hover {
     color: scale-color($home, $lightness: -14%);
     background: rgba(45,175,74,0.2);
   }
 }
-.experience a {
-  color: $experience;
-  -webkit-tap-highlight-color: rgba(232,152,60,0.2);
-  &:hover {
-    color: scale-color($experience, $lightness: -14%);
-    background: rgba(232,152,60,0.2);
-  }
-}
-.connect a {
-  color: $connect;
-  -webkit-tap-highlight-color: rgba(231,76,60,0.2);
-  &:hover {
-    color: scale-color($connect, $lightness: -14%);
-    background: rgba(231,76,60,0.2);
-  }
-}
-// Text diff effect
-// h2 {
-//   color: $primary-color;
-//   mix-blend-mode: difference;
-// }
-
 // Circle image with border
 .img-circle img,
 .img-circle svg {
@@ -49,15 +27,19 @@ a {
 }
 .icon img {
   background: #fff;
-  //padding: 5px;
 }
 // Background and border colors for each page
 .background {
   background: $primary-color;
 }
-.secondary-color {
+.experience {
   a {
-    color: $secondary-color;
+    color: $experience;
+    -webkit-tap-highlight-color: rgba(232,152,60,0.2);
+    &:hover {
+      color: scale-color($experience, $lightness: -14%);
+      background: rgba(232,152,60,0.2);
+    }
   }
   img,
   svg {
@@ -66,13 +48,15 @@ a {
   .background {
     background: $secondary-color;
   }
-  // h2 {
-  //   color: $secondary-color;
-  // }
 }
-.third-color {
+.connect {
   a {
-    color: $red;
+    color: $connect;
+    -webkit-tap-highlight-color: rgba(231,76,60,0.2);
+    &:hover {
+      color: scale-color($connect, $lightness: -14%);
+      background: rgba(231,76,60,0.2);
+    }
   }
   img,
   svg {
@@ -81,9 +65,6 @@ a {
   .background {
     background: $red;
   }
-  // h2 {
-  //   color: $red;
-  // }
 }
 // Fix link colors on colored backgrounds
 [data-parallax-bg] {
@@ -204,8 +185,11 @@ a {
 .owl-next {
   position: absolute;
   top: 0;
-  width: calc(18% - 20px);
+  width: calc(18% - 10px);
   height: 100%;
+  @include breakpoint(large) {
+    width: calc(18% - 20px);
+  }
 }
 .owl-next {
   right: 0;
@@ -234,11 +218,27 @@ a {
   }
 }
 
+// Modals
+.modal-button {
+  padding: 0.5rem;
+  width: 100%;
+}
+.portfolio-thumb {
+  padding: 0;
+  margin: 0 auto 0.5rem;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+
 // Experience device screenshots
 .device-container {
   position: relative;
   overflow: visible;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 .device {
   position: relative;
@@ -271,6 +271,7 @@ a {
     width: 140px;
     bottom: 0;
     .img-frame {
+      border: 1px solid $medium-gray;
       top: 15px;
       left: 14px;
       width: 113px;
@@ -314,7 +315,7 @@ a {
   }
   .device-phone {
     width: 130px;
-    right: 50px;
+    right: 30px;
     .img-frame {
       top: 26px;
       left: 16px;

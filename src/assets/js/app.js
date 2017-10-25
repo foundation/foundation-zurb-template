@@ -17,14 +17,20 @@ $(document).foundation();
 $(document).ready(function ($) {
   $('.owl-carousel').owlCarousel({
     center: true,
-    loop: true,
     nav: true,
     navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
     items: 1.5,
     smartSpeed: 500,
-    margin: 40,
     URLhashListener: true,
-    startPosition: 'URLHash'
+    startPosition: 'URLHash',
+    responsive : {
+      0 : {
+        margin: 20
+      },
+      1024 : {
+        margin: 40
+      }
+    }
   });
 });
 
