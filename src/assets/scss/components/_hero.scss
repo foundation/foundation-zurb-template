@@ -43,10 +43,18 @@ a {
   }
   img,
   svg {
-     border-color: $secondary-color;
+     border-color: $experience;
   }
   .background {
-    background: $secondary-color;
+    background: $experience;
+  }
+  .media-object {
+    .thumbnail {
+      img,
+      svg {
+        width: 7rem;
+      }
+    }
   }
 }
 .connect {
@@ -60,10 +68,18 @@ a {
   }
   img,
   svg {
-     border-color: $red;
+     border-color: $connect;
   }
   .background {
-    background: $red;
+    background: $connect;
+  }
+  .media-object {
+    .thumbnail {
+      img,
+      svg {
+        width: 5rem;
+      }
+    }
   }
 }
 // Fix link colors on colored backgrounds
