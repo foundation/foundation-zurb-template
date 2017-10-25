@@ -253,97 +253,10 @@ a {
   background: #fff;
 }
 
-// Experience device screenshots
-.device-container {
-  position: relative;
-  overflow: visible;
-  margin: 2rem 0;
+.device-screenshot {
+  margin: 2rem;
+  max-width: 600px;
 }
-.device {
-  position: relative;
-  z-index: 2;
-  .frame {
-    position: relative;
-    z-index: 2;
-  }
-  .img-frame {
-    background: #fff;
-    position: absolute;
-    z-index: 1;
-    overflow: auto;
-    text-align: center;
-  }
-}
-
-.device-desktop {
-    width: 300px;
-    margin: 0 auto;
-    .img-frame {
-      top: 11px;
-      left: 11px;
-      width: 278px;
-      height: 157px;
-    }
-  }
-  .device-tablet {
-    position: absolute;
-    width: 140px;
-    bottom: 0;
-    .img-frame {
-      border: 1px solid #000;
-      top: 14px;
-      left: 12px;
-      width: 116px;
-      height: 153px;
-    }
-  }
-  .device-phone {
-    position: absolute;
-    width: 80px;
-    bottom: 0;
-    right: 0;
-    .img-frame {
-      top: 15px;
-      left: 9px;
-      width: 63px;
-      height: 111px;
-    }
-  }
-
-@include breakpoint(medium) {
-  .device-container {
-    margin-left: 2rem;
-  }
-  .device-desktop {
-    width: 500px;
-    .img-frame {
-      top: 19px;
-      left: 18px;
-      width: 462px;
-      height: 260px;
-    }
-  }
-  .device-tablet {
-    width: 250px;
-    .img-frame {
-      top: 26px;
-      left: 23px;
-      width: 204px;
-      height: 272px;
-    }
-  }
-  .device-phone {
-    width: 130px;
-    right: 30px;
-    .img-frame {
-      top: 25px;
-      left: 14px;
-      width: 103px;
-      height: 178px;
-    }
-  }
-}
-
 
 // Social media menu
 .social {
