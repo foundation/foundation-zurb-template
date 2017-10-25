@@ -190,6 +190,9 @@ a {
   @include breakpoint(large) {
     width: calc(18% - 20px);
   }
+  &.disabled {
+    display: none;
+  }
 }
 .owl-next {
   right: 0;
