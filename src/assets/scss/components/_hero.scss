@@ -94,7 +94,8 @@ a {
     }
   }
   small {
-    color: $light-gray;
+    color: #fff;
+    opacity: 0.6;
   }
 }
 
@@ -257,6 +258,55 @@ a {
   margin: 2rem;
   max-width: 600px;
 }
+
+// Experience device screenshots
+.device-container {
+  position: relative;
+  overflow: visible;
+  margin: 2rem 0;
+}
+.device {
+  position: relative;
+  z-index: 2;
+  .frame {
+    position: relative;
+    z-index: 2;
+  }
+  .img-frame {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+  }
+}
+
+.device-desktop {
+  width: 300px;
+  margin: 0 auto;
+  .img-frame {
+    top: 11px;
+    left: 11px;
+    width: 278px;
+    height: 157px;
+  }
+}
+
+@include breakpoint(medium) {
+  .device-container {
+    margin-left: 2rem;
+  }
+  .device-desktop {
+    width: 500px;
+    .img-frame {
+      top: 19px;
+      left: 18px;
+      width: 462px;
+      height: 260px;
+    }
+  }
+}
+
 
 // Social media menu
 .social {
