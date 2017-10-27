@@ -25,7 +25,15 @@
     {{> navigation}}
     {{> body}}
 
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Comfortaa', 'Roboto Slab']
+        }
+      });
+    </script>
     <script src="{{root}}assets/js/app.js"></script>
-    <script src="{{root}}assets/js/plugins/owl.carousel.min.js"></script>
+    {{#ifpage 'experience'}}<script src="{{root}}assets/js/plugins/owl.carousel.min.js"></script>{{/ifpage}}
   </body>
 </html>

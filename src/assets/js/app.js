@@ -34,24 +34,26 @@ $('a[data-reveal-return]').on('click', function() {
 
 // Experience carousels
 $(document).ready(function ($) {
-  $('.owl-carousel').owlCarousel({
-    center: true,
-    nav: true,
-    navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
-    items: 1.5,
-    smartSpeed: 500,
-    URLhashListener: true,
-    startPosition: 'URLHash',
-    autoHeight:true,
-    responsive : {
-      0 : {
-        margin: 20
-      },
-      1024 : {
-        margin: 40
+  if ($.fn.owlCarousel) {
+    $('.owl-carousel').owlCarousel({
+      center: true,
+      nav: true,
+      navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
+      items: 1.5,
+      smartSpeed: 500,
+      URLhashListener: true,
+      startPosition: 'URLHash',
+      autoHeight:true,
+      responsive : {
+        0 : {
+          margin: 20
+        },
+        1024 : {
+          margin: 40
+        }
       }
-    }
-  });
+    });
+  }
 });
 
 var $window = $(window);
