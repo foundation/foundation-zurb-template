@@ -6,10 +6,10 @@ import whatInput from 'what-input';
 window.$ = $;
 window.jQuery = jQuery;
 
-import Foundation from 'foundation-sites';
+// import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
-//import './lib/foundation-explicit-pieces';
+import './lib/foundation-explicit-pieces';
 
 // Custom media queries
 Foundation.Interchange.SPECIAL_QUERIES['smallRetina'] = 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)';
