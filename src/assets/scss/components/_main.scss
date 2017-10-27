@@ -1,3 +1,17 @@
+// Web fonts loading flash avoidance
+.wf-loading {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  .menu a {
+    opacity: 0;
+  }
+}
+
 // Link colors
 @mixin text-round {
   a:hover:not(.button) {
