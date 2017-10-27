@@ -17,6 +17,18 @@ Foundation.Interchange.SPECIAL_QUERIES['mediumRetina'] = 'only screen and (min-w
 
 $(document).foundation();
 
+// Moving between modals
+// Need this to fix closing of the new modal since it moves focus to carousel slide out of view
+$('a[data-reveal-return]').on('click', function() {
+  var $a = $(this);
+  var returnModalID = $a.data('reveal-return');
+  var $returnModal = $('#'+returnModalID);
+  var $newModal = $($a.attr('href'));
+  $newModal.on('closed.zf.reveal', function() {
+    $returnModal.foundation('open');
+  });
+});
+
 // Experience carousels
 $(document).ready(function ($) {
   $('.owl-carousel').owlCarousel({
