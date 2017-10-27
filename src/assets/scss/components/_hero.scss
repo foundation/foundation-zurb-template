@@ -255,6 +255,10 @@ a {
   background: #fff;
 }
 
+.reveal {
+  @include text-round;
+}
+
 .device-screenshot {
   margin: 2rem;
   max-width: 600px;
