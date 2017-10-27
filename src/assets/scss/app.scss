@@ -57,5 +57,15 @@
 
 // App files
 
+// Global mixins
+
+// Transition vendor prefixes
+// example:
+// @include transition(property duration, property2optional duration2optional);
+@mixin transPrefix($value...) {
+  -webkit-transition: $value; /* Safari */
+  transition: $value;
+}
+
 @import 'components/navigation';
 @import 'components/main';

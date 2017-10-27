@@ -1,4 +1,13 @@
-// Web fonts loading flash avoidance
+// Link colors
+@mixin text-round {
+  a:hover:not(.button) {
+    border-radius: $global-radius;
+    padding: 0.2rem;
+    margin: -0.2rem;
+  }
+}
+
+// Webfont loading flash avoidance
 h1,
 h2,
 h3,
@@ -8,8 +17,7 @@ h6,
 p,
 .button,
 .menu a {
-  -webkit-transition: opacity 0.25s; /* Safari */
-  transition: opacity 0.25s;
+  @include transPrefix(opacity, 0.25s);
 }
 .wf-loading {
   h1,
@@ -22,15 +30,6 @@ p,
   .button,
   .menu a {
     opacity: 0;
-  }
-}
-
-// Link colors
-@mixin text-round {
-  a:hover:not(.button) {
-    border-radius: $global-radius;
-    padding: 0.2rem;
-    margin: -0.2rem;
   }
 }
 
@@ -199,8 +198,7 @@ a {
 // Experience owl carousel
 .owl-item {
   margin-bottom: 2rem;
-  -webkit-transition: opacity 0.5s; /* Safari */
-  transition: opacity 0.5s;
+  @include transPrefix(opacity 0.5s);
   opacity: 0.5;
   &.center {
     padding: 0;
@@ -214,8 +212,7 @@ a {
     padding: 0;
   }
   img {
-    -webkit-transition: padding 0.5s; /* Safari */
-    transition: padding 0.5s;
+    @include transPrefix(padding 0.5s);
     padding: 1rem;
     border: 0;
     max-width: 80%;
@@ -257,7 +254,7 @@ a {
       background: #ddd;
       display: block;
       -webkit-backface-visibility: visible;
-      transition: opacity 200ms ease;
+      @include transPrefix(opacity 200ms ease);
       border-radius: 30px;
     }
     &.active span,
