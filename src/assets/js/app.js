@@ -19,12 +19,15 @@ $(document).foundation();
 
 // Moving between modals
 // Need this to fix closing of the new modal since it moves focus to carousel slide out of view
+/* HTML example:
+  <a href="#next-modal" data-open="next-modal" data-reveal-return="return-modal-id">go to next modal</a>
+*/
 $('a[data-reveal-return]').on('click', function() {
   var $a = $(this);
   var returnModalID = $a.data('reveal-return');
   var $returnModal = $('#'+returnModalID);
-  var $newModal = $($a.attr('href'));
-  $newModal.on('closed.zf.reveal', function() {
+  var $nextModal = $($a.attr('href'));
+  $nextModal.on('closed.zf.reveal', function() {
     $returnModal.foundation('open');
   });
 });
