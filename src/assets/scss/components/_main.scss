@@ -1,4 +1,16 @@
 // Web fonts loading flash avoidance
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.button,
+.menu a {
+  -webkit-transition: opacity 0.25s; /* Safari */
+  transition: opacity 0.25s;
+}
 .wf-loading {
   h1,
   h2,
@@ -7,6 +19,7 @@
   h5,
   h6,
   p,
+  .button,
   .menu a {
     opacity: 0;
   }
