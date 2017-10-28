@@ -27,7 +27,7 @@ $('a[data-reveal-return]').on('click', function() {
   var returnModalID = $a.data('reveal-return');
   var $returnModal = $('#'+returnModalID);
   var $nextModal = $($a.attr('href'));
-  $nextModal.on('closed.zf.reveal', function() {
+  $nextModal.one('closed.zf.reveal', function() {
     $returnModal.foundation('open');
   });
 });
