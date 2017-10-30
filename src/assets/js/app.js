@@ -6,6 +6,7 @@ import whatInput from 'what-input';
 window.$ = $;
 window.jQuery = jQuery;
 var $document = $(document);
+var $window = $(window);
 
 // import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
@@ -58,10 +59,9 @@ $document.ready(function ($) {
       nav: true,
       navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
       items: 1.5,
-      smartSpeed: 500,
       URLhashListener: true,
       startPosition: 'URLHash',
-      // autoHeight:true,
+      autoHeight: true,
       responsive : {
         0 : {
           margin: 20
@@ -71,23 +71,25 @@ $document.ready(function ($) {
         }
       }
     });
+    // Scroll to top of item after navigation
+    $owl.on('change.owl.carousel', function(event) {
+      $('html, body').animate({scrollTop: $(this).offset().top });
+    });
   }
 });
 
-var $window = $(window);
-
+// Show nav only after initial scroll
 $window.one('scroll', function() {
   var $primaryNav = $('.nav-primary');
   $primaryNav.addClass('visible');
 });
 
-var $parallaxSection = $('[data-parallax-bg]');
 
+// Parallax background effect
+var $parallaxSection = $('[data-parallax-bg]');
 $window.on('scroll', function() {
-  
   $parallaxSection.each(function() {
     var thisOffset = this.getBoundingClientRect()
-
     if(thisOffset.top < document.documentElement.clientHeight && thisOffset.bottom > 0) {
       // If in view
       var $background = $(this).find('.background');
