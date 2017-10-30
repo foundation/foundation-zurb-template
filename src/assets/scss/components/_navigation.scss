@@ -79,13 +79,14 @@
     border-radius: 50%;
     padding: 12px;
     vertical-align: middle;
+    border: 2px solid #fff;
     path {
       fill: inherit;
     }
     @include breakpoint(large) {
       width: 34px;
       height: 34px;
-      padding: 8px;
+      padding: 6px;
     }
   }
 }
