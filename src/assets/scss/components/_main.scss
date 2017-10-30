@@ -33,6 +33,22 @@ p,
   }
 }
 
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  letter-spacing: -0.03em;
+}
+
 a {
   &:active {
     opacity: 0.6;
@@ -48,12 +64,23 @@ a {
 // Circle image with border
 .img-circle img,
 .img-circle svg {
-  border: 3px solid $primary-color;
+  border: 3px solid $home;
   border-radius: 50%;
 }
 .icon img {
   background: #fff;
 }
+
+// Back arrow icon
+.icon-back {
+  @include css-triangle(6px, $home, left);
+  display: inline-block;
+  margin-right: 5px;
+}
+a:hover .icon-back {
+  border-right-color: scale-color($home, $lightness: -14%);
+}
+
 // Background and border colors for each page
 .background {
   background: $primary-color;
@@ -63,7 +90,7 @@ a {
     color: $experience;
     -webkit-tap-highlight-color: rgba(232,152,60,0.2);
     &:hover {
-      color: scale-color($experience, $lightness: -14%);
+      color: scale-color($experience, $lightness: 0%);
       background: rgba(232,152,60,0.2);
     }
   }
@@ -198,7 +225,6 @@ a {
 
 // Experience owl carousel
 .owl-item {
-  margin-bottom: 2rem;
   @include transPrefix(opacity 0.5s);
   opacity: 0.5;
   &.center {
@@ -211,6 +237,7 @@ a {
   .item {
     @include xy-grid-container;
     padding: 0;
+    margin-bottom: 2rem;
   }
   img {
     @include transPrefix(padding 0.5s);

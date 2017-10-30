@@ -1,6 +1,6 @@
 .nav-primary {
   font-family: $header-font-family;
-  opacity: 0.8;
+  opacity: 0.9;
   position: fixed;
   bottom: -40px;
   width: 100%;
@@ -15,7 +15,7 @@
     }
   }
   @include breakpoint(large) {
-    opacity: 0.6;
+    opacity: 0.8;
     top: 0;
     bottom: auto !important;
   }
