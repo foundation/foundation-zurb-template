@@ -5,6 +5,7 @@ import whatInput from 'what-input';
 
 window.$ = $;
 window.jQuery = jQuery;
+var $document = $(document);
 
 // import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
@@ -15,7 +16,7 @@ import './lib/foundation-explicit-pieces';
 Foundation.Interchange.SPECIAL_QUERIES['smallRetina'] = 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)';
 Foundation.Interchange.SPECIAL_QUERIES['mediumRetina'] = 'only screen and (min-width: 720px), only screen and (min-width: 720px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 720px) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 720px) and (-o-min-device-pixel-ratio: 2/1), only screen and (min-width: 720px) and (min-device-pixel-ratio: 2), only screen and (min-width: 720px) and (min-resolution: 192dpi), only screen and (min-width: 720px) and (min-resolution: 2dppx)';
 
-$(document).foundation();
+$document.foundation();
 
 // Moving between modals
 // Need this to fix closing of the new modal since it moves focus to carousel slide out of view
@@ -30,12 +31,29 @@ $('a[data-reveal-return]').on('click', function() {
   $nextModal.one('closed.zf.reveal', function() {
     $returnModal.foundation('open');
   });
+})
+
+// Fixing bug in reveal close scroll position on mobile devices
+var scrollPosition = 0;
+var modalOpen = false;
+var $reveal = $('.reveal');
+$reveal.on('closeme.zf.reveal', function() {
+  if(!modalOpen) scrollPosition = $document.scrollTop();
+});
+$reveal.on('open.zf.reveal', function() {
+  modalOpen = true;
+});
+$reveal.on('closed.zf.reveal', function() {
+  $document.scrollTop(scrollPosition);
+  modalOpen = false;
 });
 
+
 // Experience carousels
-$(document).ready(function ($) {
+$document.ready(function ($) {
   if ($.fn.owlCarousel) {
-    $('.owl-carousel').owlCarousel({
+    var $owl = $('.owl-carousel');
+    $owl.owlCarousel({
       center: true,
       nav: true,
       navText: ['<button class="show-for-sr" aria-label="Previous">Previous</button>','<button class="show-for-sr" aria-label="Next">Next</button>'],
@@ -43,7 +61,7 @@ $(document).ready(function ($) {
       smartSpeed: 500,
       URLhashListener: true,
       startPosition: 'URLHash',
-      autoHeight:true,
+      // autoHeight:true,
       responsive : {
         0 : {
           margin: 20

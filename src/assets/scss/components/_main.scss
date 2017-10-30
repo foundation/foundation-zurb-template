@@ -236,7 +236,7 @@ a:hover .icon-back {
   }
   .item {
     @include xy-grid-container;
-    padding: 0;
+    padding: 2rem 0;
     margin-bottom: 2rem;
   }
   img {
@@ -268,7 +268,6 @@ a:hover .icon-back {
   right: 0;
 }
 .owl-dots {
-  margin-top: 2rem;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
   .owl-dot {
@@ -293,6 +292,12 @@ a:hover .icon-back {
 }
 
 // Modals
+// Fixes flash in mobile reveal close
+@include breakpoint(small only) {
+  body.is-reveal-open {
+    background: rgba($black, 0.45);
+  }
+}
 .modal-button {
   padding: 0.5rem;
   width: 100%;
