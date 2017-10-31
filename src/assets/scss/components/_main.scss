@@ -57,8 +57,14 @@ a {
 .index a {
   -webkit-tap-highlight-color: rgba(45,175,74,0.2);
   &:hover {
-    color: scale-color($home, $lightness: -14%);
+    color: scale-color($home, $lightness: -10%);
     background: rgba(45,175,74,0.2);
+  }
+}
+.button {
+  border: 1px solid $home;
+  &:hover {
+    border-color: scale-color($home, $lightness: -10%);
   }
 }
 // Circle image with border
@@ -78,7 +84,7 @@ a {
   margin-right: 5px;
 }
 a:hover .icon-back {
-  border-right-color: scale-color($home, $lightness: -14%);
+  border-right-color: scale-color($home, $lightness: -10%);
 }
 
 // Background and border colors for each page
@@ -92,6 +98,12 @@ a:hover .icon-back {
     &:hover {
       color: scale-color($experience, $lightness: 0%);
       background: rgba(232,152,60,0.2);
+    }
+  }
+  .button {
+    border-color: $experience;
+    &:hover {
+      border-color: scale-color($experience, $lightness: 0%);
     }
   }
   img,
@@ -118,6 +130,12 @@ a:hover .icon-back {
     &:hover {
       color: scale-color($connect, $lightness: -14%);
       background: rgba(231,76,60,0.2);
+    }
+  }
+  .button {
+    border-color: $connect;
+    &:hover {
+      border-color: scale-color($connect, $lightness: -14%);
     }
   }
   img,
@@ -148,6 +166,9 @@ a:hover .icon-back {
       opacity: 1;
     }
   }
+  .button {
+    border-color: #fff;
+  }
   small {
     color: #fff;
     opacity: 0.6;
@@ -158,9 +179,6 @@ a:hover .icon-back {
 .cta {
   margin-top: 2rem;
   text-align: center;
-  h3 {
-    margin-bottom: 0;
-  }
 }
 
 // Hero section
@@ -175,11 +193,14 @@ a:hover .icon-back {
     height: 25vh;
   }
   p {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
   .cta-group {
     //max-width: 400px;
     margin: 2vh auto 0;
+    .cell {
+      margin-bottom: 1vh;
+    }
   }
   .button {
     margin-bottom: 1rem;
@@ -299,6 +320,7 @@ a:hover .icon-back {
   }
 }
 .modal-button {
+  border: 0;
   padding: 0.5rem;
   width: 100%;
 }
