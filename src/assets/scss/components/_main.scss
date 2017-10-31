@@ -64,7 +64,7 @@ a {
 .button {
   border: 1px solid $home;
   &:hover {
-    border-color: scale-color($home, $lightness: -10%);
+    border-color: transparent !important;
   }
 }
 // Circle image with border
@@ -102,9 +102,6 @@ a:hover .icon-back {
   }
   .button {
     border-color: $experience;
-    &:hover {
-      border-color: scale-color($experience, $lightness: 0%);
-    }
   }
   img,
   svg {
@@ -134,9 +131,6 @@ a:hover .icon-back {
   }
   .button {
     border-color: $connect;
-    &:hover {
-      border-color: scale-color($connect, $lightness: -14%);
-    }
   }
   img,
   svg {
