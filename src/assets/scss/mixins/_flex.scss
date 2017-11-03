@@ -1,0 +1,29 @@
+@mixin flex-justify-middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexbox-thing($v-align, $h-align, $child-basis) {
+  display: flex;
+  align-items: $v-align;
+  justify-content: $h-align;
+
+  > div,
+  button,
+  a,
+  span {
+    flex: $child-basis;
+  }
+
+  @if $v-align == center {
+    > div,
+    button,
+    a,
+    span {
+      margin-bottom: 0;
+    }
+  } @else {
+    background: transparent;
+  }
+}

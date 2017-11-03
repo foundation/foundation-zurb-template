@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Style Guide</title>
+    <title>Style Guide | Infusionsoft</title>
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
 
@@ -25,7 +25,7 @@
     }
 
     /* This styles the example rows used in the grid documentation. */
-    .row.display {
+    .grid-x.display {
       background: #eee;
       font-size: 11px;
       margin-bottom: 10px;
@@ -33,9 +33,9 @@
       border: solid 1px #c6c6c6;
       margin-left: 0 !important;
       margin-right: 0 !important; }
-      .row.display .columns:nth-child(2), .row.display .columns.small-centered, .row.display .columns.large-centered {
+      .grid-x.display .cell:nth-child(2), .grid-x.display .cell.small-centered, .grid-x.display .cell.large-centered {
         background: #e1e1e1; }
-      .row.display .columns.color-end {
+      .grid-x.display .cell.color-end {
         background: #d4d4d4; }
 
     /* This styles the color blocks used in the color documentation. */
@@ -54,37 +54,60 @@
         height: 100px;
         margin-bottom: 0.42857rem;
       }
+
+      .sg-header {
+        background: #eee;
+        padding: 2rem;
+      }
+
+      .grid-container {
+        max-width: 1400px;
+      }
+
+      .sg-side-menu {
+        margin-left: 1rem;
+      }
+
+      .grid-container.padded {
+        padding-top: 2rem;
+      }
     </style>
   </head>
   <body>
 
-    <div class="column row">
-      <h1>Client Style Guide</h1>
-      <p class="lead">This style guide was built with Foundation for Sites. For more information on how to use this responsive front-end framework, check out the documentation, get help from the Foundation community, or request immediate technical support.</p>
-      <a href="http://foundation.zurb.com/docs/" class="button">Visit the Docs</a>
-      <a href="http://foundation.zurb.com/forum/" class="secondary button">Foundation Forum</a>
-      <a href="http://foundation.zurb.com/business/business-support.html" class="secondary button">Technical Support</a>
-    </div>
+    <header class="sg-header" id="sg-header">
+      <div class="grid-container">
+        <h1>Infusionsoft Style Guide</h1>
+        <p class="lead">This style guide was built with Foundation for Sites. For more information on how to use this responsive front-end framework, check out the documentation, get help from the Foundation community, or request immediate technical support.</p>
+        <a href="http://foundation.zurb.com/docs/" class="button">Visit the Docs</a>
+        <a href="http://foundation.zurb.com/forum/" class="secondary button">Foundation Forum</a>
+        <a href="http://foundation.zurb.com/business/business-support.html" class="secondary button">Technical Support</a>
+      </div>
+    </header>
 
-    <div class="column row"><div class="row collapse">
+    <div class="grid-container padded">
+      <div class="grid-x" data-sticky-container>
 
-      <div class="large-3 medium-4 columns" data-sticky-container>
-        <ul class="vertical menu">
+        <div class="large-3 medium-4 cell">
+          <div class="sticky" data-sticky data-top-anchor="sg-header:bottom">
+            <ul class="vertical menu sg-side-menu">
+              {{#each pages}}
+                <li><a href="#{{ anchor }}">{{ title }}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+
+        <div class="large-9 medium-8 cell">
           {{#each pages}}
-            <li><a href="#{{ anchor }}">{{ title }}</a></li>
+            <section class="ss-section" id="{{ anchor }}">
+              {{ body }}
+            </section>
           {{/each}}
-        </ul>
-      </div>
+        </div>
 
-      <div class="large-9 medium-8 columns">
-        {{#each pages}}
-          <section class="ss-section" id="{{ anchor }}">
-            {{ body }}
-          </section>
-        {{/each}}
       </div>
-
-    </div></div>
+    </div>
 
     <script src="assets/js/app.js"></script>
   </body>
