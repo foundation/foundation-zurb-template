@@ -54,6 +54,8 @@
 
 // vendor styles
 @import "vendor/aos";
+@import "vendor/slick-carousel";
+@import "vendor/index-menu";
 
 // mixins
 @import 'mixins/container-border';
@@ -61,3 +63,4 @@
 @import 'mixins/avatar';
 
 // custom components
+@import 'components/layout/app-dashboard';

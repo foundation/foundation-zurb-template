@@ -1,7 +1,17 @@
-@mixin flex-justify-middle {
+@mixin flex-centerer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  p,
+  a,
+  div,
+  button,
+  .button,
+  span,
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+  }
 }
 
 @mixin flexbox-thing($v-align, $h-align, $child-basis) {
@@ -9,21 +19,25 @@
   align-items: $v-align;
   justify-content: $h-align;
 
+  > p,
+  > a,
   > div,
-  button,
-  a,
-  span {
+  > button,
+  > .button,
+  > span,
+  > h1, > h2, > h3, > h4, > h5, > h6 {
     flex: $child-basis;
   }
 
   @if $v-align == center {
+    > p,
+    > a,
     > div,
-    button,
-    a,
-    span {
+    > button,
+    > .button,
+    > span,
+    > h1, > h2, > h3, > h4, > h5, > h6 {
       margin-bottom: 0;
     }
-  } @else {
-    background: transparent;
   }
 }
