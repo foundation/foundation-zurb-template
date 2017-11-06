@@ -45,10 +45,32 @@ http://localhost:8000
 
 To create compressed, production-ready assets, run `yarn run build`.
 
-# Infusionsoft
+---
 
-### SVG Injectior
+# Mixins
 
-Inject an SVG by using an `img` tag like so:
+We've added a few handy mixins for maintainable repeated code and faster development:
+
+### Avatar
+
+### Container Border
+
+### Flex Mixins
+
+---
+
+# Additional Project Dependencies
+
+The following dependencies are at your disposal:
+
+### SVG Injector
+
+Inject an SVG by using an `img` tag with the `.inject-me` class like so:
 
 `<img src="{{root}}assets/img/think.svg" class="inject-me" alt="think icon">`
+
+### Slick Carousel
+
+### AOS (Animate on Scroll)
+
+### Tablesaw
