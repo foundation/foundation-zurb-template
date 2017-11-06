@@ -47,6 +47,14 @@ To create compressed, production-ready assets, run `yarn run build`.
 
 ---
 
+# Panini Helpers
+
+We've added a Panini helpers for per-page or per-layout styles.
+
+[SEE EXAMPLE](http://notebooks.zurb.com/posts/10139362?t=f9b74287fe3ac074)
+
+---
+
 # Mixins
 
 We've added a few handy mixins for maintainable repeated code and faster development:
