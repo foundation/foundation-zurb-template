@@ -1,4 +1,4 @@
-# ZURB Template
+# ZURB WebApp Template
 
 [![devDependency Status](https://david-dm.org/zurb/foundation-zurb-template/dev-status.svg)](https://david-dm.org/zurb/foundation-zurb-template#info=devDependencies)
 
@@ -22,13 +22,9 @@ To use this template, your computer needs:
 - [NodeJS](https://nodejs.org/en/) (Version 6 only, Tested with 6.11.4)
 - [Git](https://git-scm.com/)
 
-### Manual Setup
+### Setup
 
-To manually set up the template, first download it with Git:
-
-```bash
-git clone https://github.com/zurb/Infusionsoft.git
-```
+To set up the template, first download it.
 
 Then open the folder in your command line, and install the needed dependencies:
 
