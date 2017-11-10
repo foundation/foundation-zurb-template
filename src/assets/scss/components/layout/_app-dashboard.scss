@@ -2,24 +2,25 @@ $app-dashboard-top-nav-color: #2c3840;
 $app-dashboard-top-nav-height: 55px;
 
 .app-dashboard {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .app-dashboard-body {
-  flex: 1 1 auto;
   display: flex;
+  flex: 1 1 auto;
 }
 
 .app-dashboard-top-nav-bar  {
-  display: flex;
   align-items: center;
-  justify-content: center;
   background: $app-dashboard-top-nav-color;
-  height: $app-dashboard-top-nav-height;
-  width: 100%;
+  display: flex;
   flex: 0 0 $app-dashboard-top-nav-height;
+  height: $app-dashboard-top-nav-height;
+  justify-content: center;
+  width: 100%;
+
   .menu-icon {
     vertical-align: text-bottom;
   }
@@ -27,8 +28,8 @@ $app-dashboard-top-nav-height: 55px;
 
 .app-dashboard-logo {
   color: $white;
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .app-dashboard-search-bar-container {
@@ -38,8 +39,8 @@ $app-dashboard-top-nav-height: 55px;
 .app-dashboard-search {
   background: lighten($app-dashboard-top-nav-color, 10%);
   border: 0;
-  margin-bottom: 0;
   color: $white;
+  margin-bottom: 0;
 
   &:active,
   &:focus {
@@ -48,8 +49,8 @@ $app-dashboard-top-nav-height: 55px;
 }
 
 .app-dashboard-search-icon {
-  position: absolute;
   color: $white;
+  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -85,11 +86,12 @@ $app-dashboard-top-nav-height: 55px;
   height: 100%;
   overflow-x: visible;
   overflow-y: auto;
-  z-index: 1;
   transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  z-index: 1;
 
 
-  .app-dashboard-open-sidebar, .app-dashboard-close-sidebar{
+  .app-dashboard-open-sidebar,
+  .app-dashboard-close-sidebar{
     align-items: baseline;
     display: flex;
     justify-content: space-between;
@@ -104,6 +106,7 @@ $app-dashboard-top-nav-height: 55px;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+
     .menu > li > a {
       align-items: center;
     }
@@ -134,64 +137,11 @@ $app-dashboard-top-nav-height: 55px;
 }
 
 .app-dashboard-body-content {
-  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
-  overflow-y: auto;
-  flex: 1 1 0;
-  padding: 20px;
   background-color: $white;
-}
-
-@mixin shrunk-sidebar() {
-  .app-dashboard-close-sidebar, .app-dashboard-sidebar-text {
-    display: none;
-  }
-
-  .app-dashboard-open-sidebar {
-    display: block;
-  }
-
-  .app-dashboard-sidebar {
-    width: 80px;
-    .fa.large {
-      width: auto;
-    }
-  }
-
-  .off-canvas-content {
-    margin-left: 80px;
-    width: calc(100% - 80px);
-  }
-
-  .navigation {
-    margin-top: 2rem;
-    text-align: center;
-
-  }
-  .menu.vertical > li > a {
-    justify-content: center;
-  }
-
-  .menu {
-    li {
-      &::after {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-
-      a {
-        padding: 0.75rem;
-        svg {
-          margin: 0;
-        }
-        span {
-          display: none;
-          opacity: 0;
-          transition: opacity 0.5s ease-in-out;
-        }
-      }
-    }
-  }
+  flex: 1 1 0;
+  overflow-y: auto;
+  padding: 20px;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
 }
 
 // mini sidebar on medium/tablet size

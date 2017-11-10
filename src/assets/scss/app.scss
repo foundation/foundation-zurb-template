@@ -54,13 +54,14 @@
 
 // vendor styles
 @import "vendor/aos";
-@import "vendor/slick-carousel";
 @import "vendor/index-menu";
+@import "vendor/slick-carousel";
 
 // mixins
+@import 'mixins/avatar';
 @import 'mixins/container-border';
 @import 'mixins/flex';
-@import 'mixins/avatar';
+@import 'mixins/shrunk-sidebar';
 
 // custom components
 @import 'components/layout/app-dashboard';
