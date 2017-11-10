@@ -29,7 +29,7 @@ To set up the template, first download it.
 Then open the folder in your command line, and install the needed dependencies:
 
 ```bash
-cd infusionsoft
+cd projectName
 yarn
 ```
 
