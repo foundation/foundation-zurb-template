@@ -59,7 +59,7 @@
   @include transPrefix(bottom 1s);
   @include breakpoint(large) {
     top: 2px;
-    right: 5px;
+    right: 15px;
     bottom: auto !important;
   }
   a {
