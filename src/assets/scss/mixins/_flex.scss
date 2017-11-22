@@ -1,4 +1,22 @@
+
+
 @mixin flex-centerer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p,
+  a,
+  div,
+  button,
+  .button,
+  span,
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+  }
+}
+
+@mixin flex-center-spaced {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +32,7 @@
   }
 }
 
-@mixin flexbox-thing($v-align, $h-align, $child-basis) {
+@mixin flexbox-thing($v-align, $h-align, $child-basis: auto) {
   display: flex;
   align-items: $v-align;
   justify-content: $h-align;
@@ -40,4 +58,10 @@
       margin-bottom: 0;
     }
   }
+}
+
+.thing {
+  border: $container-border;
+  width: 100%;
+  @include flexbox-thing(center, center);
 }

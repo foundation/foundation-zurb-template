@@ -1,0 +1,12 @@
+@mixin push-auto {
+    margin: {
+      left: auto;
+      right: auto;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}

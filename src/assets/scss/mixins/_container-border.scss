@@ -1,12 +1,13 @@
 $border-color: $dark-gray;
 $container-border: 1px solid $border-color;
+$box-shadow: 0 1px 10px 0 rgba(22,27,32,0.15);
 
-@mixin container-border($box-shadow: true) {
+@mixin container-border($shadow: true) {
   border: $container-border;
   border-radius: $global-radius;
 
-  @if $box-shadow {
-    box-shadow: 0 1px 10px 0 rgba(22,27,32,0.15);
+  @if $shadow {
+    box-shadow: $box-shadow;
   } @else {
     box-shadow: none;
   }
