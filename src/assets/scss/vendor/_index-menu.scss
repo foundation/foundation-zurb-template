@@ -1,0 +1,16 @@
+.index-menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .menu a {
+    text-transform: uppercase;
+    color: $body-font-color;
+    transition: color 0.2s ease-in;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

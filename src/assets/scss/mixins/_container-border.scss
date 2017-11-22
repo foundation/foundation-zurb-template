@@ -1,0 +1,13 @@
+$border-color: $dark-gray;
+$container-border: 1px solid $border-color;
+
+@mixin container-border($box-shadow: true) {
+  border: $container-border;
+  border-radius: $global-radius;
+
+  @if $box-shadow {
+    box-shadow: 0 1px 10px 0 rgba(22,27,32,0.15);
+  } @else {
+    box-shadow: none;
+  }
+}
