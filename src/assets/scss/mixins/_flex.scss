@@ -1,0 +1,43 @@
+@mixin flex-centerer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p,
+  a,
+  div,
+  button,
+  .button,
+  span,
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+  }
+}
+
+@mixin flexbox-thing($v-align, $h-align, $child-basis) {
+  display: flex;
+  align-items: $v-align;
+  justify-content: $h-align;
+
+  > p,
+  > a,
+  > div,
+  > button,
+  > .button,
+  > span,
+  > h1, > h2, > h3, > h4, > h5, > h6 {
+    flex: $child-basis;
+  }
+
+  @if $v-align == center {
+    > p,
+    > a,
+    > div,
+    > button,
+    > .button,
+    > span,
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+      margin-bottom: 0;
+    }
+  }
+}

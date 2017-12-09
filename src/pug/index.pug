@@ -1,0 +1,45 @@
+extends _layout/_basic
+
+block prepend global
+  -
+    var pagetitle = "toppage";
+
+block header
+  header#header
+    .row
+      .columns.medium-2
+        h1 sitelogo
+      .columns.medium-10
+        nav#g-nav
+          ul
+            - for (var i = 1; i <=5; i++)
+              li: a(href="#") dummy
+block main
+  #hero
+    style.
+      #hero {
+        min-height: 50vh;
+        background-color: #dedede;
+      }
+    h2.text-center concept message...
+  #features
+    .row.medium-up-3
+      .columns
+        h3 Functionability
+        .desc
+          p
+            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .columns
+        h3 Skills on Bleeding Edge
+        .desc
+          p
+            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .columns
+        h3 Accuracy and Speed
+        .desc
+          p
+            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+block footer
+  footer#footer
+    #copyright.text-center
+      p MIT License Kohki SHIKATA

@@ -51,3 +51,16 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+// vendor styles
+@import "vendor/aos";
+@import "vendor/slick-carousel";
+@import "vendor/index-menu";
+
+// mixins
+@import 'mixins/container-border';
+@import 'mixins/flex';
+@import 'mixins/avatar';
+
+// custom components
+@import 'components/layout/app-dashboard';
