@@ -27,6 +27,9 @@ PATHS:
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
+  # Paths to custom fonts
+  fonts:
+    - "src/assets/fonts/**/*"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
