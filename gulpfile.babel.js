@@ -96,7 +96,8 @@ function sass() {
 }
 
 function fonts() {
-  return gulp.src('./bower_components/foundation-icon-fonts/**/*.{ttf,woff,woff2,eot,svg}').pipe(gulp.dest('dist/assets/fonts'));
+  return gulp.src('src/assets/fonts/**/*.{ttf,woff,woff2,eot,svg}')
+    .pipe(gulp.dest(PATHS.dist + + '/assets/fonts'));
 };
 
 let webpackConfig = {
