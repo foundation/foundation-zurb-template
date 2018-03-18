@@ -100,4 +100,4 @@ Foundation.plugin(Tooltip, 'Tooltip');
 
 Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
-module.exports = Foundation;
+export {Foundation};
