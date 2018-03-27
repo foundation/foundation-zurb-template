@@ -22,41 +22,41 @@ Using this framework is easy. Here's how your code will look when you use a seri
 
 ```html
 <div class="grid-x">
-  <div class="small-6 medium-4 large-3 cell">...</div>
-  <div class="small-6 medium-8 large-9 cell">...</div>
+  <div class="cell small-6 medium-4 large-3">...</div>
+  <div class="cell small-6 medium-8 large-9">...</div>
 </div>
 ```
 
 <div class="grid-x display">
-  <div class="small-12 large-4 cell">4</div>
-  <div class="small-12 large-4 cell">4</div>
-  <div class="small-12 large-4 cell">4</div>
+  <div class="cell small-12 large-4">4</div>
+  <div class="cell small-12 large-4">4</div>
+  <div class="cell small-12 large-4">4</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-3 cell">3</div>
-  <div class="small-12 large-6 cell">6</div>
-  <div class="small-12 large-3 cell">3</div>
+  <div class="cell small-12 large-3">3</div>
+  <div class="cell small-12 large-6">6</div>
+  <div class="cell small-12 large-3">3</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-2 cell">2</div>
-  <div class="small-12 large-8 cell">8</div>
-  <div class="small-12 large-2 cell">2</div>
+  <div class="cell small-12 large-2">2</div>
+  <div class="cell small-12 large-8">8</div>
+  <div class="cell small-12 large-2">2</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-3 cell">3</div>
-  <div class="small-12 large-9 cell">9</div>
+  <div class="cell small-12 large-3">3</div>
+  <div class="cell small-12 large-9">9</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-4 cell">4</div>
-  <div class="small-12 large-8 cell">8</div>
+  <div class="cell small-12 large-4">4</div>
+  <div class="cell small-12 large-8">8</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-5 cell">5</div>
-  <div class="small-12 large-7 cell">7</div>
+  <div class="cell small-12 large-5">5</div>
+  <div class="cell small-12 large-7">7</div>
 </div>
 <div class="grid-x display">
-  <div class="small-12 large-6 cell">6</div>
-  <div class="small-12 large-6 cell">6</div>
+  <div class="cell small-12 large-6">6</div>
+  <div class="cell small-12 large-6">6</div>
 </div>
 
 ---
@@ -67,34 +67,34 @@ In the Grid you can nest cells down as far as you'd like. Just embed grid-x insi
 
 ```html
 <div class="grid-x">
-  <div class="small-8 cell">8
+  <div class="cell small-8">8
     <div class="grid-x">
-      <div class="small-8 cell">8 Nested
+      <div class="cell small-8">8 Nested
         <div class="grid-x">
-          <div class="small-8 cell">8 Nested Again</div>
-          <div class="small-4 cell">4</div>
+          <div class="cell small-8">8 Nested Again</div>
+          <div class="cell small-4">4</div>
         </div>
       </div>
-      <div class="small-4 cell">4</div>
+      <div class="cell small-4">4</div>
     </div>
   </div>
-  <div class="small-4 cell">4</div>
+  <div class="cell small-4">4</div>
 </div>
 ```
 
 <div class="grid-x display">
-  <div class="small-8 cell">8
+  <div class="cell small-8">8
     <div class="grid-x">
-      <div class="small-8 cell">8 Nested
+      <div class="cell small-8">8 Nested
         <div class="grid-x">
-          <div class="small-8 cell">8 Nested Again</div>
-          <div class="small-4 cell">4</div>
+          <div class="cell small-8">8 Nested Again</div>
+          <div class="cell small-4">4</div>
         </div>
       </div>
-      <div class="small-4 cell">4</div>
+      <div class="cell small-4">4</div>
     </div>
   </div>
-  <div class="small-4 cellgi">4</div>
+  <div class="cell small-4">4</div>
 </div>
 
 ---
@@ -105,22 +105,22 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 ```html
 <div class="grid-x">
-  <div class="small-2 cell">2</div>
-  <div class="small-10 cell">10, last</div>
+  <div class="cell small-2">2</div>
+  <div class="cell small-10">10, last</div>
 </div>
 <div class="grid-x">
-  <div class="small-3 cell">3</div>
-  <div class="small-9 cell">9, last</div>
+  <div class="cell small-3">3</div>
+  <div class="cell small-9">9, last</div>
 </div>
 ```
 
 <div class="grid-x display">
-  <div class="small-2 cell">2</div>
-  <div class="small-10 cell">10, last</div>
+  <div class="cell small-2">2</div>
+  <div class="cell small-10">10, last</div>
 </div>
 <div class="grid-x display">
-  <div class="small-3 cell">3</div>
-  <div class="small-9 cell">9, last</div>
+  <div class="cell small-3">3</div>
+  <div class="cell small-9">9, last</div>
 </div>
 
 
@@ -131,32 +131,32 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 ---
 
-<div class="row up-1 medium-up-3 large-up-5">
-  <div class="column">
+<div class="grid-x up-1 medium-up-3 large-up-5">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #2199e8"></span>
       #2199e8
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #3adb76"></span>
       #3adb76
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #ffae00"></span>
       #ffae00
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #ec5840"></span>
       #ec5840
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #0a0a0a"></span>
       #0a0a0a
@@ -290,51 +290,51 @@ Form elements in Foundation are styled based on their type attribute rather than
 
 ```html_example
 <form>
-  <div class="row">
-    <div class="large-12 columns">
+  <div class="grid-x">
+    <div class="cell large-12">
       <label>Label</label>
       <input type="text" placeholder="placeholder">
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns">
+  <div class="grid-x grid-margin-x">
+    <div class="cell large-6">
       <label>Label</label>
       <input type="text" placeholder="placeholder">
     </div>
-    <div class="large-6 columns">
-      <div class="row collapse">
+    <div class="cell large-6">
+
         <label>Label</label>
         <div class="input-group">
           <input class="input-group-field" type="text" placeholder="placeholder">
           <span class="input-group-label">.com</span>
         </div>
-      </div>
+
     </div>
   </div>
-  <div class="row">
-    <div class="large-12 columns">
+  <div class="grid-x">
+    <div class="cell large-12">
       <label>Select Box</label>
       <select>
-        <option value="good">Good</option>
+        <option value="good">Go od</option>
         <option value="better">Better</option>
         <option value="best">Best</option>
       </select>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 columns">
+  <div class="grid-x">
+    <div class="cell large-6">
       <label>Choose Your Favorite</label>
       <input type="radio" name="radio1" value="radio1" id="radio1"><label for="radio1">Red</label>
       <input type="radio" name="radio2" value="radio2" id="radio2"><label for="radio2">Blue</label>
     </div>
-    <div class="large-6 columns">
+    <div class="cell large-6">
       <label>Check these out</label>
       <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
       <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
     </div>
   </div>
-  <div class="row">
-    <div class="large-12 columns">
+  <div class="grid-x">
+    <div class="cell large-12">
       <label>Textarea Label</label>
       <textarea placeholder="placeholder"></textarea>
     </div>
