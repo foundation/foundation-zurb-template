@@ -84,6 +84,12 @@
         background: #1468a0;
         color: #fff;
       }
+
+      .sg-side-menu.menu {
+        overflow: auto;
+        height: 100vh;
+        padding-bottom: 5rem;
+      }
     </style>
   </head>
   <body>
@@ -104,9 +110,11 @@
         <div class="large-3 medium-4 cell">
           <div class="sticky" data-sticky data-top-anchor="sg-header:bottom">
             <ul class="vertical menu sg-side-menu" data-smooth-scroll data-animation-easing="swing">
+              
               {{#each pages}}
                 <li><a href="#{{ anchor }}">{{ title }}</a></li>
               {{/each}}
+
             </ul>
           </div>
         </div>
