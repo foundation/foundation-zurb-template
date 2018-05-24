@@ -71,6 +71,19 @@
       .grid-container.padded {
         padding-top: 2rem;
       }
+
+      .sg-side-menu a {
+        transition: all 0.15s ease-in;
+      }
+
+      .sg-side-menu a:hover {
+        background: #eee;
+      }
+
+      .sg-side-menu a:focus {
+        background: #1468a0;
+        color: #fff;
+      }
     </style>
   </head>
   <body>
@@ -86,11 +99,11 @@
     </header>
 
     <div class="grid-container padded">
-      <div class="grid-x" data-sticky-container>
+      <div class="grid-x grid-margin-x" data-sticky-container>
 
         <div class="large-3 medium-4 cell">
           <div class="sticky" data-sticky data-top-anchor="sg-header:bottom">
-            <ul class="vertical menu sg-side-menu">
+            <ul class="vertical menu sg-side-menu" data-smooth-scroll data-animation-easing="swing">
               {{#each pages}}
                 <li><a href="#{{ anchor }}">{{ title }}</a></li>
               {{/each}}

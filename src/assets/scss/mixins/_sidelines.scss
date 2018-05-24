@@ -1,0 +1,103 @@
+$sidelines-text-align-left: false !default;
+$sidelines-text-padding: 0.5em !default;
+$sidelines-line-thickness: 2px !default;
+$sidelines-line-length: 9999px !default;
+$sidelines-line-color: null !default;
+$sidelines-line-style: solid !default;
+$sidelines-double-line: false !default;
+$sidelines-double-line-spacing: 0.5em !default;
+
+@mixin sidelines(
+  $text-padding: $sidelines-text-padding,
+  $text-left: $sidelines-text-align-left,
+  $line-thickness: $sidelines-line-thickness,
+  $line-length: $sidelines-line-length,
+  $line-color: $sidelines-line-color,
+  $line-style: $sidelines-line-style,
+  $double-line: $sidelines-double-line,
+  $double-line-spacing: $sidelines-double-line-spacing ) {
+
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @if $text-left {
+    text-align: left;
+  } @else {
+    text-align: center;
+  }
+
+  span {
+    display: inline-block;
+    position: relative;
+    padding-right: $text-padding;
+
+    @if $text-left {
+      padding-left: 0;
+    } @else {
+      padding-left: $text-padding;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: $line-length;
+      top: 50%;
+      border-top-style: $line-style;
+      border-top-width: $line-thickness;
+
+      @if $line-color != null {
+        border-top-color: $line-color;
+      }
+
+      @if $double-line {
+        border-bottom-style: $line-style;
+        border-bottom-width: $line-thickness;
+        border-bottom-color: $line-color;
+        height: $double-line-spacing;
+        margin-top: -($double-line-spacing/2);
+      } @else if $line-thickness > 1 {
+        margin-top: -(floor($line-thickness/2));
+      }
+    }
+
+    &:before {
+      right: 100%;
+    }
+
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+.type-sidelines {
+  @include sidelines($text-left: true);
+}
+
+.type-sidelines-dotted {
+  @include sidelines($text-left: true, $line-style: dotted);
+}
+
+.double {
+  @include sidelines($double-line: true);
+}
+
+.custom {
+  @include sidelines(
+    $text-padding: 20px,
+    $line-length: 100%,
+    $line-color: #2980b9,
+    $line-thickness: 4px,
+    $line-style: dotted
+  );
+}
+
+.custom-2 {
+  @include sidelines(
+    $line-color: #27ae60,
+    $line-thickness: 4px
+  );
+}

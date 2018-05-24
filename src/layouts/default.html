@@ -9,10 +9,10 @@
     <title>{{meta-title}} | Foundation for Sites</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
   </head>
-  <body>
+  <body class="{{page}} {{layout}}">
 
-    <div class="app-dashboard shrink-medium {{page}} {{layout}}">
-      {{> top-nav}}
+    <div class="app-dashboard shrink-medium">
+      {{> main-nav}}
 
       <div class="app-dashboard-body off-canvas-wrapper">
         {{> app-sidebar}}
