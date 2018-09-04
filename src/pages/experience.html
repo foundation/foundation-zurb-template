@@ -30,7 +30,7 @@
         <div class="media-object-section">
           <h2>Gecko Oven Cam</h2>
           <div class="subheader h6">Jan 2018 - Present</div>
-          <p>The Gecko Oven Cam is a smart home device I created which allows you to monitor your oven from your phone or table. I did 100% of the work on the Oven Cam including the <a href="#oven-cam-app">app development</a>, <a href="#oven-cam-prototype">product and software design</a>, and marketing <a href="#oven-cam-video">video production</a>. It launched on <a href="#oven-cam-indiegogo">Indiegogo</a> in August 2018.</p>
+          <p>The Gecko Oven Cam is a smart home device I created which allows you to monitor your oven from your phone or tablet. I did 100% of the work on the Oven Cam including the <a href="#oven-cam-app">app development</a>, <a href="#oven-cam-prototype">product and software design</a>, and marketing <a href="#oven-cam-video">video production</a>. It launched on <a href="#oven-cam-indiegogo">Indiegogo</a> in August 2018.</p>
         </div>
       </div>
     </div>
@@ -44,18 +44,24 @@
       <div class="item" data-hash="oven-cam-app">
         <img data-interchange="[{{root}}assets/img/oven-cam-app-mobile.png, small], [{{root}}assets/img/oven-cam-app.png, smallRetina], [{{root}}assets/img/oven-cam-app.png, medium]" alt="Oven Camera app screenshot">
         <h3>App development</h3>
-        <p>I built the Oven Cam app using Ionic, an open source, front-end SDK, which allows it to be deployed as a native iOS and Android app. The app features user authentication using Google Firebase (including Facebook and Email authentication), new camera setup over <abbr title="Bluetooth Low Energy">BLE</abbr>, custom timers with local push notifications, Google Firebase Cloud Firestore database to get live camera power and battery level information, and connection to the camera over local WiFi for image streaming.</p>
+        <p>I built the Oven Cam app using Ionic, an open source, front-end SDK, which allows it to be deployed as a native iOS and Android app. The app features user authentication using Google Firebase (including Facebook and Email authentication), new camera setup over <abbr title="Bluetooth Low Energy">BLE</abbr>, custom timers with local push notifications, Google Firebase Cloud Firestore database to get live camera power and battery level information, and connection to the camera over local Wi-Fi for image streaming.</p>
+        <p>Techy goodness aside, the UI design makes it's super easy to setup a new camera and start the oven monitoring in minutes.</p>
       </div>
       <div class="item" data-hash="oven-cam-prototype">
         <img data-interchange="[{{root}}assets/img/oven-cam-proto-300.png, small], [{{root}}assets/img/oven-cam-proto-600.png, smallRetina], [{{root}}assets/img/oven-cam-proto-600.png, medium], [{{root}}assets/img/oven-cam-proto-1200.png, mediumRetina]" alt="Oven Camera prototype photos">
         <h3>Product and software design</h3>
-        <p>The Oven Cam was the first time I had dabbled in any physical product and hardware design. The product design included creation of a patent pending design for attaching the camera to the outside of an oven. I also did the 3d modeling for the camera case and built the physical prototypes of the camera. The internal circuit design uses a Raspberry Pi linux computer, digital camera, power management chip, lithium ion battery, analog to digital converter chip, status led lights, and power button.</p>
-        <p>The camera software runs on Raspbian, a custom flavor of Debian Linux. On first startup a node server runs, allowing the the client app to connect to the camera over <abbr title="Bluetooth Low Energy">BLE</abbr> and configure the WiFi connection. An Express server controls the camera hardware and serves images to the client app. Python scripts monitor the analog to digital converter chip to get battery level information. Battery level and power status information are updated in real time using Google Firebase Cloud Firestore database.</p>
+        <p>The Oven Cam was the first time I dabbled in any physical product and hardware design. The product design included creation of a patent pending design for attaching the camera to the outside of an oven. I also did the 3d modeling for the camera case and built the physical prototypes of the oven camera. The internal circuit design uses a Raspberry Pi linux computer, digital camera, power management chip, lithium ion battery, analog to digital converter chip, status led lights, power button, and lots of other little resistors, diodes, and capacitors.</p>
+        <p>The camera software runs on Raspbian, a flavor of Debian Linux. On first startup a node server runs, allowing the <a href="#oven-cam-app">client app</a> to connect to the camera over <abbr title="Bluetooth Low Energy">BLE</abbr> and configure the Wi-Fi connection. An Express server controls the camera hardware and serves images to the <a href="#oven-cam-app">client app</a>. Python scripts monitor the analog to digital converter chip to get battery level information. Battery level and power status information are updated in real time using Google Firebase Cloud Firestore database.</p>
       </div>
       <div class="item" data-hash="oven-cam-video">
-        <div style="padding:56.25% 0 1rem 0;position:relative;"><iframe src="https://player.vimeo.com/video/285508338" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        <div style="padding:56.25% 0 1rem 0;position:relative;"><iframe src="https://player.vimeo.com/video/283996180" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
         <h3>Video production</h3>
         <p>I did all filming and editing for each marketing video produced for the <a href="#oven-cam-indiegogo">Indiegogo</a> funding page and social media marketing.</p>
+        <p>
+          <a class="button" href="https://vimeo.com/283996180">Indiegogo product video</a>
+          <br />
+          <a class="button" href="https://vimeo.com/285508338">Social media marketing video</a>
+        </p>
       </div>
     </div>
   </div>
