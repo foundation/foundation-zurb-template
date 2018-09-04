@@ -48,6 +48,9 @@ h6,
 .h6 {
   letter-spacing: -0.03em;
 }
+.subheader {
+  margin-top: -0.75rem;
+}
 
 a {
   &:active {
@@ -163,9 +166,10 @@ a:hover .icon-back {
   .button {
     border-color: #fff;
   }
-  small {
-    color: #fff;
-    opacity: 0.6;
+  small,
+  .subheader {
+    color: $black;
+    opacity: 0.5;
   }
 }
 
@@ -234,7 +238,7 @@ a:hover .icon-back {
 // Experience timeline sections
 .media-object {
   .thumbnail {
-    margin-left: -4rem;
+    margin: -1.75rem 0 0 -4rem;
   }
 }
 
