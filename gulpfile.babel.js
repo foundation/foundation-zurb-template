@@ -137,8 +137,7 @@ function images() {
 function server(done) {
   browser.init({
     server: PATHS.dist, port: PORT
-  });
-  done();
+  }, done);
 }
 
 // Reload the browser with BrowserSync
