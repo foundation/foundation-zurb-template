@@ -2,7 +2,7 @@
   "name": "foundation-zurb-template",
   "version": "1.0.0",
   "description": "Official ZURB Template for Foundation for Sites.",
-  "main": "gulpfile.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production"
@@ -20,6 +20,7 @@
     "what-input": "^4.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
