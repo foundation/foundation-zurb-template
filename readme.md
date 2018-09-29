@@ -33,13 +33,13 @@ cd projectName
 yarn
 ```
 
-Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+Now `cd` to your project name and run `npm start` or `foundation watch` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
 ```
 
-To create compressed, production-ready assets, run `yarn run build`.
+To create compressed, production-ready assets, run `npm run build` or `foundation build`.
 
 ---
 
