@@ -7,6 +7,8 @@
 @include foundation-global-styles;
 @include foundation-grid;
 // @include foundation-flex-grid;
+//
+@include foundation-xy-grid-classes;
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
@@ -31,8 +33,6 @@
 @include foundation-orbit;
 @include foundation-pagination;
 @include foundation-progress-bar;
-// @include foundation-progress-element;
-// @include foundation-meter-element;
 @include foundation-slider;
 @include foundation-sticky;
 @include foundation-reveal;
@@ -44,8 +44,34 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
-// @include foundation-flex-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
+
+// @include foundation-prototype-classes;
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+// vendor styles
+@import "vendor/aos";
+@import "vendor/slick-carousel";
+@import "vendor/index-menu";
+
+// mixins
+@import 'mixins/container-border';
+@import 'mixins/flex';
+@import 'mixins/avatar';
+@import 'mixins/helpers';
+@import 'mixins/pseudo';
+@import 'mixins/push-center';
+@import 'mixins/sidelines';
+@import 'mixins/zindex';
+
+// global styles
+@import 'global/app-dashboard';
+@import 'global/layout';
+
+// custom components
+@import 'components/navigation/main-nav';
+
+@import 'components/footer';

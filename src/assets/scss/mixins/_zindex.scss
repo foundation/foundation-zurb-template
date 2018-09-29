@@ -1,0 +1,22 @@
+$z-layers: (
+  bottomless-pit: -9999,
+  default: 1,
+  dropdown: 3000,
+  thing: 4000,
+  modal: 4001
+);
+
+// _functions.scss
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+// usage
+.thing {
+  z-index: z(thing);
+}

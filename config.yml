@@ -25,38 +25,8 @@ PATHS:
     - "!src/assets/{img,js,scss}/**/*"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
-    - "bower_components/foundation-sites/scss"
-    - "bower_components/motion-ui/src"
-  # Paths to JavaScript libraries, which are combined into one file
-  javascript:
-    # Libraries required by Foundation
-    - "bower_components/jquery/dist/jquery.js"
-    - "bower_components/what-input/dist/what-input.js"
-    # Core Foundation files
-    - "bower_components/foundation-sites/js/foundation.core.js"
-    - "bower_components/foundation-sites/js/foundation.util.*.js"
-    # Individual Foundation components
-    # If you aren't using a component, just remove it from the list
-    - "bower_components/foundation-sites/js/foundation.abide.js"
-    - "bower_components/foundation-sites/js/foundation.accordion.js"
-    - "bower_components/foundation-sites/js/foundation.accordionMenu.js"
-    - "bower_components/foundation-sites/js/foundation.drilldown.js"
-    - "bower_components/foundation-sites/js/foundation.dropdown.js"
-    - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
-    - "bower_components/foundation-sites/js/foundation.equalizer.js"
-    - "bower_components/foundation-sites/js/foundation.interchange.js"
-    - "bower_components/foundation-sites/js/foundation.magellan.js"
-    - "bower_components/foundation-sites/js/foundation.offcanvas.js"
-    - "bower_components/foundation-sites/js/foundation.orbit.js"
-    - "bower_components/foundation-sites/js/foundation.responsiveMenu.js"
-    - "bower_components/foundation-sites/js/foundation.responsiveToggle.js"
-    - "bower_components/foundation-sites/js/foundation.reveal.js"
-    - "bower_components/foundation-sites/js/foundation.slider.js"
-    - "bower_components/foundation-sites/js/foundation.sticky.js"
-    - "bower_components/foundation-sites/js/foundation.tabs.js"
-    - "bower_components/foundation-sites/js/foundation.toggler.js"
-    - "bower_components/foundation-sites/js/foundation.tooltip.js"
-    - "bower_components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js"
-    # Paths to your own project code are here
-    - "src/assets/js/!(app).js"
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
+  # Paths to JavaScript entry points for webpack to bundle modules
+  entries:
     - "src/assets/js/app.js"

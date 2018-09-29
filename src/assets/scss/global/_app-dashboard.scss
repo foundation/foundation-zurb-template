@@ -1,0 +1,143 @@
+$app-dashboard-collapsed-sidebar-width: rem-calc(80);
+$app-dashboard-sidebar-width: $off-canvas-width;
+
+.app-dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-dashboard-body {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.app-dashboard-sidebar {
+  background-color: $white;
+  height: 100%;
+  overflow-x: visible;
+  overflow-y: auto;
+  z-index: 1;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+
+  .app-dashboard-open-sidebar,
+  .app-dashboard-close-sidebar{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 3rem;
+  }
+
+  .app-dashboard-sidebar-block-title {
+    margin-bottom: 0;
+  }
+
+  .app-dashboard-sidebar-close-button {
+    img {
+      vertical-align: bottom;
+    }
+  }
+
+  img + .app-dashboard-sidebar-text {
+    margin-left: 1rem;
+  }
+
+  .app-dashboard-sidebar-inner {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .menu > li > a {
+      align-items: center;
+      padding: 0.6368rem 1rem;
+    }
+  }
+}
+
+.reveal-for-medium {
+  .app-dashboard-open-sidebar {
+    display: none;
+  }
+}
+
+.app-dashboard-sidebar-footer {
+  background: rgba(42, 57, 79, 0.8);
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+}
+
+.app-dashboard-open-sidebar {
+  text-align: center;
+}
+
+.app-dashboard-body-content {
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  overflow-y: auto;
+  flex: 1 1 0;
+  padding: 20px;
+  background-color: $white;
+}
+
+@mixin shrunk-sidebar() {
+  .app-dashboard-close-sidebar,
+  .app-dashboard-sidebar-text {
+    display: none;
+  }
+
+  .app-dashboard-open-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-dashboard-sidebar {
+    width: $app-dashboard-collapsed-sidebar-width;
+  }
+
+  .off-canvas-content {
+    margin-left: $app-dashboard-collapsed-sidebar-width;
+    width: calc(100% - #{$app-dashboard-collapsed-sidebar-width});
+  }
+
+  .menu.vertical > li > a {
+    justify-content: center;
+  }
+
+  .menu {
+    li {
+      &::after {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      a {
+        svg {
+          margin: 0;
+        }
+
+        span {
+          display: none;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// mini sidebar on medium/tablet size
+@include breakpoint(medium only) {
+  .app-dashboard.shrink-medium {
+    @include shrunk-sidebar()
+  }
+}
+@include breakpoint(large) {
+  .app-dashboard.shrink-large {
+    @include shrunk-sidebar()
+  }
+}

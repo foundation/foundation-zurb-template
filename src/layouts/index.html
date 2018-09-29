@@ -9,22 +9,10 @@
     <title>{{meta-title}} | Foundation for Sites</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
   </head>
-  <body class="{{page}} {{layout}}">
+  <body>
 
-    <div class="app-dashboard shrink-medium">
-      {{> main-nav}}
-
-      <div class="app-dashboard-body off-canvas-wrapper">
-        {{> app-sidebar}}
-
-        <div class="app-dashboard-body-content off-canvas-content" data-off-canvas-content>
-
-          {{> body}}
-
-        </div>
-      </div>
-    </div>
-
+    {{> body}}
+    
     <script src="{{root}}assets/js/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,7 @@
+$app-dashboard-top-nav-height: rem-calc(55);
+
+.app-dashboard-top-nav-bar  {
+  height: $app-dashboard-top-nav-height;
+  width: 100%;
+  flex: 0 0 $app-dashboard-top-nav-height;
+}

@@ -1,0 +1,111 @@
+@mixin flex-middle-justify {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > button,
+  > .button,
+  > .button-group,
+  > input,
+  > textarea,
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: 0;
+    align-self: center;
+  }
+}
+
+@mixin flex-middle-spaced {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  > button,
+  > .button,
+  > .button-group,
+  > input,
+  > textarea,
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: 0;
+    align-self: center;
+  }
+}
+
+@mixin flex-centerer($direction: horizontal) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > button,
+  > .button,
+  > .button-group,
+  > input,
+  > textarea,
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: 0;
+    align-self: center;
+  }
+
+  @if $direction == vertical {
+    flex-direction: column;
+  }
+}
+
+@mixin flexbox-thing($v-align, $h-align, $child-basis: 0 1 auto) {
+  align-content: center;
+  align-items: $v-align;
+  display: flex;
+  justify-content: $h-align;
+
+  > a,
+  > div,
+  > button,
+  > .button,
+  > .button-group,
+  > span,
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    flex: $child-basis;
+  }
+
+  @if $v-align == center {
+    > a,
+    > div,
+    > button,
+    > .button,
+    > .button-group,
+    > span,
+    > p,
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      margin-bottom: 0;
+      align-self: center;
+    }
+  }
+}
