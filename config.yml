@@ -7,22 +7,28 @@ COMPATIBILITY:
   - "ie >= 9"
   - "ios >= 7"
 
-# UnCSS will use these settings
-UNCSS_OPTIONS:
-  html:
-    - "src/**/*.html"
-  ignore:
-    - !!js/regexp .foundation-mq
-    - !!js/regexp ^\.is-.*
+# PurgeCSS will use these settings
+PURGECSS_OPTIONS:
+  content:
+    - "src/layouts/**/*.html"
+    - "src/pages/**/*.html"
+    - "src/partials/**/*.html"
+  extractors: []
+  whitelist: []
+  whitelistPatterns:
+    - !!js/regexp ^foundation-mq$
+    - !!js/regexp ^is-.+$
+  keyframes: false
+  fontFace: false
 
 # Gulp will reference these paths when it copies files
 PATHS:
   # Path to dist folder
-  dist: "dist"  
+  dist: "dist"
   # Paths to static assets that aren't images, CSS, or JavaScript
   assets:
     - "src/assets/**/*"
-    - "!src/assets/{img,js,scss}/**/*"
+    - "!src/assets/{img,js,scss}{,/**/*}"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/foundation-sites/scss"
