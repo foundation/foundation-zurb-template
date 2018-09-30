@@ -101,16 +101,19 @@ let webpackConfig = {
   module: {
     rules: [
       {
-        test: /.js$/,
-        use: [
-          {
-            loader: 'babel-loader'
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ "@babel/preset-env" ],
+            compact: false
           }
-        ]
+        }
       }
     ]
   }
 }
+
 // Combine JavaScript into one file
 // In production, the file is minified
 function javascript() {
