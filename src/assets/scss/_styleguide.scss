@@ -1,28 +1,28 @@
-   .color-block{
-    &__name {
-        display:block;
-    }
+.color-block {
 
-    &__background {
-        display:block;
-        width:100%;
-        height:100px;
-        
-        &--primary {
-            background:map-get($foundation-palette, primary);
-        }
-        &--secondary {
-            background:map-get($foundation-palette, secondary);
-        }
-        &--success {
-            background:map-get($foundation-palette, success);
-        }
-        &--warning {
-            background:map-get($foundation-palette, warning);
-        }
-        &--alert {
-            background:map-get($foundation-palette, alert);
-        }
+  &__name {
+    display: block;
+  }
+
+  &__background {
+    display: block;
+    width: 100%;
+    height: 100px;
+    &--primary {
+      background: map-get($foundation-palette, primary);
     }
+    &--secondary {
+      background: map-get($foundation-palette, secondary);
+    }
+    &--success {
+      background: map-get($foundation-palette, success);
+    }
+    &--warning {
+      background: map-get($foundation-palette, warning);
+    }
+    &--alert {
+      background: map-get($foundation-palette, alert);
+    }
+  }
 
 }
