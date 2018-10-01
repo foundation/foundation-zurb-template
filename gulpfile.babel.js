@@ -117,7 +117,8 @@ let webpackConfig = {
         }
       }
     ]
-  }
+  },
+  devtool: !PRODUCTION && 'source-map'
 }
 
 // Combine JavaScript into one file
