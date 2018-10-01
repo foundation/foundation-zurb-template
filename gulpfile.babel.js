@@ -12,6 +12,7 @@ import fs            from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import uncss         from 'uncss';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -89,7 +90,7 @@ function sass() {
     }))
     // Comment in the pipe below to run UnCSS with PostCSS in production
     // .pipe($.if(PRODUCTION, $.postcss([
-    //   $.uncss.postcssPlugin(UNCSS_OPTIONS)
+    //   uncss.postcssPlugin(UNCSS_OPTIONS)
     // ])))
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
