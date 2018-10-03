@@ -9,4 +9,4 @@ const deps = {
   slickCarousel: slick
 };
 
-module.exports = deps;
+export default deps;
