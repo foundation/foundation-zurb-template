@@ -9,7 +9,7 @@ import Foundation from 'foundation-sites';
 //import './lib/foundation-explicit-pieces';
 
 import 'tablesaw/dist/tablesaw.jquery';
-import libs from './lib/dependancies';
+import libs from './lib/dependencies';
 window.libs = libs;
 
 $(document).foundation();
