@@ -19,7 +19,7 @@ This is the official ZURB Template for use with [Foundation for Sites](http://fo
 
 To use this template, your computer needs:
 
-- [NodeJS](https://nodejs.org/en/) (Version 6 only, Tested with 6.11.4)
+- [NodeJS](https://nodejs.org/en/) (Up to Version 8 only, Tested with 8.12.0)
 - [Git](https://git-scm.com/)
 
 ### Setup
