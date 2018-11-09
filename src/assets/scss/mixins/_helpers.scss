@@ -1,7 +1,0 @@
-@for $i from 0 through 3 {
-  $margin: ($i);
-
-  .mb#{$i} {
-    margin-bottom: $margin+rem !important;
-  }
-}

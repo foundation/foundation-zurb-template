@@ -12,69 +12,59 @@ This is the official ZURB Template for use with [Foundation for Sites](http://fo
 - Built-in BrowserSync server
 - For production builds:
   - CSS compression
-  - JavaScript compression
+  - JavaScript module bundling with webpack
   - Image compression
 
 ## Installation
 
 To use this template, your computer needs:
 
-- [NodeJS](https://nodejs.org/en/) (Up to Version 8 only, Tested with 8.12.0)
+- [NodeJS](https://nodejs.org/en/) (Version 6 or greater recommended, tested with 6.11.4 and 8.12.0)
 - [Git](https://git-scm.com/)
 
-### Setup
+This template can be installed with the Foundation CLI, or downloaded and set up manually.
 
-To set up the template, first download it.
+### Using the CLI
+
+Install the Foundation CLI with this command:
+
+```bash
+npm install foundation-cli --global
+```
+
+Use this command to set up a blank Foundation for Sites project with this template:
+
+```bash
+foundation new --framework sites --template zurb
+```
+
+The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+
+Now `cd` to your project name and to start your project run 
+
+```bash
+foundation watch
+```
+
+### Manual Setup
+
+To manually set up the template, first download it with Git:
+
+```bash
+git clone https://github.com/zurb/foundation-zurb-template projectname
+```
 
 Then open the folder in your command line, and install the needed dependencies:
 
 ```bash
-cd projectName
+cd projectname
 yarn
 ```
 
-Now `cd` to your project name and run `npm start` or `foundation watch` or `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
 ```
 
-To create compressed, production-ready assets, run `npm run build` or `foundation build` or `yarn build`.
-
----
-
-# Panini Helpers
-
-We've added a Panini helpers for per-page or per-layout styles.
-
-[SEE EXAMPLE](http://notebooks.zurb.com/posts/10139362?t=f9b74287fe3ac074)
-
----
-
-# Mixins
-
-We've added a few handy mixins for maintainable repeated code and faster development:
-
-### Avatar
-
-### Container Border
-
-### Flex Mixins
-
----
-
-# Additional Project Dependencies
-
-The following dependencies are at your disposal:
-
-### SVG Injector
-
-Inject an SVG by using an `img` tag with the `.inject-me` class like so:
-
-`<img src="{{root}}assets/img/think.svg" class="inject-me" alt="think icon">`
-
-### Slick Carousel
-
-### AOS (Animate on Scroll)
-
-### Tablesaw
+To create compressed, production-ready assets, run `yarn run build`.
