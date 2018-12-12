@@ -1,0 +1,17 @@
+@mixin avatar($size: medium, $radius: 50%) {
+  border-radius: $radius;
+
+  @if $size == tiny {
+    height: 15px;
+    width: 15px;
+  } @else if $size == small {
+    height: 28px;
+    width: 28px;
+  } @else if $size == medium {
+    $height: 40px;
+    $width: 40px;
+  } @else if $size == large {
+    height: 80px;
+    width: 80px;
+  }
+}

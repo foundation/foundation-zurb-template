@@ -1,0 +1,12 @@
+@mixin svg-coloring($color: $secondary-color) {
+  svg {
+    g,
+    path,
+    circle,
+    polygon,
+    polyline,
+    ellipse {
+      fill: $color;
+    }
+  }
+}

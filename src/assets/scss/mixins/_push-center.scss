@@ -1,0 +1,7 @@
+@mixin push-center($display) {
+    display: $display;
+    margin: {
+      left: auto;
+      right: auto;
+  }
+}

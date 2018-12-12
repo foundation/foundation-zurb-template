@@ -64,3 +64,31 @@
 // Foundation Motion UI
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+// vendor styles
+
+
+// mixins
+@import 'mixins/animations';
+@import 'mixins/avatar';
+@import 'mixins/container-border';
+@import 'mixins/flexbox';
+@import 'mixins/psuedo';
+@import 'mixins/push-center';
+@import 'mixins/scrolling';
+@import 'mixins/sidelines';
+@import 'mixins/spacing';
+@import 'mixins/svg-coloring';
+@import 'mixins/zindex';
+
+// global styles
+@import 'global/buttons';
+@import 'global/layout';
+@import 'global/typography';
+
+// custom components
+@import 'components/forms/checkbox';
+@import 'components/forms/inputs';
+
+@import 'components/navigation/navbar-main';
+@import 'components/navigation/sidebar-main';

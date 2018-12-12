@@ -1,0 +1,22 @@
+$z-layers: (
+  app-sidebar: 11,
+  app-frame: 4000,
+  modal: 4001
+);
+
+// _functions.scss for warning
+// --------------
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+// usage
+// --------------
+.thing {
+  z-index: z(thing);
+}

@@ -1,0 +1,8 @@
+.container-divider-right {
+  border-bottom: $callout-border;
+
+  @include breakpoint(medium) {
+    border-right: $callout-border;
+    border-bottom: 0;
+  }
+}
