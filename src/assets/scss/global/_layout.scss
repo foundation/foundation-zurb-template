@@ -36,22 +36,13 @@
   }
 
   .menu {
-    li {
-      &::after {
-        display: none;
-        opacity: 0;
-        transition: opacity $offcanvas-transition-length $offcanvas-transition-timing;
-      }
-
-      a {
+    li > a {
         svg {
           margin: 0;
         }
 
-        span {
+        .app-wrapper-sidebar-text {
           display: none;
-          opacity: 0;
-          transition: opacity $offcanvas-transition-length $offcanvas-transition-timing;
         }
       }
     }
@@ -92,8 +83,8 @@
   text-align: center;
 
   .zurb-logo {
-    height: 12px;
-    margin-bottom: 12px;
+    height: rem-calc(12);
+    margin-bottom: rem-calc(12);
   }
 
   .index-header-label {
@@ -106,7 +97,7 @@
     @include flex-middle-justify;
 
     .zurb-logo {
-      height: 20px;
+      height: rem-calc(20);
       margin-bottom: 0;
     }
 
