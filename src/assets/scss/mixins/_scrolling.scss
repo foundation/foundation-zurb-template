@@ -1,0 +1,24 @@
+@mixin vertical-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin horizontal-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin hide-scrollbars {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 0 !important;
+    display: none;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+  }
+}

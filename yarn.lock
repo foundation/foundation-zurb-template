@@ -7555,6 +7555,11 @@ sver-compat@^1.5.0:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
+svg-injector-2@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/svg-injector-2/-/svg-injector-2-2.1.3.tgz#e808f22b79031b882ed2cd997b6eed2fdb059fa1"
+  integrity sha1-6AjyK3kDG4gu0s2Ze27tL9sFn6E=
+
 svgo@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.1.1.tgz#12384b03335bcecd85cfa5f4e3375fed671cb985"
