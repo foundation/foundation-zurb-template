@@ -68,6 +68,10 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
+
+// Custom brand colors
+// --------------
+
 $foundation-palette: (
   primary: #1779ba,
   secondary: #767676,
@@ -75,6 +79,7 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #cc4b37,
 );
+
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -82,6 +87,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
+
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -95,7 +101,7 @@ $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $global-prototype-breakpoints: false;
-$global-button-cursor: auto;
+$global-button-cursor: pointer;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
@@ -315,7 +321,7 @@ $buttongroup-radius-on-each: true;
 // -----------
 
 $callout-background: $white;
-$callout-background-fade: 85%;
+$callout-background-fade: 0%;
 $callout-border: 1px solid rgba($black, 0.25);
 $callout-margin: 0 0 1rem 0;
 $callout-padding: 1rem;
@@ -327,13 +333,13 @@ $callout-link-tint: 30%;
 // 14. Card
 // --------
 
-$card-background: $white;
-$card-font-color: $body-font-color;
-$card-divider-background: $light-gray;
-$card-border: 1px solid $light-gray;
+$card-background: $callout-background;
+$card-font-color: $callout-font-color;
+$card-divider-background: $callout-background;
+$card-border: 1px solid $callout-border;
 $card-shadow: none;
-$card-border-radius: $global-radius;
-$card-padding: $global-padding;
+$card-border-radius: $callout-radius;
+$card-padding: $callout-padding;
 $card-margin-bottom: $global-margin;
 
 // 15. Close Button
@@ -866,4 +872,3 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
-

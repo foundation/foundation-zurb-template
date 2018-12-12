@@ -1,0 +1,10 @@
+@mixin container-border($shadow: false) {
+  border: $callout-border;
+  border-radius: $callout-radius;
+
+  @if $shadow {
+    box-shadow: $container-box-shadow;
+  } @else {
+    box-shadow: none;
+  }
+}
