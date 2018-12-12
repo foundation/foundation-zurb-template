@@ -1,4 +1,4 @@
-%flex-base-reset {
+@mixin flex-base-reset {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,31 +21,31 @@
 }
 
 @mixin flex-centerer {
-  @extend %flex-base-reset;
+  @include flex-base-reset;
   align-items: center;
   justify-content: center;
 }
 
 @mixin flex-middle-justify {
-  @extend %flex-base-reset;
+  @include flex-base-reset;
   align-items: center;
   justify-content: space-between;
 }
 
 @mixin flex-middle-spaced {
-  @extend %flex-base-reset;
+  @include flex-base-reset;
   align-items: center;
   justify-content: space-around;
 }
 
 @mixin flex-middle-end {
-  @extend %flex-base-reset;
+  @include flex-base-reset;
   align-items: center;
   justify-content: flex-end;
 }
 
 @mixin flex-bottom-justify {
-  @extend %flex-base-reset;
+  @include flex-base-reset;
   align-items: flex-end;
   justify-content: space-between;
 }

@@ -1,9 +1,13 @@
 <div class="grid-container">
-  <h1 class="text-center">Project Name <img class="inject-svg" src="{{root}}assets/img/icons/test-icon.svg" alt=""></h1>
+  <div class="index-header">
+    <img class="zurb-logo" src="{{root}}assets/img/logos/zurb-logo.png" alt="zurb logo">
+    <h1 class="text-center">Project Name <img class="inject-svg" src="{{root}}assets/img/icons/test-icon.svg" alt=""></h1>
+    <div class="index-header-label">Index of Views</div>
+  </div>
+
 
   <div class="grid-x align-center">
     <div class="cell medium-5 text-center">
-      Index of views
       <ul class="menu vertical">
         {{#repeat 5}}
         <li><a href="#">Page {{@index}}</a></li>

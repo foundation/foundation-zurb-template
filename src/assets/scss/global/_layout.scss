@@ -1,8 +1,182 @@
+$app-wrapper-collapsed-sidebar-width: map-get($offcanvas-sizes, small);
+$app-wrapper-sidebar-width: map-get($offcanvas-sizes, medium);
+
+.app-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-wrapper-body {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.app-wrapper-sidebar {
+  background-color: $white;
+  height: 100%;
+  overflow-x: visible;
+  overflow-y: auto;
+  z-index: 1;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+
+  .app-wrapper-open-sidebar,
+  .app-wrapper-close-sidebar{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 3rem;
+  }
+
+  .app-wrapper-sidebar-block-title {
+    margin-bottom: 0;
+  }
+
+  .app-wrapper-sidebar-close-button {
+    img {
+      vertical-align: bottom;
+    }
+  }
+
+  img + .app-wrapper-sidebar-text {
+    margin-left: 1rem;
+  }
+
+  .app-wrapper-sidebar-inner {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .menu > li > a {
+      align-items: center;
+      padding: 0.6368rem 1rem;
+    }
+  }
+}
+
+.reveal-for-medium {
+  .app-wrapper-open-sidebar {
+    display: none;
+  }
+}
+
+.app-wrapper-sidebar-footer {
+  background: rgba(42, 57, 79, 0.8);
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+}
+
+.app-wrapper-open-sidebar {
+  text-align: center;
+}
+
+.app-wrapper-body-content {
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  overflow-y: auto;
+  flex: 1 1 0;
+  padding: 20px;
+  background-color: $white;
+}
+
+@mixin shrunk-sidebar() {
+  .app-wrapper-close-sidebar,
+  .app-wrapper-sidebar-text {
+    display: none;
+  }
+
+  .app-wrapper-open-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-wrapper-sidebar {
+    width: $app-wrapper-collapsed-sidebar-width;
+  }
+
+  .off-canvas-content {
+    margin-left: $app-wrapper-collapsed-sidebar-width;
+    width: calc(100% - #{$app-wrapper-collapsed-sidebar-width});
+  }
+
+  .menu.vertical > li > a {
+    justify-content: center;
+  }
+
+  .menu {
+    li {
+      &::after {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      a {
+        svg {
+          margin: 0;
+        }
+
+        span {
+          display: none;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// mini sidebar on medium/tablet size
+@include breakpoint(medium only) {
+  .app-wrapper.shrink-medium {
+    @include shrunk-sidebar()
+  }
+}
+@include breakpoint(large) {
+  .app-wrapper.shrink-large {
+    @include shrunk-sidebar()
+  }
+}
+
 .container-divider-right {
   border-bottom: $callout-border;
 
   @include breakpoint(medium) {
     border-right: $callout-border;
     border-bottom: 0;
+  }
+}
+
+
+// index presentation - discard at any time
+.index-header {
+  text-align: center;
+
+  .zurb-logo {
+    height: 12px;
+    margin-bottom: 12px;
+  }
+
+  .index-header-label {
+    border-bottom: 1px solid $medium-gray;
+    padding-bottom: 0.7rem;
+  }
+
+  @include breakpoint(large) {
+    @include flex-middle-justify;
+
+    .zurb-logo {
+      height: 20px;
+      margin-bottom: 0;
+    }
+
+    .index-header-label {
+      background-color: #BBD033;
+      padding: 1rem 2rem;
+    }
   }
 }
