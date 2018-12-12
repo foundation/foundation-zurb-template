@@ -1,3 +1,9 @@
-// containers
+// layout
+// --------------------
+$app-wrapper-collapsed-sidebar-width: map-get($offcanvas-sizes, small);
+$app-wrapper-sidebar-width: map-get($offcanvas-sizes, medium);
+$sidebar-main-bg: $body-background;
+
+// generic containers
 // --------------------
 $container-box-shadow: 0 0 8px rgba(0,0,0,0.1);

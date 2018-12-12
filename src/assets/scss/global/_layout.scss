@@ -1,7 +1,3 @@
-$app-wrapper-collapsed-sidebar-width: map-get($offcanvas-sizes, small);
-$app-wrapper-sidebar-width: map-get($offcanvas-sizes, medium);
-$sidebar-main-bg: $body-background;
-
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -119,5 +115,16 @@ $sidebar-main-bg: $body-background;
       background-color: #BBD033;
       padding: 1rem 2rem;
     }
+  }
+}
+
+.body-route-index {
+  .app-wrapper-sidebar {
+    display: none;
+  }
+
+  .app-wrapper.shrink-large .off-canvas-content {
+    margin-left: 0;
+    width: 100%;
   }
 }
