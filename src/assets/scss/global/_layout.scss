@@ -98,7 +98,6 @@
 
   .index-header-label {
     border-bottom: 1px solid $medium-gray;
-    color: $white;
     font-weight: bold;
     padding-bottom: 0.7rem;
   }
@@ -114,6 +113,7 @@
     .index-header-label {
       background-color: #BBD033;
       padding: 1rem 2rem;
+      color: $white;
     }
   }
 }
@@ -123,7 +123,7 @@
     display: none;
   }
 
-  .app-wrapper.shrink-large .off-canvas-content {
+  .app-wrapper .off-canvas-content {
     margin-left: 0;
     width: 100%;
   }
