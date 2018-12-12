@@ -37,13 +37,12 @@
 
   .menu {
     li > a {
-        svg {
-          margin: 0;
-        }
+      svg {
+        margin: 0;
+      }
 
-        .app-wrapper-sidebar-text {
-          display: none;
-        }
+      .app-wrapper-sidebar-text {
+        display: none;
       }
     }
   }
@@ -106,6 +105,26 @@
       padding: 1rem 2rem;
       color: $white;
     }
+  }
+}
+
+.index-layout {
+  .cell {
+    @include transition(box-shadow 0.3s);
+
+    > a {
+      display: block;
+    }
+
+    &:hover {
+      box-shadow: $container-box-shadow;
+    }
+  }
+
+  .index-label {
+    color: $body-font-color;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 }
 
