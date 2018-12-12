@@ -131,32 +131,32 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 ---
 
-<div class="row up-1 medium-up-3 large-up-5">
-  <div class="column">
+<div class="grid-x grid-margin-x grid-margin-y small-up-1 medium-up-3 large-up-5">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #2199e8"></span>
       #2199e8
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #3adb76"></span>
       #3adb76
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #ffae00"></span>
       #ffae00
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #ec5840"></span>
       #ec5840
     </div>
   </div>
-  <div class="column">
+  <div class="cell">
     <div class="color-block">
       <span style="background: #0a0a0a"></span>
       #0a0a0a
