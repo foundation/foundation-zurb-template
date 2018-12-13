@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import 'what-input';
-// import 'svg-injector-2';
 
 // Foundation JS relies on a global varaible. In ES6, all imports are hoisted
 // to the top of the file so if we used`import` to import Foundation,
@@ -9,7 +8,8 @@ import 'what-input';
 // have the hoisting behavior.
 window.jQuery = $;
 require('foundation-sites');
-// require('./svg-injector');
+require('./svg-injector');
+require('./app-sidebar-toggle');
 
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
@@ -17,10 +17,3 @@ require('foundation-sites');
 
 
 $(document).foundation();
-
-// app wrapper toggle
-// -------------------------
-$('[data-app-wrapper-toggle-shrink]').on('click', function(e) {
-  e.preventDefault();
-  $(this).parents('.app-wrapper').toggleClass('shrink-medium').toggleClass('shrink-large');
-});

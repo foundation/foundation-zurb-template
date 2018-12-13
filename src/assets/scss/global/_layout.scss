@@ -1,3 +1,14 @@
+// optional dark mode styles
+// -----------------
+// no-preference: Someone hasn’t expressed a preference.
+// light: Someone has selected a light theme
+// dark: Someone has selected a dark theme
+// https://caniuse.com/#search=prefers
+@media (prefers-color-scheme: dark) {
+  $body-background: $black;
+  $body-font-color: $white;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
