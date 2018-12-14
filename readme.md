@@ -19,52 +19,47 @@ This is the official ZURB Template for use with [Foundation for Sites](http://fo
 
 To use this template, your computer needs:
 
-- [NodeJS](https://nodejs.org/en/) (Version 6 or greater recommended, tested with 6.11.4 and 8.12.0)
+- [NodeJS](https://nodejs.org/en/) (Version 8 recommended, tested with 8.12.0)
 - [Git](https://git-scm.com/)
 
-This template can be installed with the Foundation CLI, or downloaded and set up manually.
-
-### Using the CLI
-
-Install the Foundation CLI with this command:
+1. **Download the template.** Do not clone it.
 
 ```bash
-npm install foundation-cli --global
+https://github.com/zurb/foundation-zurb-template
 ```
 
-Use this command to set up a blank Foundation for Sites project with this template:
+2. Unzip and rename the file to your project name. Move it your sites folder.
+
+3. Then open the folder in your command line, and install the needed dependencies:
 
 ```bash
-foundation new --framework sites --template zurb
-```
-
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
-
-Now `cd` to your project name and to start your project run 
-
-```bash
-foundation watch
-```
-
-### Manual Setup
-
-To manually set up the template, first download it with Git:
-
-```bash
-git clone https://github.com/zurb/foundation-zurb-template projectname
-```
-
-Then open the folder in your command line, and install the needed dependencies:
-
-```bash
-cd projectname
+cd your_project_name
 yarn
 ```
 
-Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+4. Run `yarn start` to run Gulp. Your compiled site will be created in a folder called `dist`, viewable at this URL:
 
 ```
 http://localhost:8000
 ```
 
+5. Change "Project Name" to your project's name in the `index.html` and in the layouts > `default.html` files.
+
+You're ready to go!
+
 To create compressed, production-ready assets, run `yarn run build`.
+
+## Dev Dependencies
+
+#### SVG injector
+
+[npm](https://www.npmjs.com/package/svg-injector)
+
+We are using SVG injector to allow SVG's to be manipulated with CSS from a simple `<img>` tag. Pretty neat!
+
+**Usage**
+Add the `inject-svg` attribute to any `img` where you'd need to manipulate with CSS.
+
+`<img inject-svg src="{{root}}assets/img/icons/test-icon.svg" alt="test icon">`
+
+This will apply the `.injected-svg` class to the SVG. Any class you add to the img tag will be applied to the SVG.

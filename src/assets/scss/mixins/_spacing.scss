@@ -1,3 +1,7 @@
+// This will create classes 0 through 3 for margin-bottom
+// Example mb0, mb1, mb2 ...
+// Change the 3 to the number of classes you need.
+
 @for $i from 0 through 3 {
   $margin: ($i);
 
