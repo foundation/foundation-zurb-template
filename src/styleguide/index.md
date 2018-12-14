@@ -94,7 +94,7 @@ In the Grid you can nest cells down as far as you'd like. Just embed grid-x insi
       <div class="small-4 cell">4</div>
     </div>
   </div>
-  <div class="small-4 cellgi">4</div>
+  <div class="small-4 cell">4</div>
 </div>
 
 ---
