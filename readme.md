@@ -43,7 +43,7 @@ yarn
 http://localhost:8000
 ```
 
-5. Change "Project Name" to your project's name in the `index.html` and in the layouts > `default.html` files.
+5. Change "Project Name" to your project's name in the `index.html`, styleguide > `index.md`, and in the layouts > `default.html` files.
 
 You're ready to go!
 

@@ -76,7 +76,7 @@ $sidelines-double-line-spacing: 0.5rem !default;
 // usage
 // ---------------
 .type-sidelines {
-  @include sidelines($text-left: true);
+  @include sidelines;
 }
 
 .type-sidelines-dotted {

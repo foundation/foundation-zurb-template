@@ -1,0 +1,37 @@
+@mixin truncate($width, $display: initial) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+  max-width: $width;
+  display: $display;
+}
+
+@mixin truncate-lines($lines) {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0 !important;
+  position: relative;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  height: 1rem * 1.5 * $lines;
+
+  &:after {
+    top: 1rem * 1.5 * ($lines - 1);
+  }
+}
+
+@mixin truncate-responsive {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+
+  > * {
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

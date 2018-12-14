@@ -87,6 +87,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
+$border-color: rgba($black, 0.25);
 
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -340,7 +341,7 @@ $buttongroup-radius-on-each: true;
 
 $callout-background: $white;
 $callout-background-fade: 0%;
-$callout-border: 1px solid rgba($black, 0.25);
+$callout-border: 1px solid $border-color;
 $callout-margin: 0 0 1rem 0;
 $callout-padding: 1rem;
 $callout-font-color: $body-font-color;

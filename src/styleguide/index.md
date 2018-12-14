@@ -21,40 +21,40 @@ In the Grid you can nest cells down as far as you'd like. Just embed grid-x insi
 Using this framework is easy. Here's how your code will look when you use a series of `<div>` tags to create cells.
 
 ```html
-<div class="grid-x">
+<div class="grid-x grid-padding-x">
   <div class="small-6 medium-4 large-3 cell">...</div>
   <div class="small-6 medium-8 large-9 cell">...</div>
 </div>
 ```
 
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-4 cell">4</div>
   <div class="small-12 large-4 cell">4</div>
   <div class="small-12 large-4 cell">4</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-3 cell">3</div>
   <div class="small-12 large-6 cell">6</div>
   <div class="small-12 large-3 cell">3</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-2 cell">2</div>
   <div class="small-12 large-8 cell">8</div>
   <div class="small-12 large-2 cell">2</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-3 cell">3</div>
   <div class="small-12 large-9 cell">9</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-4 cell">4</div>
   <div class="small-12 large-8 cell">8</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-5 cell">5</div>
   <div class="small-12 large-7 cell">7</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-12 large-6 cell">6</div>
   <div class="small-12 large-6 cell">6</div>
 </div>
@@ -66,11 +66,11 @@ Using this framework is easy. Here's how your code will look when you use a seri
 In the Grid you can nest cells down as far as you'd like. Just embed grid-x inside cells and go from there. Each embedded grid-x can contain up to 12 cells.
 
 ```html
-<div class="grid-x">
+<div class="grid-x  grid-padding-x">
   <div class="small-8 cell">8
-    <div class="grid-x">
+    <div class="grid-x grid-padding-x">
       <div class="small-8 cell">8 Nested
-        <div class="grid-x">
+        <div class="grid-x grid-padding-x">
           <div class="small-8 cell">8 Nested Again</div>
           <div class="small-4 cell">4</div>
         </div>
@@ -82,11 +82,11 @@ In the Grid you can nest cells down as far as you'd like. Just embed grid-x insi
 </div>
 ```
 
-<div class="grid-x display">
+<div class="grid-x  grid-padding-x display">
   <div class="small-8 cell">8
-    <div class="grid-x">
+    <div class="grid-x  grid-padding-x">
       <div class="small-8 cell">8 Nested
-        <div class="grid-x">
+        <div class="grid-x grid-padding-x">
           <div class="small-8 cell">8 Nested Again</div>
           <div class="small-4 cell">4</div>
         </div>
@@ -104,21 +104,21 @@ In the Grid you can nest cells down as far as you'd like. Just embed grid-x insi
 As you've probably noticed in the examples above, you have access to a small, medium, and large grid. If you know that your grid structure will be the same for small devices as it will be on large devices, just use the small grid. You can override your small grid classes by adding medium or large grid classes.
 
 ```html
-<div class="grid-x">
+<div class="grid-x grid-padding-x">
   <div class="small-2 cell">2</div>
   <div class="small-10 cell">10, last</div>
 </div>
-<div class="grid-x">
+<div class="grid-x grid-padding-x">
   <div class="small-3 cell">3</div>
   <div class="small-9 cell">9, last</div>
 </div>
 ```
 
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-2 cell">2</div>
   <div class="small-10 cell">10, last</div>
 </div>
-<div class="grid-x display">
+<div class="grid-x grid-padding-x display">
   <div class="small-3 cell">3</div>
   <div class="small-9 cell">9, last</div>
 </div>
@@ -345,6 +345,324 @@ Form elements in Foundation are styled based on their type attribute rather than
 
 
 # Sass Mixins
+
+These mixins will simplify your CSS, help you build faster, and help create standard styles. The beauty of these mixins is they are there if you need them, and will not output any CSS if you do not use them.
+
+---
+
+## Avatar
+
+Creates a rounded image. Default sizes are `tiny`, `small`, `medium`, `large`.
+
+Usage:
+
+```scss
+.avatar {
+  @include avatar;
+}
+
+//pass in options
+.avatar {
+  @include avatar($size: medium, $radius: 50%);
+}
+```
+
+---
+
+## Container border
+
+Used to create a consistent border or divider style. You can pass in a default box shadow by setting $shadow to true.
+
+Usage:
+
+```scss
+.container {
+  @include container-border($shadow: false);
+}
+```
+
+---
+
+## Flexbox
+
+These flexbox mixins simplify your Sass and also reset margin bottoms of common elements so they can be easily vertically centered.
+
+Usage:
+
+```scss
+// center direct children vertically and horizontally
+.thing {
+  @include flex-centerer;
+}
+
+// center children vertically and justify horizontally
+.thing {
+  @include flex-middle-justify;
+}
+
+// center children vertically and space around horizontally
+.thing {
+  @include flex-middle-spaced;
+}
+
+// center children vertically and push to end horizontally
+.thing {
+  @include flex-middle-end;
+}
+
+// children are bottom vertically and justify horizontally
+.thing {
+  @include flex-middle-end;
+}
+```
+
+---
+
+## Psuedo
+
+This helps use Psuedo `::before`, `::after` elements more effectively.
+
+Usage:
+
+```scss
+// You can change the default after the colon as needed.
+.thing {
+  &::after {
+    @include pseudo($display: block, $pos: absolute, $content: '');
+  }
+}
+```
+
+---
+
+## Push Center
+
+This will apply margin: auto left and right to center a block level element. Using this is better than applying `margin: 0 auto` as it could reduce CSS and unwanted issue when setting bottom margin later.
+
+Usage:
+
+```scss
+.container {
+  @include push-center;
+}
+
+// if the element is not already display: block, you can pass in the argument
+.container {
+  @include push-center($display: block);
+}
+```
+
+---
+
+## Scrolling
+
+These scrolling mixins help apply the proper overflow style and the necessary iOS scrolling propery.
+
+Usage:
+
+```scss
+// vertical
+.container {
+  @include vertical-scroll;
+}
+
+// horizontal
+.container {
+  @include horizontal-scroll;
+}
+```
+
+You can also hide scollbars on IE/Edge and iOS using this mixin:
+
+Usage:
+
+```scss
+.container {
+  @include hide-scrollbars;
+}
+```
+
+---
+
+## Sidelines
+
+This mixin creates a pattern for horizontal lines on the sides of an element. *Default variables can be found in the mixins > `_sidelines.scss` file.*
+
+
+Usage as a class:
+
+```html_example
+<h2 class="type-sidelines"><span>OR</span></h2>
+```
+
+Usage as a mixin:
+
+```scss
+// just use it
+.type-sidelines {
+  @include sidelines;
+}
+
+// or pass in options
+.type-sidelines {
+  $text-padding: $sidelines-text-padding,
+  $text-left: $sidelines-text-align-left,
+  $line-thickness: $sidelines-line-thickness,
+  $line-length: $sidelines-line-length,
+  $line-color: $sidelines-line-color,
+  $line-style: $sidelines-line-style,
+  $double-line: $sidelines-double-line,
+  $double-line-spacing: $sidelines-double-line-spacing
+}
+
+// or some options
+.type-sidelines-dotted {
+  @include sidelines($text-left: true, $line-style: dotted);
+}
+```
+
+---
+
+## Spacing
+
+There are functional CSS spacing classes available for margin-bottom.
+
+By default, there are 4 classes. If you need more, you can change the "through" number in the mixins > `_spacing.scss` file.
+
+Classes:
+
+- margin-bottom: 0; = `.mb0`
+- margin-bottom: 1; = `.mb1`
+- margin-bottom: 2; = `.mb2`
+- margin-bottom: 3; = `.mb3`
+
+---
+
+## SVG Coloring
+
+This mixins makes it easy to apply CSS colors to your SVG's. You will need to pass in a color for this to work.
+
+Usage:
+
+```scss
+.button:hover {
+  @include svg-coloring($color: $primary-color);
+}
+```
+
+---
+
+## Transition
+
+Using this transition mixin will not only save writing CSS properties by hand but also add some consistency in timing and easing. *Note: you only need to apply the transition on the element itself for it to work in both directions, not the state of the element like :hover.*
+
+For better performance, avoid using `all` as the transition property.
+
+Defaults:
+```scss
+// Default values
+$property: all; // all is a fallback but you should define a property for better performance
+$duration: 0.2s;
+$easing: ease-out; // Browser default is ease otherwise
+$delay: null; // Browser default is 0, which is what we want
+$defaultProperties: ($property, $duration, $easing, $delay);
+```
+
+Usage:
+
+```scss
+// define arguments
+.button {
+  @include transition(background-color 0.4s ease);
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// or use the defaults
+.button {
+  @include transition(background-color);
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// define multiple transitions
+.button {
+  @include transition(background-color, color);
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    color: darken($white, 10%);
+  }
+}
+```
+
+---
+
+## Truncate
+
+You can truncate text pretty easily with these mixins. There's even a mixin for responsive or multiline.
+
+Usage:
+
+```scss
+// Pass in a width for this to work.
+.truncated-text {
+  @include truncate($width, $display: initial);
+}
+
+// Pass in a the number of lines to cut this off at.
+.truncated-text {
+  @include truncate-lines($lines);
+}
+
+// Wrap the truncated text in a class with this mixin.
+.truncated-text {
+  @include truncate-responsive;
+}
+```
+
+---
+
+## Z Index
+
+Layering order of elements can get unruly quite quickly so this mixin will help bring some order to it.
+
+Store you z-index's in the Sass map. You 'll find it in mixins > `_zindex.scss`. Apply any name you like and assign a z-index value.
+
+```scss
+$z-layers: (
+  app-sidebar: 11,
+  app-frame: 4000,
+  modal: 4001
+);
+```
+
+Usage:
+
+```scss
+.some-modal {
+  z-index: z(modal);
+}
+```
+
+---
+
+## Foundation's Built-in Mixins
+
+There are many more Mixins built into Foundation you can access at any time. The beauty of these mixins is they are there if you need them, and will not output any CSS if you do not use them.
+
+Check the Foundation Documentation for more helpful Sass mixins:
+
+- [Sass Mixins used to build Foundation components](https://foundation.zurb.com/sites/docs/sass-mixins.html)
+- [Additionl Sass Mixin Utilities](https://foundation.zurb.com/sites/docs/prototyping-utilities.html)
+
 
 
 
