@@ -146,20 +146,28 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 32, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h2': ('font-size': 24, 'line-height': 32px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h3': ('font-size': 32, 'line-height': 38px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h4': ('font-size': 20, 'line-height': 32px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h5': ('font-size': 16, 'line-height': 35px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h6': ('font-size': 14, 'line-height': 20px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 36, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h2': ('font-size': 36, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h3': ('font-size': 36, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h4': ('font-size': 24, 'line-height': 36px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h5': ('font-size': 16, 'line-height': 24px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h6': ('font-size': 14, 'line-height': 20px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+  ),
+  large: (
+    'h1': ('font-size': 54, 'line-height': 60px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h2': ('font-size': 36, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h3': ('font-size': 36, 'line-height': 48px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h4': ('font-size': 24, 'line-height': 36px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h5': ('font-size': 16, 'line-height': 24px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+    'h6': ('font-size': 14, 'line-height': 20px, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
   ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -301,7 +309,17 @@ $button-sizes: (
   default: 0.9rem,
   large: 1.25rem,
 );
-$button-palette: $foundation-palette;
+// $button-palette: $foundation-palette;
+$button-palette: (
+  primary: $primary-color,
+  alternate: $white,
+  dark: $black,
+  blue: #0A85EA,
+  green: #23D09C,
+  yellow: #F2D211,
+  pink: #F44E66,
+  purple: #764DE8,
+);
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
@@ -519,7 +537,7 @@ $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
 $offcanvas-exit-background: rgba($white, 0.25);
-$maincontent-class: 'off-canvas-content';
+$maincontent-class: 'app-wrapper-body-content';
 
 // 26. Orbit
 // ---------

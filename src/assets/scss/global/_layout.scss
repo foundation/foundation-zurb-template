@@ -41,7 +41,7 @@
     width: $app-wrapper-collapsed-sidebar-width;
   }
 
-  .off-canvas-content {
+  .app-wrapper-body-content {
     margin-left: $app-wrapper-collapsed-sidebar-width;
     width: calc(100% - #{$app-wrapper-collapsed-sidebar-width});
   }
