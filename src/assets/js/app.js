@@ -10,6 +10,7 @@ window.jQuery = $;
 require('foundation-sites');
 require('./app-sidebar-toggle');
 require('./svg-injector');
+require('./animate-on-scroll');
 
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below

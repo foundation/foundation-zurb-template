@@ -63,3 +63,14 @@ Add the `inject-svg` attribute to any `img` where you'd need to manipulate with 
 `<img inject-svg src="{{root}}assets/img/icons/test-icon.svg" alt="test icon">`
 
 This will apply the `.injected-svg` class to the SVG. Any class you add to the img tag will be applied to the SVG.
+
+---
+
+#### AOS (Animate on Scroll)
+
+[Website](https://michalsnik.github.io/aos/)
+
+**Usage**
+Add `data-aos` along with an animation name to an element. Delay is set in ms.
+
+`<div data-aos="fade-up" data-aos-delay="50"></div>`
