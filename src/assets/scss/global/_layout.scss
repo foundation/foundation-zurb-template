@@ -9,6 +9,13 @@
   $body-font-color: $white;
 }
 
+
+@element '.app-wrapper-body-content' {
+  eq_self {
+    background-color: yellowgreen;
+  }
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -137,6 +144,12 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
+
+  @include breakpoint(small only) {
+    a {
+      transform: none;
+    }
+  }
 }
 
 .body-route-index {
@@ -144,7 +157,7 @@
     display: none;
   }
 
-  .app-wrapper .off-canvas-content {
+  .app-wrapper .app-wrapper-body-content {
     margin-left: 0;
     width: 100%;
   }
