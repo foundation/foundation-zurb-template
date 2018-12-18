@@ -9,12 +9,11 @@
   $body-font-color: $white;
 }
 
-
-@element '.app-wrapper-body-content' {
-  eq_self {
-    background-color: yellowgreen;
-  }
-}
+// @element '.app-wrapper-body-content' {
+//   eq_self {
+//     background: gold;
+//   }
+// }
 
 .app-wrapper {
   display: flex;
