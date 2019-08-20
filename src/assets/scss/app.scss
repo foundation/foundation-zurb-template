@@ -67,9 +67,12 @@
 @include motion-ui-animations;
 
 // vendor styles
+// --------------------
 @import 'vendor/animate-on-scroll';
 
 // mixins
+// --------------------
+@import 'mixins/animate-gradient';
 @import 'mixins/avatar';
 @import 'mixins/container-border';
 @import 'mixins/flexbox';
@@ -84,14 +87,22 @@
 @import 'mixins/zindex';
 
 // global styles
+// --------------------
 @import 'global/animations';
 @import 'global/buttons';
 @import 'global/layout';
 @import 'global/typography';
 
 // custom components
+// --------------------
+// --------------------
+
+// custom forms
+// --------------------
 @import 'components/forms/checkbox';
 @import 'components/forms/inputs';
 
+// custom navigation
+// --------------------
 @import 'components/navigation/nav-main';
 @import 'components/navigation/sidebar-main';

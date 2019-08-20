@@ -15,6 +15,34 @@
 //   }
 // }
 
+// sets grid-container gutter to grid gutter
+.grid-container {
+  padding-left: map-get($grid-margin-gutters, small);
+  padding-right: map-get($grid-margin-gutters, small);
+
+  @include breakpoint(medium) {
+    padding-left: map-get($grid-margin-gutters, medium);
+    padding-right: map-get($grid-margin-gutters, medium);
+  }
+}
+
+// grid-container with vertical spacing
+.section {
+  @extend .grid-container;
+  padding-top: $section-spacing/2;
+  padding-bottom: $section-spacing/2;
+
+  @include breakpoint(medium) {
+    padding-bottom: $section-spacing;
+    padding-top: $section-spacing;
+  }
+}
+
+// utilities
+.pb0 {
+  padding-bottom: 0;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -85,18 +113,50 @@
 // divider
 // ----------
 .container-divider-right {
-  border-bottom: $callout-border;
+  border-bottom: $container-border;
 
   @include breakpoint(medium) {
-    border-right: $callout-border;
+    border-right: $container-border;
     border-bottom: 0;
   }
 }
 
-// index presentation - discard at any time
-// ----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// site index styles - remove in production
+// -----------------------------------------
 .index-header {
   text-align: center;
+  padding-top: 2rem;
 
   .zurb-logo {
     height: rem-calc(12);
@@ -126,11 +186,27 @@
 }
 
 .index-layout {
+  padding-bottom: 2rem;
+
   .cell {
     @include transition(box-shadow 0.3s);
+    box-shadow: $card-shadow;
+
+    &.is-disabled {
+      opacity: 0.25;
+      pointer-events: none;
+    }
 
     > a {
       display: block;
+    }
+
+    img {
+      margin-bottom: 0.25rem;
+      object-fit: cover;
+      height: 190px;
+      display: block;
+      width: 100%;
     }
 
     &:hover {
@@ -144,10 +220,8 @@
     text-transform: uppercase;
   }
 
-  @include breakpoint(small only) {
-    a {
-      transform: none;
-    }
+  @include breakpoint(medium) {
+    padding-bottom: 3rem;
   }
 }
 

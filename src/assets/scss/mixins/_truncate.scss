@@ -7,7 +7,7 @@
   display: $display;
 }
 
-@mixin truncate-lines($lines) {
+@mixin truncate-lines($lines, $line-height: 1.5) {
   display: block;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -16,10 +16,10 @@
   position: relative;
   text-overflow: ellipsis;
   -webkit-line-clamp: $lines;
-  height: 1rem * 1.5 * $lines;
+  height: 1rem * $line-height * $lines;
 
   &:after {
-    top: 1rem * 1.5 * ($lines - 1);
+    top: 1rem * $line-height * ($lines - 1);
   }
 }
 

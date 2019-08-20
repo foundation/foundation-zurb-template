@@ -344,9 +344,49 @@ Form elements in Foundation are styled based on their type attribute rather than
 
 
 
+# Checkbox
+
+<div>
+<input id="newsletterOptin" type="checkbox" checked>
+<label for="newsletterOptin">Please confirm that you agree to receive ABS newsletters via email.</label>
+</div>
+
+
+
+# New Section
+
+4 returns (spaces) between items and start with an h1
+
+```html_example
+<a href="#" class="button">Button</a>
+<a href="#" class="button">Button</a>
+<a href="#" class="button">Button</a>
+```
+
+
+
+
 # Sass Mixins
 
 These mixins will simplify your CSS, help you build faster, and help create standard styles. The beauty of these mixins is they are there if you need them, and will not output any CSS if you do not use them.
+
+---
+
+## Animate Gradient
+
+This mixin allows you to animate a gradient, which is not possible with a background-img propery.
+
+It creates a psuedo element on your element that overlays the item when called on hover.
+
+**Useage:**
+
+Pass in the starting color, ending color, and transition time.
+
+```scss
+.element {
+  @include gradient-animation($gray200, $gray900, 0.6s);
+}
+```
 
 ---
 
@@ -354,7 +394,7 @@ These mixins will simplify your CSS, help you build faster, and help create stan
 
 Creates a rounded image. Default sizes are `tiny`, `small`, `medium`, `large`.
 
-Usage:
+**Useage:**
 
 ```scss
 .avatar {
@@ -373,7 +413,7 @@ Usage:
 
 Used to create a consistent border or divider style. You can pass in a default box shadow by setting $shadow to true.
 
-Usage:
+**Useage:**
 
 ```scss
 .container {
@@ -387,7 +427,7 @@ Usage:
 
 These flexbox mixins simplify your Sass and also reset margin bottoms of common elements so they can be easily vertically centered.
 
-Usage:
+**Useage:**
 
 ```scss
 // center direct children vertically and horizontally
@@ -422,7 +462,7 @@ Usage:
 
 This helps use Psuedo `::before`, `::after` elements more effectively.
 
-Usage:
+**Useage:**
 
 ```scss
 // You can change the default after the colon as needed.
@@ -439,7 +479,7 @@ Usage:
 
 This will apply margin: auto left and right to center a block level element. Using this is better than applying `margin: 0 auto` as it could reduce CSS and unwanted issue when setting bottom margin later.
 
-Usage:
+**Useage:**
 
 ```scss
 .container {
@@ -458,7 +498,7 @@ Usage:
 
 These scrolling mixins help apply the proper overflow style and the necessary iOS scrolling propery.
 
-Usage:
+**Useage:**
 
 ```scss
 // vertical
@@ -474,7 +514,7 @@ Usage:
 
 You can also hide scollbars on IE/Edge and iOS using this mixin:
 
-Usage:
+**Useage:**
 
 ```scss
 .container {
@@ -542,7 +582,7 @@ Classes:
 
 This mixins makes it easy to apply CSS colors to your SVG's. You will need to pass in a color for this to work.
 
-Usage:
+**Useage:**
 
 ```scss
 .button:hover {
@@ -568,7 +608,7 @@ $delay: null; // Browser default is 0, which is what we want
 $defaultProperties: ($property, $duration, $easing, $delay);
 ```
 
-Usage:
+**Useage:**
 
 ```scss
 // define arguments
@@ -609,7 +649,7 @@ Usage:
 
 You can truncate text pretty easily with these mixins. There's even a mixin for responsive or multiline.
 
-Usage:
+**Useage:**
 
 ```scss
 // Pass in a width for this to work.
@@ -644,7 +684,7 @@ $z-layers: (
 );
 ```
 
-Usage:
+**Useage:**
 
 ```scss
 .some-modal {
@@ -662,17 +702,3 @@ Check the Foundation Documentation for more helpful Sass mixins:
 
 - [Sass Mixins used to build Foundation components](https://foundation.zurb.com/sites/docs/sass-mixins.html)
 - [Additionl Sass Mixin Utilities](https://foundation.zurb.com/sites/docs/prototyping-utilities.html)
-
-
-
-
-
-# New Section
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora omnis suscipit id ut laborum recusandae molestias hic aliquid **expedita!** [Non dicta](zurb.com), autem obcaecati error, id ab voluptate unde culpa nulla.
-
-```html_example
-<a href="#" class="button">Button</a>
-<a href="#" class="button">Button</a>
-<a href="#" class="button">Button</a>
-```

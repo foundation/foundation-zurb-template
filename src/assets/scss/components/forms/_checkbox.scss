@@ -1,0 +1,93 @@
+// generic checkbox styles
+// ------------------------------
+
+// Hide the default radio button and checkbox
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+  left: -99999px;
+}
+
+// Making room for the new radio button and checkbox
+input[type="radio"] ~ label,
+input[type="checkbox"] ~ label {
+  position: relative;
+  margin-left: $checkbox-label-offset;
+  display: flex;
+  align-items: center;
+  line-height: 16px;
+}
+
+// Style of unselected radio button and checkboxes
+input[type="radio"] ~ label::after,
+input[type="checkbox"] ~ label::after {
+  background: $checkbox-bg;
+  border: 1px solid $checkbox-border-color;
+  content: "";
+  display: block;
+  height: $checkbox-size;
+  left: -$checkbox-label-offset;
+  width: $checkbox-size;
+}
+
+// Normal radio buttons and checkboxes are centered
+input[type="radio"] ~ label::after,
+input[type="checkbox"] ~ label::after {
+  @include vertical-center;
+}
+
+// Disabled checkbox or radio
+input[type="radio"].disabled ~ label,
+input[type="checkbox"].disabled ~ label {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &::after {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// Check mark boxes have the default rounded corners
+input[type="checkbox"] ~ label::after {
+  border-radius: $global-radius;
+}
+
+// Radio buttons are round
+input[type="radio"] ~ label::after {
+  border-radius: $global-rounded;
+  @include transition(background-color 0.2s, box-shadow 0.15s);
+}
+
+// Style of Selected radio button
+input[type="radio"]:checked ~ label::after {
+  background-color: $primary-color;
+  box-shadow: inset 0 0 0 rem-calc(2.5) $white;
+}
+
+// Keep the default rounded corners
+input[type="checkbox"] ~ label::after {
+  @include transition(background-size 0.2s, border 0.15s);
+  background-size: 1px;
+  border-radius: $global-radius;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// Active state
+input[type="checkbox"]:checked ~ label::after {
+  background-image: $checkbox-icon;
+  border: $input-border-focus;
+  background-size: $checkbox-check-size;
+  background-color: $checkbox-selected-bg;
+}
+
+.inline-checklist {
+  list-style: none;
+  margin: rem-calc(3) 0 1rem;
+
+  > li {
+    display: inline-block;
+  }
+}

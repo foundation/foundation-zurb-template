@@ -1,0 +1,29 @@
+@mixin gradient-animation($start, $end, $transTime, $base-gradient: false) {
+  background-size: 100%;
+  position: relative;
+  z-index: 1;
+
+  @if $base-gradient == true {
+    background-image: linear-gradient(to right, $end, $start);
+  }
+
+  &::before {
+    background-image: linear-gradient(90deg, $start 0%, $end);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -1;
+    transition: opacity $transTime;
+  }
+
+  &:hover {
+     &:before {
+      opacity: 1;
+    }
+  }
+}

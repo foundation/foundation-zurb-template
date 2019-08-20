@@ -1,6 +1,6 @@
 @mixin container-border($shadow: false) {
-  border: $callout-border;
-  border-radius: $callout-radius;
+  border: $container-border;
+  border-radius: $container-radius;
 
   @if $shadow {
     box-shadow: $container-box-shadow;

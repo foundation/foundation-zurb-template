@@ -1,0 +1,32 @@
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+select {
+  height: $input-height-mobile;
+  margin-bottom: $input-margin-bottom-mobile;
+
+  @include breakpoint(medium) {
+    height: $input-height;
+    margin-bottom: $input-margin-bottom;
+  }
+}
+
+.input-search {
+  background-image: url('../img/icons/search-icon.svg');
+  background-position: center right $form-spacing;
+  background-repeat: no-repeat;
+  background-size: rem-calc(35);
+  padding-right: $form-spacing*3;
+  margin-bottom: 0;
+}

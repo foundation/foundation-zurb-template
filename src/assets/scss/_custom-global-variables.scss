@@ -3,7 +3,31 @@
 $app-wrapper-collapsed-sidebar-width: map-get($offcanvas-sizes, small);
 $app-wrapper-sidebar-width: map-get($offcanvas-sizes, medium);
 $sidebar-main-bg: $body-background;
+$section-spacing: rem-calc(100); // vertical inner spacing between content sections
+
+// buttons
+// --------------------------------
+$button-font-weight: $global-weight-normal;
 
 // generic containers
 // --------------------
-$container-box-shadow: 0 0 8px rgba(0,0,0,0.1);
+$container-box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.3);
+$container-box-shadow-inverse: 0 0 16px 1px rgba(255, 255, 255, 0.3); // for dark bg's
+$container-border: $callout-border;
+$container-radius: $callout-radius;
+
+// forms
+// --------------------------------
+$checkbox-label-offset: 1.75rem;
+$checkbox-size: rem-calc(20);
+$checkbox-check-size: rem-calc(15);
+$global-rounded: 5000px;
+$checkbox-border-color: $border-color;
+$checkbox-bg: $off-white;
+$checkbox-selected-bg: $off-white;
+$checkbox-icon: url("../img/icons/checkmark-icon.svg");
+
+$input-height-mobile: rem-calc(40);
+$input-margin-bottom-mobile: rem-calc(20);
+$input-height: rem-calc(50);
+$input-margin-bottom: rem-calc(24);
