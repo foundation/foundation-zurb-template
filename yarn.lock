@@ -4698,6 +4698,11 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
+jquery@>=1.8.3:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+
 jquery@^3.2.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
@@ -6010,6 +6015,13 @@ osenv@0, osenv@^0.1.4:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+owl.carousel2@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/owl.carousel2/-/owl.carousel2-2.2.1.tgz#09dc5b4ae7b9b7a3d913fe4fea4c6d6cc7957f22"
+  integrity sha1-CdxbSue5t6PZE/5P6kxtbMeVfyI=
+  dependencies:
+    jquery ">=1.8.3"
 
 p-defer@^1.0.0:
   version "1.0.0"

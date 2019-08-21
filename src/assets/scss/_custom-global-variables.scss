@@ -1,8 +1,6 @@
 // layout
 // --------------------
-$app-wrapper-collapsed-sidebar-width: map-get($offcanvas-sizes, small);
-$app-wrapper-sidebar-width: map-get($offcanvas-sizes, medium);
-$sidebar-main-bg: $body-background;
+$main-nav-height: rem-calc(55);
 $section-spacing: rem-calc(100); // vertical inner spacing between content sections
 
 // buttons

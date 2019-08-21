@@ -69,6 +69,7 @@
 // vendor styles
 // --------------------
 @import 'vendor/animate-on-scroll';
+@import 'vendor/carousel';
 
 // mixins
 // --------------------
@@ -105,4 +106,7 @@
 // custom navigation
 // --------------------
 @import 'components/navigation/nav-main';
-@import 'components/navigation/sidebar-main';
+
+// everything else
+// --------------------------------
+@import 'components/carousel';

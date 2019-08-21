@@ -1,0 +1,94 @@
+// carousel base
+// -------------------
+
+.owl-theme .owl-nav {
+    @include absolute-center;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .owl-prev,
+    .owl-next {
+      background: none;
+      circle,
+      path {
+        @include transition(fill, stroke);
+      }
+    }
+
+    .owl-prev:hover,
+    .owl-next:hover  {
+      circle {
+        fill: $gray200;
+      }
+
+      path {
+        stroke: $light-gray;
+      }
+    }
+
+    .owl-prev {
+      display: none;
+    }
+
+    .owl-next {
+      display: none;
+    }
+
+    @include breakpoint(1210px) {
+      .owl-prev {
+        display: block;
+        transform: translateX(-50%);
+        opacity: 0.7;
+      }
+
+      .owl-next {
+        display: block;
+        transform: translateX(50%);
+        opacity: 0.7;
+      }
+    }
+
+    @include breakpoint(1325px) {
+      .owl-prev {
+        transform: translateX(-110%);
+      }
+
+      .owl-next {
+        transform: translateX(110%);
+      }
+    }
+  }
+}
+
+.owl-dots {
+  margin-bottom: 0;
+  margin-top: 25px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background: $primary-color;
+}
+
+.owl-theme .owl-dots .owl-dot.active:hover span {
+  background: lighten($primary-color, 25%);
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  @include transition(background);
+  background: $secondary-color;
+  height: 12px;
+  width: 12px;
+}
+
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: lighten($secondary-color, 25%);
+}
+
+
+.owl-carousel {
+  .card:hover {
+    box-shadow: none;
+  }
+}
