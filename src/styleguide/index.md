@@ -344,12 +344,93 @@ Form elements in Foundation are styled based on their type attribute rather than
 
 
 
-# Checkbox
+# Checkbox & Radio
+
+Associated files:
+- *_custom-global-variables.scss*
+- *_cehckbox.scss*
+
+Associated Custom Variables:
+```scss
+$checkbox-label-offset: 1.75rem;
+$checkbox-size: rem-calc(20);
+$checkbox-check-size: rem-calc(15);
+$checkbox-border-color: $border-color;
+$checkbox-bg: $off-white;
+$checkbox-selected-bg: $off-white;
+$checkbox-icon: url("../img/icons/checkmark-icon.svg");
+```
+
+Checkboxes and Radios are custom styled. Setting them up is super easy:
+
+- The input `type="checkbox"` must be directly followed by a label in the HTML to set up the style.
+- To align the checkbox to the top of the label, add the `.checkbox-align-top` class to the label.
+- To start the checkbox selected, add the `[checked]` attribute to the input.
+
+---
+
+### Checkbox
 
 <div>
-<input id="newsletterOptin" type="checkbox" checked>
-<label for="newsletterOptin">Please confirm that you agree to receive ABS newsletters via email.</label>
+  <input id="newsletterOptin" type="checkbox" checked>
+  <label for="newsletterOptin">Please confirm that you agree to receive some rad newsletters via email.</label>
 </div>
+<br>
+<div>
+  <input id="newsletterOptin" type="checkbox" checked>
+  <label class="checkbox-align-top" for="newsletterOptin">Please confirm that you agree to receive some rad newsletters via email. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores illum et provident animi commodi similique explicabo perferendis. Similique rerum ratione itaque, molestiae, sequi molestias aperiam quas minima recusandae ullam incidunt.</label>
+</div>
+
+<br>
+
+```html
+<input id="newsletterOptin" type="checkbox" checked>
+<label for="newsletterOptin">Please confirm that you agree to receive some rad newsletters via email.</label>
+
+<!-- aligned to top -->
+<input id="newsletterOptin" type="checkbox" checked>
+<label class="checkbox-align-top" for="newsletterOptin">Please confirm that you agree to receive some rad newsletters via email. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores illum et provident animi commodi similique explicabo perferendis. Similique rerum ratione itaque, molestiae, sequi molestias aperiam quas minima recusandae ullam incidunt.</label>
+```
+
+---
+
+### Radio
+
+<div>
+  <label style="margin-bottom: 0.75rem;">Choose Your Favorite</label>
+  <div style="margin-bottom: 0.75rem;">
+    <input type="radio" id="huey" name="drone" value="huey" checked>
+    <label for="huey">Huey</label>
+  </div>
+  <div style="margin-bottom: 0.75rem;">
+    <input type="radio" id="dewey" name="drone" value="dewey">
+    <label for="dewey">Dewey</label>
+  </div>
+  <div>
+    <input type="radio" id="louie" name="drone" value="louie">
+    <label for="louie">Louie</label>
+  </div>
+</div>
+
+<br>
+
+```html
+<label>Choose Your Favorite</label>
+<div>
+  <input type="radio" id="huey" name="drone" value="huey" checked>
+  <label for="huey">Huey</label>
+</div>
+<div>
+  <input type="radio" id="dewey" name="drone" value="dewey">
+  <label for="dewey">Dewey</label>
+</div>
+<div>
+  <input type="radio" id="louie" name="drone" value="louie">
+  <label for="louie">Louie</label>
+</div>
+```
+
+
 
 
 

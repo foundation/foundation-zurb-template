@@ -37,6 +37,12 @@ input[type="checkbox"] ~ label::after {
   @include vertical-center;
 }
 
+// Align box to top
+input[type="radio"] ~ label.checkbox-align-top::after,
+input[type="checkbox"] ~ label.checkbox-align-top::after {
+  top: 12px;
+}
+
 // Disabled checkbox or radio
 input[type="radio"].disabled ~ label,
 input[type="checkbox"].disabled ~ label {
@@ -82,6 +88,7 @@ input[type="checkbox"]:checked ~ label::after {
   background-size: $checkbox-check-size;
   background-color: $checkbox-selected-bg;
 }
+
 
 .inline-checklist {
   list-style: none;
