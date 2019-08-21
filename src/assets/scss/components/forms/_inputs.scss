@@ -30,3 +30,8 @@ select {
   padding-right: $form-spacing*3;
   margin-bottom: 0;
 }
+
+// Foundation 6.5.3 bug fix
+.input-group-field {
+  margin-bottom: 0;
+}

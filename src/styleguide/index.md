@@ -266,7 +266,7 @@ A form should be marked up using its default HTML properties. The ones we make u
 Make forms great and easy to use with the following rules:
 
 - Wrap checkboxes and radio buttons within labels for larger hit areas, and be sure to set the for, name, and id attributes for all applicable elements.
-- Series of checkboxes and radio buttons below within a `<ul class="inline-list">`.
+- Series of checkboxes and radio buttons below within a `<ul class="inline-checklist">`.
 - Before selecting any set of fields to use for a required input, explore other options (e.g., radio buttons over select lists).
 
 ---
@@ -322,18 +322,6 @@ Form elements in Foundation are styled based on their type attribute rather than
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
-      <label>Choose Your Favorite</label>
-      <input type="radio" name="radio1" value="radio1" id="radio1"><label for="radio1">Red</label>
-      <input type="radio" name="radio2" value="radio2" id="radio2"><label for="radio2">Blue</label>
-    </div>
-    <div class="large-6 columns">
-      <label>Check these out</label>
-      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-    </div>
-  </div>
-  <div class="row">
     <div class="large-12 columns">
       <label>Textarea Label</label>
       <textarea placeholder="placeholder"></textarea>
@@ -348,7 +336,7 @@ Form elements in Foundation are styled based on their type attribute rather than
 
 Associated files:
 - *_custom-global-variables.scss*
-- *_cehckbox.scss*
+- *_checkbox.scss*
 
 Associated Custom Variables:
 ```scss
