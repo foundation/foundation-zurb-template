@@ -1,0 +1,6 @@
+/node_modules/
+/.circleci/
+/.github/
+webpack.config.babel.js
+karma.conf.js
+*.html

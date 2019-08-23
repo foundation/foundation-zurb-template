@@ -1,0 +1,5 @@
+src/style/_settings.scss
+src/style/global/_animations.scss
+src/style/global/_global-variables.scss
+src/style/global/_typography.scss
+src/style/mixins/*
