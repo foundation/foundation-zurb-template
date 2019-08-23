@@ -1,13 +1,15 @@
 @mixin flex-base-reset {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  > button,
   > .button,
+  > .button-group,
   > .switch,
   > input,
   > textarea,
+  > select,
+  > .callout,
+  > .card,
+  > .menu,
+  > ul,
+  > ol,
   > p,
   > h1,
   > h2,
@@ -16,7 +18,6 @@
   > h5,
   > h6 {
     margin-bottom: 0;
-    align-self: center;
   }
 }
 
