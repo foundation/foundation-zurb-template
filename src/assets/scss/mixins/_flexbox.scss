@@ -24,35 +24,41 @@
 @mixin flex-centerer {
   @include flex-base-reset;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
 @mixin flex-middle-justify {
   @include flex-base-reset;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 }
 
 @mixin flex-middle-spaced {
   @include flex-base-reset;
   align-items: center;
+  display: flex;
   justify-content: space-around;
 }
 
 @mixin flex-middle-end {
   @include flex-base-reset;
   align-items: center;
+  display: flex;
   justify-content: flex-end;
 }
 
 @mixin flex-bottom-justify {
   @include flex-base-reset;
   align-items: flex-end;
+  display: flex;
   justify-content: space-between;
 }
 
 @mixin flex-top-justify {
   @include flex-base-reset;
   align-items: flex-start;
+  display: flex;
   justify-content: space-between;
 }
