@@ -441,7 +441,7 @@ These mixins will simplify your CSS, help you build faster, and help create stan
 
 ---
 
-## Animate Gradient
+### Animate Gradient
 
 This mixin allows you to animate a gradient, which is not possible with a background-img propery.
 
@@ -459,7 +459,7 @@ Pass in the starting color, ending color, and transition time.
 
 ---
 
-## Avatar
+### Avatar
 
 Creates a rounded image. Default sizes are `tiny`, `small`, `medium`, `large`.
 
@@ -478,7 +478,7 @@ Creates a rounded image. Default sizes are `tiny`, `small`, `medium`, `large`.
 
 ---
 
-## Container border
+### Container border
 
 Used to create a consistent border or divider style. You can pass in a default box shadow by setting $shadow to true.
 
@@ -492,7 +492,7 @@ Used to create a consistent border or divider style. You can pass in a default b
 
 ---
 
-## Flexbox
+### Flexbox
 
 These flexbox mixins simplify your Sass and also reset margin bottoms of common elements so they can be easily vertically centered.
 
@@ -527,7 +527,7 @@ These flexbox mixins simplify your Sass and also reset margin bottoms of common 
 
 ---
 
-## Psuedo
+### Psuedo
 
 This helps use Psuedo `::before`, `::after` elements more effectively.
 
@@ -544,7 +544,7 @@ This helps use Psuedo `::before`, `::after` elements more effectively.
 
 ---
 
-## Push Center
+### Push Center
 
 This will apply margin: auto left and right to center a block level element. Using this is better than applying `margin: 0 auto` as it could reduce CSS and unwanted issue when setting bottom margin later.
 
@@ -563,7 +563,7 @@ This will apply margin: auto left and right to center a block level element. Usi
 
 ---
 
-## Scrolling
+### Scrolling
 
 These scrolling mixins help apply the proper overflow style and the necessary iOS scrolling propery.
 
@@ -591,9 +591,23 @@ You can also hide scollbars on IE/Edge and iOS using this mixin:
 }
 ```
 
+Scrolling containers with shadows can be achieved using the scrollbox mixin.
+
+**Useage:**
+
+```scss
+.scrollbox {
+  @include scrollbox(vertical, 200px);
+}
+
+.scrollbox-horiz {
+  @include scrollbox(horizontal, 200px);
+}
+```
+
 ---
 
-## Sidelines
+### Sidelines
 
 This mixin creates a pattern for horizontal lines on the sides of an element. *Default variables can be found in the mixins > `_sidelines.scss` file.*
 
@@ -632,7 +646,7 @@ Usage as a mixin:
 
 ---
 
-## Spacing
+### Spacing
 
 There are functional CSS spacing classes available for margin-bottom.
 
@@ -647,7 +661,7 @@ Classes:
 
 ---
 
-## SVG Coloring
+### SVG Coloring
 
 This mixins makes it easy to apply CSS colors to your SVG's. You will need to pass in a color for this to work.
 
@@ -661,7 +675,7 @@ This mixins makes it easy to apply CSS colors to your SVG's. You will need to pa
 
 ---
 
-## Transition
+### Transition
 
 Using this transition mixin will not only save writing CSS properties by hand but also add some consistency in timing and easing. *Note: you only need to apply the transition on the element itself for it to work in both directions, not the state of the element like :hover.*
 
@@ -714,7 +728,7 @@ $defaultProperties: ($property, $duration, $easing, $delay);
 
 ---
 
-## Truncate
+### Truncate
 
 You can truncate text pretty easily with these mixins. There's even a mixin for responsive or multiline.
 
@@ -739,7 +753,7 @@ You can truncate text pretty easily with these mixins. There's even a mixin for 
 
 ---
 
-## Z Index
+### Z Index
 
 Layering order of elements can get unruly quite quickly so this mixin will help bring some order to it.
 
@@ -763,7 +777,7 @@ $z-layers: (
 
 ---
 
-## Foundation's Built-in Mixins
+### Foundation's Built-in Mixins
 
 There are many more Mixins built into Foundation you can access at any time. The beauty of these mixins is they are there if you need them, and will not output any CSS if you do not use them.
 
