@@ -1,11 +1,11 @@
 @mixin vertical-scroll {
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
 }
 
 @mixin horizontal-scroll {
-  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
 }
 
 @mixin hide-scrollbars {
@@ -15,10 +15,94 @@
     background: transparent;
     width: 0 !important;
     display: none;
+    height: 0;
   }
 
   &::-webkit-scrollbar-track-piece {
     background-color: transparent;
     -webkit-border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 0;
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 0;
+    width: 0;
+  }
+}
+
+// sets shadows when there is overflow
+@mixin scrollbox($direction, $max-size) {
+  @if $direction == horizontal {
+    @include horizontal-scroll;
+    max-width: $max-size;
+    background:
+      /* Shadow covers */
+      linear-gradient(to right, $white 30%, rgba(255,255,255,0)),
+      linear-gradient(to right, rgba(255,255,255,0), $white 70%) 0 100%,
+
+      /* Shadows */
+      radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+      radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background-attachment: scroll, scroll, local, local;
+    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  } @else {
+    @include vertical-scroll;
+    max-height: $max-size;
+    background:
+      /* Shadow covers */
+      linear-gradient($white 30%, rgba(255, 255, 255, 0)),
+      linear-gradient(rgba(255, 255, 255, 0), $white 70%) 0 100%,
+
+      /* Shadows */
+      radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
+      radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+    background-attachment: local, local, scroll, scroll;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  }
+
+  background-repeat: no-repeat;
+  background-color: $white;
+}
+
+.scrollbox {
+  @include scrollbox(vertical, 200px);
+}
+
+.scrollbox-horiz {
+  @include scrollbox(horizontal, 200px);
+}
+
+
+// Mixin to customize scrollbars
+// Beware, this does not work in all browsers
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(0.5em, slategray);
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
   }
 }
