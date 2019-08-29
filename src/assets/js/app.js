@@ -11,11 +11,9 @@ require('foundation-sites');
 require('./svg-injector');
 require('./animate-on-scroll');
 require('./carousel');
-// require('./eqcss');
 
 // non project dependancy
 require('./index-counter');
-
 
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
