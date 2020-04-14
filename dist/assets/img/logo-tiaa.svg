@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" x="0px" y="0px" viewBox="-318.79998779296875 388.9989929199219 44 44" enable-background="new -313.8 393.999 100 29" width="125px" height="125px" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-313.8" y="509.881" width="44" height="44" style="fill: rgb(255, 255, 255); stroke-width: 0;" transform="matrix(1, 0, 0, 0.999999, -5, -120.882154)">
+    <title>background</title>
+  </rect>
+  <path fill="#FFFFFF" d="M -295.183 425.001 C -293.264 425.001 -291.466 424.161 -290.266 422.963 L -284.993 417.689 C -283.793 416.489 -282.954 414.691 -282.954 412.893 L -282.954 396.228 L -299.498 396.228 C -301.416 396.228 -303.214 397.068 -304.414 398.265 L -309.689 403.66 C -310.889 404.86 -311.728 406.659 -311.728 408.456 L -311.728 425.002 L -295.183 425.002 Z"/>
+  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-299.3743" y1="-383.5874" x2="-286.5007" y2="-370.7138" gradientTransform="matrix(1, 0, 0, -1, 2, 27)">
+    <stop offset="0.1" stop-color="#9DDAF7"/>
+    <stop offset="0.9" stop-color="#049BD8"/>
+  </linearGradient>
+  <path fill="url(#SVGID_1_)" d="M -297.581 397.666 C -300.578 397.666 -302.976 400.064 -302.976 403.061 L -302.976 404.86 L -291.586 404.86 L -291.586 416.129 L -289.788 416.129 C -286.791 416.129 -284.393 413.733 -284.393 410.734 L -284.393 397.666 L -297.581 397.666 L -297.581 397.666 Z"/>
+  <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-312.2688" y1="-393.1465" x2="-288.4099" y2="-393.1465" gradientTransform="matrix(1, 0, 0, -1, 2, 27)">
+    <stop offset="0" stop-color="#10AEE5"/>
+    <stop offset="0.1633" stop-color="#0FA8E0"/>
+    <stop offset="0.377" stop-color="#0C98D1"/>
+    <stop offset="0.6186" stop-color="#077DB8"/>
+    <stop offset="0.8791" stop-color="#015795"/>
+    <stop offset="0.9" stop-color="#005492"/>
+  </linearGradient>
+  <path fill="url(#SVGID_2_)" d="M -286.551 416.85 C -287.51 417.328 -288.709 417.689 -289.908 417.689 L -304.414 417.689 L -310.169 423.444 L -295.063 423.444 C -293.624 423.444 -292.186 422.844 -291.226 421.764 L -286.311 416.85 L -286.551 416.85 Z"/>
+  <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-308.8806" y1="-396.562" x2="-308.8806" y2="-372.7046" gradientTransform="matrix(1, 0, 0, -1, 2, 27)">
+    <stop offset="0" stop-color="#0980BC"/>
+    <stop offset="0.4011" stop-color="#056EAA"/>
+    <stop offset="0.85" stop-color="#005492"/>
+  </linearGradient>
+  <path fill="url(#SVGID_3_)" d="M -303.575 399.824 C -304.174 400.782 -304.413 401.981 -304.413 403.179 L -304.413 417.807 L -310.168 423.562 L -310.168 408.455 C -310.288 407.017 -309.688 405.579 -308.608 404.619 L -303.693 399.705 L -303.575 399.824 Z"/>
+</svg>
