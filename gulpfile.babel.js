@@ -141,7 +141,7 @@ function javascript() {
 function images() {
   return gulp.src('src/assets/img/**/*')
     .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({ progressive: true }),
+      $.imagemin.mozjpeg({ progressive: true }),
     ])))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
