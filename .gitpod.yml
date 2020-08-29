@@ -1,0 +1,19 @@
+ports:
+  - port: 8000
+    onOpen: open-preview
+tasks:
+  - init: npm i
+    command: nvm install 10 && nvm use 10 && npm i && npm start
+github:
+  prebuilds:
+    pullRequestsFromForks: true
+
+vscode:
+  extensions:
+    - auchenberg.vscode-browser-preview@0.6.7:UsqnxvUQdYtm8ZISiN056w==
+    - gitduck.code-streaming@0.1.21:IOsFGlVgRSggEpjWiN7JzA==
+    - genuitecllc.codetogether@2.1.1:kvCRj0x36HidBx58g8NiYA==
+    - vsls-contrib.codetour@0.0.35:bxY+/BQHljIAltqZLMGZtA==
+    - streetsidesoftware.code-spell-checker@1.9.0:zfrDgZmxZRojZW7Uky3Fww==
+    - formulahendry.code-runner@0.11.0:HNAnyDKL6fUn1G8QfbKLpQ==
+    - xabikos.JavaScriptSnippets@1.8.0:irMtTLqQntnfBQkmtahtNA==
