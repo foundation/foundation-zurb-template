@@ -4,6 +4,7 @@ import plugins       from 'gulp-load-plugins';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
+// import imagemin      from 'imagemin';
 import panini        from 'panini';
 import rimraf        from 'rimraf';
 import sherpa        from 'style-sherpa';
@@ -12,8 +13,10 @@ import fs            from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
-import uncss         from 'uncss';
+// import uncss         from 'uncss';
 import autoprefixer  from 'autoprefixer';
+
+var sass = require('gulp-sass');
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -32,7 +35,7 @@ function loadConfig() {
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sass, styleGuide));
+ gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sassBuild, styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -80,7 +83,7 @@ function styleGuide(done) {
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
-function sass() {
+function sassBuild() {
 
   const postCssPlugins = [
     // Autoprefixer
@@ -97,7 +100,7 @@ function sass() {
     })
       .on('error', $.sass.logError))
     .pipe($.postcss(postCssPlugins))
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
+    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie11' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe(browser.reload({ stream: true }));
@@ -140,9 +143,9 @@ function javascript() {
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/img/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({ progressive: true }),
-    ])))
+    // .pipe($.if(PRODUCTION, $.imagemin([
+    //   $.imagemin.jpegtran({ progressive: true }),
+    // ])))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
@@ -166,7 +169,7 @@ function watch() {
   gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/data/**/*.{js,json,yml}').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/helpers/**/*.js').on('all', gulp.series(resetPages, pages, browser.reload));
-  gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
+  gulp.watch('src/assets/scss/**/*.scss').on('all', sassBuild);
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
   gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));
