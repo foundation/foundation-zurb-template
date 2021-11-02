@@ -11,10 +11,12 @@ import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
 import autoprefixer  from 'autoprefixer';
-import imagemin from 'gulp-imagemin';
-// import uncss         from 'uncss';
+import imagemin      from 'gulp-imagemin';
 
-var sass = require('gulp-sass');
+
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const uncss = require('postcss-uncss');
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -23,21 +25,26 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
+function loadConfig() {
+  const unsafe = require('js-yaml-js-types').all;
+  const schema = yaml.DEFAULT_SCHEMA.extend(unsafe);
+  const ymlFile = fs.readFileSync('config.yml', 'utf8');
+  return yaml.load(ymlFile, {schema});
+}
 const { PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
-function loadConfig() {
-  let ymlFile = fs.readFileSync('config.yml', 'utf8');
-  return yaml.load(ymlFile);
-}
+console.log(UNCSS_OPTIONS);
 
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sassBuild, styleGuide));
+  gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sassBuild, styleGuide)
+);
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series('build', server, watch));
+  gulp.series('build', server, watch)
+);
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -86,18 +93,17 @@ function sassBuild() {
   const postCssPlugins = [
     // Autoprefixer
     autoprefixer(),
-
     // UnCSS - Uncomment to remove unused styles in production
-    // PRODUCTION && uncss.postcssPlugin(UNCSS_OPTIONS),
+    // PRODUCTION && uncss(UNCSS_OPTIONS),
   ].filter(Boolean);
 
   return gulp.src('src/assets/scss/app.scss')
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
+    .pipe(sass({
       includePaths: PATHS.sass
     })
-      .on('error', $.sass.logError))
-    .pipe($.postcss(postCssPlugins))
+    .on('error', $.sass.logError))
+    .pipe(postcss(postCssPlugins))
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie11' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
