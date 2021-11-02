@@ -1,10 +1,7 @@
-'use strict';
-
 import plugins       from 'gulp-load-plugins';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
-// import imagemin      from 'imagemin';
 import panini        from 'panini';
 import rimraf        from 'rimraf';
 import sherpa        from 'style-sherpa';
@@ -13,8 +10,9 @@ import fs            from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
-// import uncss         from 'uncss';
 import autoprefixer  from 'autoprefixer';
+import imagemin from 'gulp-imagemin';
+// import uncss         from 'uncss';
 
 var sass = require('gulp-sass');
 
@@ -143,9 +141,17 @@ function javascript() {
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/img/**/*')
-    // .pipe($.if(PRODUCTION, $.imagemin([
-    //   $.imagemin.jpegtran({ progressive: true }),
-    // ])))
+    .pipe($.if(PRODUCTION, imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.mozjpeg({quality: 85, progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ])))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
