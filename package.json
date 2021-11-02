@@ -38,7 +38,7 @@
     "gulp-terser": "^2.0.1",
     "js-yaml": "^4.1.0",
     "node-sass": "^6.0.1",
-    "panini": "^1.7.2",
+    "panini": "latest",
     "postcss": "^8.3.11",
     "rimraf": "^3.0.2",
     "style-sherpa": "^1.0.2",
