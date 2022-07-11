@@ -38,7 +38,7 @@
     "gulp-terser": "^2.0.1",
     "js-yaml": "^4.1.0",
     "js-yaml-js-types": "^1.0.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "panini": "latest",
     "postcss": "^8.3.11",
     "postcss-uncss": "^0.17.0",
