@@ -13,10 +13,11 @@ import named         from 'vinyl-named';
 import autoprefixer  from 'autoprefixer';
 import imagemin      from 'gulp-imagemin';
 
-
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass-embedded'));
 const postcss = require('gulp-postcss');
 const uncss = require('postcss-uncss');
+var sourcemaps = require('gulp-sourcemaps');
+var plumber = require('gulp-plumber');
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -98,16 +99,15 @@ function sassBuild() {
   ].filter(Boolean);
 
   return gulp.src('src/assets/scss/app.scss')
-    .pipe($.sourcemaps.init())
-    .pipe(sass({
-      includePaths: PATHS.sass
-    })
-    .on('error', $.sass.logError))
-    .pipe(postcss(postCssPlugins))
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie11' })))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
-    .pipe(browser.reload({ stream: true }));
+  .pipe(sourcemaps.init())
+  .pipe(plumber())
+  .pipe(sass({
+    includePaths: PATHS.sass
+  }).on('error', sass.logError))
+  .pipe(postcss(postCssPlugins))
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+  .pipe(browser.reload({ stream: true }));
 }
 
 let webpackConfig = {
