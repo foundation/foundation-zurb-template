@@ -9,6 +9,9 @@
   },
   "author": "Foundation Yetinauts <contact@get.foundation> (https://get.foundation)",
   "license": "MIT",
+  "engines": {
+    "node": ">=12 <=14"
+  },
   "dependencies": {
     "foundation-sites": "latest",
     "jquery": "^3.6.0",
